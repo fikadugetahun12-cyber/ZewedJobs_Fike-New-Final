@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertising - Your Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .header h1 i {
+            font-size: 40px;
+            color: #ffd700;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+        }
+        
+        .back-link a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .back-link a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        
+        .ad-types {
+            padding: 40px;
+            background: #f8f9fa;
+        }
+        
+        .ad-form {
+            padding: 40px;
+        }
+        
+        .section-title {
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ff6b6b;
+            font-size: 24px;
+        }
+        
+        .ad-option {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid #ff6b6b;
+            transition: transform 0.3s;
+        }
+        
+        .ad-option:hover {
+            transform: translateY(-5px);
+        }
+        
+        .ad-option h3 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ad-option p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .price {
+            color: #333;
+            font-weight: bold;
+            font-size: 18px;
+            background: #fff5f5;
+            padding: 8px 15px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .ad-package {
+            background: #fff5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .package-title {
+            color: #ff6b6b;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .note {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .back-link {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 20px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="back-link">
+                <a href="contact.html">
+                    <i class="fas fa-arrow-left"></i> Back to Contact
+                </a>
+            </div>
+            <h1><i class="fas fa-ad"></i> Advertising Opportunities</h1>
+            <p>⭐️ Promote your business to thousands of visitors daily. Choose from our advertising packages below.</p>
+        </div>
+        
+        <div class="content">
+            <div class="ad-types">
+                <h2 class="section-title">Available Ad Packages</h2>
+                
+                <div class="ad-option">
+                    <h3><i class="fas fa-star"></i> Premium Banner</h3>
+                    <p>Top of the page placement, high visibility. 728x90 pixels. Includes animation capabilities.</p>
+                    <div class="price">$499/month</div>
+                </div>
+                
+                <div class="ad-option">
+                    <h3><i class="fas fa-gem"></i> Sidebar Ad</h3>
+                    <p>Right sidebar placement. 300x250 pixels. Stays visible while users scroll.</p>
+                    <div class="price">$299/month</div>
+                </div>
+                
+                <div class="ad-option">
+                    <h3><i class="fas fa-newspaper"></i> Sponsored Content</h3>
+                    <p>Native article placement. Includes featured image and custom content.</p>
+                    <div class="price">$799/month</div>
+                </div>
+                
+                <div class="ad-option">
+                    <h3><i class="fas fa-envelope-open-text"></i> Newsletter Feature</h3>
+                    <p>Inclusion in our weekly newsletter sent to 50,000+ subscribers.</p>
+                    <div class="price">$999/month</div>
+                </div>
+                
+                <div class="note" style="margin-top: 30px;">
+                    <p><i class="fas fa-info-circle"></i> All packages include detailed analytics and performance reports. Contact us for custom packages and bulk discounts.</p>
+                </div>
+            </div>
+            
+            <div class="ad-form">
+                <h2 class="section-title">Advertising Inquiry Form</h2>
+                <p style="color: #666; margin-bottom: 30px;">Fill out the form below and our advertising team will contact you within 24 hours.</p>
+                
+                <form id="advertisingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company"><i class="fas fa-building"></i> Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your company name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact"><i class="fas fa-user"></i> Contact Person</label>
+                            <input type="text" id="contact" name="contact" placeholder="Full name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="business@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="website"><i class="fas fa-globe"></i> Website URL</label>
+                        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                    </div>
+                    
+                    <div class="ad-package">
+                        <div class="package-title">Select Advertising Package</div>
+                        <select id="package" name="package" required>
+                            <option value="">-- Choose a package --</option>
+                            <option value="premium-banner">Premium Banner - $499/month</option>
+                            <option value="sidebar-ad">Sidebar Ad - $299/month</option>
+                            <option value="sponsored-content">Sponsored Content - $799/month</option>
+                            <option value="newsletter">Newsletter Feature - $999/month</option>
+                            <option value="custom">Custom Package (We'll contact you)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget"><i class="fas fa-dollar-sign"></i> Monthly Advertising Budget</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">-- Select budget range --</option>
+                            <option value="under-500">Under $500</option>
+                            <option value="500-1000">$500 - $1,000</option>
+                            <option value="1000-5000">$1,000 - $5,000</option>
+                            <option value="5000-plus">$5,000+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message"><i class="fas fa-comment-dots"></i> Additional Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your advertising goals, target audience, or any specific requirements..." rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Submit Advertising Inquiry
+                    </button>
+                </form>
+                
+                <div class="note">
+                    <p><i class="fas fa-shield-alt"></i> Your information is secure and will only be used to contact you regarding advertising opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('advertisingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const package = document.getElementById('package').value;
+            const budget = document.getElementById('budget').value;
+            
+            // Simple validation
+            if(company && email && package && budget) {
+                // In a real application, you would send this data to a server
+                const packageNames = {
+                    'premium-banner': 'Premium Banner',
+                    'sidebar-ad': 'Sidebar Ad',
+                    'sponsored-content': 'Sponsored Content',
+                    'newsletter': 'Newsletter Feature',
+                    'custom': 'Custom Package'
+                };
+                
+                const budgetRanges = {
+                    'under-500': 'Under $500',
+                    '500-1000': '$500 - $1,000',
+                    '1000-5000': '$1,000 - $5,000',
+                    '5000-plus': '$5,000+'
+                };
+                
+                alert(`Thank you, ${company}! Your advertising inquiry for "${packageNames[package]}" has been submitted.\nBudget: ${budgetRanges[budget]}\nWe'll contact you at ${email} within 24 hours.`);
+                
+                // Reset form
+                document.getElementById('advertisingForm').reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
