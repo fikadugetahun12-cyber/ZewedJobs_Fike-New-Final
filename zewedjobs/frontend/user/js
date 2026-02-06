@@ -1,0 +1,1006 @@
+/**
+ * ZewedJobs - User Authentication
+ * Login, registration, profile management, and account operations
+ */
+
+class UserAuthManager {
+    constructor() {
+        this.currentUser = null;
+        this.authToken = null;
+        this.isAuthenticated = false;
+        this.initialize();
+    }
+
+    initialize() {
+        console.log('🔐 User Auth Manager initialized');
+        
+        // Load saved session
+        this.loadSession();
+        
+        // Initialize auth forms
+        this.initAuthForms();
+        this.initProfileForms();
+        this.initPasswordReset();
+        this.initSocialAuth();
+        this.initTwoFactor();
+        
+        // Update UI based on auth state
+        this.updateAuthUI();
+    }
+
+    // Session Management
+    loadSession() {
+        const token = localStorage.getItem('auth_token');
+        const userData = localStorage.getItem('user_data');
+        
+        if (token && userData) {
+            try {
+                this.authToken = token;
+                this.currentUser = JSON.parse(userData);
+                this.isAuthenticated = true;
+                
+                // Validate token with server
+                this.validateToken().then(isValid => {
+                    if (!isValid) {
+                        this.clearSession();
+                    }
+                });
+                
+                console.log('Session loaded for:', this.currentUser.email);
+            } catch (error) {
+                console.error('Error loading session:', error);
+                this.clearSession();
+            }
+        }
+    }
+
+    saveSession(token, userData) {
+        this.authToken = token;
+        this.currentUser = userData;
+        this.isAuthenticated = true;
+        
+        localStorage.setItem('auth_token', token);
+        localStorage.setItem('user_data', JSON.stringify(userData));
+        
+        // Set token expiration (7 days)
+        const expiry = new Date();
+        expiry.setDate(expiry.getDate() + 7);
+        localStorage.setItem('token_expiry', expiry.toISOString());
+    }
+
+    clearSession() {
+        this.authToken = null;
+        this.currentUser = null;
+        this.isAuthenticated = false;
+        
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('user_data');
+        localStorage.removeItem('token_expiry');
+        
+        console.log('Session cleared');
+    }
+
+    async validateToken() {
+        try {
+            const response = await fetch('/api/auth/validate', {
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`
+                }
+            });
+            
+            return response.ok;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    // Authentication Forms
+    initAuthForms() {
+        // Login form
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) {
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await this.handleLogin();
+            });
+        }
+        
+        // Registration form
+        const registerForm = document.getElementById('register-form');
+        if (registerForm) {
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await this.handleRegistration();
+            });
+        }
+        
+        // Auth tabs switching
+        document.querySelectorAll('.auth-tabs .tab-btn').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                this.switchAuthTab(tabId);
+            });
+        });
+    }
+
+    switchAuthTab(tabId) {
+        const tabs = document.querySelectorAll('.auth-tabs .tab-btn');
+        const forms = document.querySelectorAll('.auth-form');
+        
+        // Update active tab
+        tabs.forEach(tab => {
+            tab.classList.toggle('active', tab.getAttribute('data-tab') === tabId);
+        });
+        
+        // Show corresponding form
+        forms.forEach(form => {
+            form.classList.toggle('active', form.id === `${tabId}-form`);
+        });
+    }
+
+    async handleLogin() {
+        const form = document.getElementById('login-form');
+        const email = form.querySelector('input[type="email"]').value;
+        const password = form.querySelector('input[type="password"]').value;
+        const rememberMe = form.querySelector('input[type="checkbox"]')?.checked || false;
+        
+        // Validate inputs
+        if (!this.validateEmail(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        if (password.length < 6) {
+            showNotification('Password must be at least 6 characters', 'error');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password, rememberMe })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Save session
+                this.saveSession(data.token, data.user);
+                
+                // Close modal and update UI
+                closeModal('auth-modal');
+                this.updateAuthUI();
+                
+                // Show welcome message
+                showNotification(`Welcome back, ${data.user.name}!`, 'success');
+                
+                // Track login event
+                this.trackEvent('auth', 'login_success');
+                
+                // Redirect if there's a redirect URL
+                const redirectUrl = sessionStorage.getItem('redirect_url');
+                if (redirectUrl) {
+                    sessionStorage.removeItem('redirect_url');
+                    window.location.href = redirectUrl;
+                }
+            } else {
+                throw new Error(data.message || 'Login failed');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+            this.trackEvent('auth', 'login_failed', error.message);
+        }
+    }
+
+    async handleRegistration() {
+        const form = document.getElementById('register-form');
+        const name = form.querySelector('input[type="text"]').value;
+        const email = form.querySelector('input[type="email"]').value;
+        const password = form.querySelector('input[type="password"]').value;
+        const phone = form.querySelector('input[type="tel"]')?.value || '';
+        const acceptTerms = form.querySelector('input[type="checkbox"]')?.checked || false;
+        
+        // Validate inputs
+        if (!name.trim()) {
+            showNotification('Please enter your name', 'error');
+            return;
+        }
+        
+        if (!this.validateEmail(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        if (password.length < 6) {
+            showNotification('Password must be at least 6 characters', 'error');
+            return;
+        }
+        
+        if (!acceptTerms) {
+            showNotification('Please accept the terms and conditions', 'error');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password, phone })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Save session
+                this.saveSession(data.token, data.user);
+                
+                // Close modal and update UI
+                closeModal('auth-modal');
+                this.updateAuthUI();
+                
+                // Show success message
+                showNotification('Registration successful! Welcome to ZewedJobs!', 'success');
+                
+                // Track registration event
+                this.trackEvent('auth', 'registration_success');
+                
+                // Redirect to profile completion
+                setTimeout(() => {
+                    window.location.href = '/pages/profile.html?complete=true';
+                }, 1000);
+            } else {
+                throw new Error(data.message || 'Registration failed');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+            this.trackEvent('auth', 'registration_failed', error.message);
+        }
+    }
+
+    async handleLogout() {
+        try {
+            // Call logout API if token exists
+            if (this.authToken) {
+                await fetch('/api/auth/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${this.authToken}`
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Logout API error:', error);
+        } finally {
+            // Clear local session
+            this.clearSession();
+            
+            // Update UI
+            this.updateAuthUI();
+            
+            // Show logout message
+            showNotification('Logged out successfully', 'success');
+            
+            // Track logout event
+            this.trackEvent('auth', 'logout');
+            
+            // Redirect to home page
+            window.location.href = '/';
+        }
+    }
+
+    // Profile Management
+    initProfileForms() {
+        const profileForm = document.getElementById('profile-form');
+        if (profileForm) {
+            profileForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await this.updateProfile();
+            });
+            
+            // Load profile data
+            this.loadProfileData();
+        }
+    }
+
+    async loadProfileData() {
+        if (!this.isAuthenticated) return;
+        
+        try {
+            const response = await fetch('/api/user/profile', {
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`
+                }
+            });
+            
+            if (response.ok) {
+                const profile = await response.json();
+                this.populateProfileForm(profile);
+            }
+        } catch (error) {
+            console.error('Error loading profile:', error);
+        }
+    }
+
+    populateProfileForm(profile) {
+        const form = document.getElementById('profile-form');
+        if (!form) return;
+        
+        // Personal Information
+        this.setFormValue('full-name', profile.name);
+        this.setFormValue('email', profile.email);
+        this.setFormValue('phone', profile.phone);
+        this.setFormValue('date-of-birth', profile.dateOfBirth);
+        this.setFormValue('gender', profile.gender);
+        this.setFormValue('address', profile.address);
+        
+        // Professional Information
+        this.setFormValue('headline', profile.headline);
+        this.setFormValue('current-position', profile.currentPosition);
+        this.setFormValue('current-company', profile.currentCompany);
+        this.setFormValue('industry', profile.industry);
+        this.setFormValue('years-experience', profile.yearsExperience);
+        
+        // Education
+        if (profile.education && Array.isArray(profile.education)) {
+            this.populateEducationSection(profile.education);
+        }
+        
+        // Work Experience
+        if (profile.experience && Array.isArray(profile.experience)) {
+            this.populateExperienceSection(profile.experience);
+        }
+        
+        // Skills
+        if (profile.skills && Array.isArray(profile.skills)) {
+            this.populateSkillsSection(profile.skills);
+        }
+        
+        // Profile Picture
+        if (profile.profilePicture) {
+            this.updateProfilePicture(profile.profilePicture);
+        }
+    }
+
+    setFormValue(fieldId, value) {
+        const element = document.getElementById(fieldId);
+        if (element && value !== undefined && value !== null) {
+            element.value = value;
+        }
+    }
+
+    async updateProfile() {
+        if (!this.isAuthenticated) {
+            showNotification('Please login to update your profile', 'warning');
+            return;
+        }
+        
+        const form = document.getElementById('profile-form');
+        const formData = new FormData(form);
+        
+        // Validate required fields
+        const requiredFields = ['full-name', 'email', 'phone'];
+        for (const field of requiredFields) {
+            const value = formData.get(field);
+            if (!value || !value.toString().trim()) {
+                showNotification(`Please fill in the ${field.replace('-', ' ')} field`, 'error');
+                return;
+            }
+        }
+        
+        // Validate email
+        if (!this.validateEmail(formData.get('email'))) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/user/profile', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`
+                },
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Update current user data
+                this.currentUser = { ...this.currentUser, ...data.user };
+                localStorage.setItem('user_data', JSON.stringify(this.currentUser));
+                
+                showNotification('Profile updated successfully!', 'success');
+                this.trackEvent('profile', 'update_success');
+                
+                // Update UI if needed
+                this.updateAuthUI();
+            } else {
+                throw new Error(data.message || 'Failed to update profile');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+            this.trackEvent('profile', 'update_failed', error.message);
+        }
+    }
+
+    // Password Reset
+    initPasswordReset() {
+        const forgotPasswordLink = document.querySelector('.forgot-password');
+        if (forgotPasswordLink) {
+            forgotPasswordLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.showPasswordResetModal();
+            });
+        }
+        
+        const resetForm = document.getElementById('reset-password-form');
+        if (resetForm) {
+            resetForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await this.handlePasswordReset();
+            });
+        }
+    }
+
+    showPasswordResetModal() {
+        const modal = document.createElement('div');
+        modal.className = 'modal active';
+        modal.id = 'reset-password-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Reset Password</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form id="reset-password-form">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="reset-email" required 
+                                   placeholder="Enter your email address">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" 
+                                    onclick="closeModal('reset-password-modal')">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Send Reset Link
+                            </button>
+                        </div>
+                    </form>
+                    <p class="help-text">
+                        We'll send you a link to reset your password.
+                    </p>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        closeModal('reset-password-modal'); // Initialize close functionality
+    }
+
+    async handlePasswordReset() {
+        const email = document.getElementById('reset-email')?.value;
+        
+        if (!this.validateEmail(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/auth/reset-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                closeModal('reset-password-modal');
+                showNotification('Password reset link sent to your email', 'success');
+                this.trackEvent('auth', 'password_reset_requested');
+            } else {
+                throw new Error(data.message || 'Failed to send reset link');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+        }
+    }
+
+    // Social Authentication
+    initSocialAuth() {
+        // Google Sign In
+        const googleBtn = document.getElementById('google-signin');
+        if (googleBtn) {
+            googleBtn.addEventListener('click', () => this.signInWithGoogle());
+        }
+        
+        // Facebook Sign In
+        const facebookBtn = document.getElementById('facebook-signin');
+        if (facebookBtn) {
+            facebookBtn.addEventListener('click', () => this.signInWithFacebook());
+        }
+        
+        // LinkedIn Sign In
+        const linkedinBtn = document.getElementById('linkedin-signin');
+        if (linkedinBtn) {
+            linkedinBtn.addEventListener('click', () => this.signInWithLinkedIn());
+        }
+    }
+
+    async signInWithGoogle() {
+        // Initialize Google Sign In
+        if (typeof google === 'undefined') {
+            showNotification('Google Sign In is not available', 'error');
+            return;
+        }
+        
+        try {
+            const auth2 = await new Promise((resolve, reject) => {
+                google.accounts.id.initialize({
+                    client_id: 'YOUR_GOOGLE_CLIENT_ID',
+                    callback: this.handleGoogleSignIn
+                });
+                resolve(google.accounts.id);
+            });
+            
+            auth2.prompt();
+        } catch (error) {
+            console.error('Google Sign In error:', error);
+            showNotification('Failed to initialize Google Sign In', 'error');
+        }
+    }
+
+    async handleGoogleSignIn(response) {
+        try {
+            const res = await fetch('/api/auth/google', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ credential: response.credential })
+            });
+            
+            const data = await res.json();
+            
+            if (res.ok) {
+                this.saveSession(data.token, data.user);
+                closeModal('auth-modal');
+                this.updateAuthUI();
+                showNotification('Signed in with Google successfully!', 'success');
+                this.trackEvent('auth', 'social_login_success', 'google');
+            } else {
+                throw new Error(data.message || 'Google Sign In failed');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+            this.trackEvent('auth', 'social_login_failed', 'google');
+        }
+    }
+
+    signInWithFacebook() {
+        // Facebook SDK should be loaded
+        if (typeof FB === 'undefined') {
+            showNotification('Facebook Sign In is not available', 'error');
+            return;
+        }
+        
+        FB.login((response) => {
+            if (response.authResponse) {
+                this.handleFacebookResponse(response.authResponse);
+            } else {
+                showNotification('Facebook Sign In cancelled', 'info');
+            }
+        }, { scope: 'email,public_profile' });
+    }
+
+    async handleFacebookResponse(authResponse) {
+        try {
+            const res = await fetch('/api/auth/facebook', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ accessToken: authResponse.accessToken })
+            });
+            
+            const data = await res.json();
+            
+            if (res.ok) {
+                this.saveSession(data.token, data.user);
+                closeModal('auth-modal');
+                this.updateAuthUI();
+                showNotification('Signed in with Facebook successfully!', 'success');
+                this.trackEvent('auth', 'social_login_success', 'facebook');
+            } else {
+                throw new Error(data.message || 'Facebook Sign In failed');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+            this.trackEvent('auth', 'social_login_failed', 'facebook');
+        }
+    }
+
+    signInWithLinkedIn() {
+        // LinkedIn OAuth implementation
+        const clientId = 'YOUR_LINKEDIN_CLIENT_ID';
+        const redirectUri = encodeURIComponent(`${window.location.origin}/auth/linkedin/callback`);
+        const scope = encodeURIComponent('r_liteprofile r_emailaddress');
+        const state = this.generateState();
+        
+        const url = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&state=${state}`;
+        
+        // Store state for verification
+        sessionStorage.setItem('linkedin_state', state);
+        
+        // Open LinkedIn authorization
+        window.location.href = url;
+    }
+
+    // Two-Factor Authentication
+    initTwoFactor() {
+        const enable2faBtn = document.getElementById('enable-2fa');
+        if (enable2faBtn) {
+            enable2faBtn.addEventListener('click', () => this.setupTwoFactor());
+        }
+        
+        const verify2faBtn = document.getElementById('verify-2fa');
+        if (verify2faBtn) {
+            verify2faBtn.addEventListener('click', () => this.verifyTwoFactor());
+        }
+    }
+
+    async setupTwoFactor() {
+        if (!this.isAuthenticated) return;
+        
+        try {
+            const response = await fetch('/api/auth/2fa/setup', {
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Show QR code and secret
+                this.showTwoFactorSetup(data.qrCode, data.secret);
+            } else {
+                throw new Error(data.message || 'Failed to setup 2FA');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+        }
+    }
+
+    showTwoFactorSetup(qrCode, secret) {
+        const modal = document.createElement('div');
+        modal.className = 'modal active';
+        modal.id = '2fa-setup-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Setup Two-Factor Authentication</h3>
+                    <button class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="2fa-setup">
+                        <p>Scan this QR code with your authenticator app:</p>
+                        <div class="qr-code">
+                            <img src="${qrCode}" alt="2FA QR Code">
+                        </div>
+                        <p>Or enter this secret manually:</p>
+                        <div class="secret-code">
+                            <code>${secret}</code>
+                            <button class="btn-copy" onclick="copyToClipboard('${secret}')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <label>Enter the 6-digit code from your app:</label>
+                            <input type="text" id="2fa-code" 
+                                   pattern="[0-9]{6}" 
+                                   maxlength="6"
+                                   placeholder="000000">
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" onclick="userAuth.verifyTwoFactor()">
+                                Verify & Enable
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        closeModal('2fa-setup-modal');
+    }
+
+    async verifyTwoFactor() {
+        const code = document.getElementById('2fa-code')?.value;
+        
+        if (!code || code.length !== 6 || !/^\d+$/.test(code)) {
+            showNotification('Please enter a valid 6-digit code', 'error');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/auth/2fa/verify', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code })
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                closeModal('2fa-setup-modal');
+                showNotification('Two-factor authentication enabled successfully!', 'success');
+                this.trackEvent('security', '2fa_enabled');
+            } else {
+                throw new Error(data.message || 'Verification failed');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+        }
+    }
+
+    // UI Updates
+    updateAuthUI() {
+        const authBtn = document.getElementById('auth-btn');
+        const userMenu = document.getElementById('user-menu');
+        
+        if (this.isAuthenticated && this.currentUser) {
+            // Update auth button to show user menu
+            if (authBtn) {
+                authBtn.innerHTML = `
+                    <i class="fas fa-user-circle"></i>
+                    <span>${this.currentUser.name.split(' ')[0]}</span>
+                `;
+                authBtn.onclick = () => this.toggleUserMenu();
+            }
+            
+            // Create/update user menu
+            if (userMenu) {
+                userMenu.innerHTML = this.createUserMenu();
+                this.initUserMenuActions();
+            }
+        } else {
+            // Reset auth button to login
+            if (authBtn) {
+                authBtn.innerHTML = '<span data-i18n="login">Login</span>';
+                authBtn.onclick = () => openModal('auth-modal');
+            }
+            
+            // Clear user menu
+            if (userMenu) {
+                userMenu.innerHTML = '';
+            }
+        }
+    }
+
+    createUserMenu() {
+        return `
+            <div class="user-menu-header">
+                <div class="user-avatar">
+                    ${this.currentUser.name.charAt(0).toUpperCase()}
+                </div>
+                <div class="user-info">
+                    <h4>${this.currentUser.name}</h4>
+                    <p>${this.currentUser.email}</p>
+                </div>
+            </div>
+            <div class="user-menu-items">
+                <a href="/pages/profile.html" class="user-menu-item">
+                    <i class="fas fa-user"></i> My Profile
+                </a>
+                <a href="/pages/jobs.html?filter=saved" class="user-menu-item">
+                    <i class="fas fa-bookmark"></i> Saved Jobs
+                </a>
+                <a href="/pages/applications.html" class="user-menu-item">
+                    <i class="fas fa-file-alt"></i> My Applications
+                </a>
+                <a href="/pages/courses.html?filter=enrolled" class="user-menu-item">
+                    <i class="fas fa-graduation-cap"></i> My Courses
+                </a>
+                <div class="user-menu-divider"></div>
+                <a href="/pages/settings.html" class="user-menu-item">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="/pages/notifications.html" class="user-menu-item">
+                    <i class="fas fa-bell"></i> Notifications
+                    <span class="notification-count">3</span>
+                </a>
+                <div class="user-menu-divider"></div>
+                <button class="user-menu-item logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        `;
+    }
+
+    initUserMenuActions() {
+        // Logout button
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => this.handleLogout());
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const userMenu = document.getElementById('user-menu');
+            const authBtn = document.getElementById('auth-btn');
+            
+            if (userMenu && authBtn && 
+                !userMenu.contains(e.target) && 
+                !authBtn.contains(e.target)) {
+                userMenu.classList.remove('active');
+            }
+        });
+    }
+
+    toggleUserMenu() {
+        const userMenu = document.getElementById('user-menu');
+        if (userMenu) {
+            userMenu.classList.toggle('active');
+        }
+    }
+
+    // Utility Methods
+    validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    generateState() {
+        return Math.random().toString(36).substring(2, 15) + 
+               Math.random().toString(36).substring(2, 15);
+    }
+
+    trackEvent(category, action, label = '') {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', action, {
+                'event_category': category,
+                'event_label': label
+            });
+        }
+        
+        console.log(`[Auth Analytics] ${category} - ${action}: ${label}`);
+    }
+
+    // Public Methods
+    requireAuth(redirectTo = '/') {
+        if (!this.isAuthenticated) {
+            sessionStorage.setItem('redirect_url', window.location.pathname);
+            openModal('auth-modal');
+            return false;
+        }
+        return true;
+    }
+
+    hasPermission(permission) {
+        if (!this.isAuthenticated || !this.currentUser) return false;
+        
+        // Check user role permissions
+        const roles = {
+            'user': ['view_jobs', 'apply_jobs', 'save_jobs'],
+            'employer': ['post_jobs', 'manage_jobs', 'view_applications'],
+            'admin': ['manage_users', 'manage_content', 'view_analytics']
+        };
+        
+        const userRole = this.currentUser.role || 'user';
+        return roles[userRole]?.includes(permission) || false;
+    }
+
+    getAuthHeaders() {
+        return {
+            'Authorization': `Bearer ${this.authToken}`,
+            'Content-Type': 'application/json'
+        };
+    }
+
+    // Profile Picture Upload
+    async uploadProfilePicture(file) {
+        if (!this.isAuthenticated) return;
+        
+        const formData = new FormData();
+        formData.append('profile_picture', file);
+        
+        try {
+            const response = await fetch('/api/user/profile/picture', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`
+                },
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok) {
+                // Update current user and UI
+                this.currentUser.profilePicture = data.url;
+                localStorage.setItem('user_data', JSON.stringify(this.currentUser));
+                
+                this.updateProfilePicture(data.url);
+                showNotification('Profile picture updated successfully!', 'success');
+            } else {
+                throw new Error(data.message || 'Failed to upload profile picture');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+        }
+    }
+
+    updateProfilePicture(url) {
+        // Update avatar in user menu
+        const avatar = document.querySelector('.user-avatar');
+        if (avatar) {
+            avatar.style.backgroundImage = `url(${url})`;
+            avatar.style.backgroundSize = 'cover';
+            avatar.textContent = '';
+        }
+        
+        // Update profile page picture
+        const profilePic = document.getElementById('profile-picture');
+        if (profilePic) {
+            profilePic.src = url;
+        }
+    }
+
+    // Account Deletion
+    async deleteAccount() {
+        if (!confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+            return;
+        }
+        
+        try {
+            const response = await fetch('/api/user/account', {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${this.authToken}`
+                }
+            });
+            
+            if (response.ok) {
+                this.clearSession();
+                showNotification('Account deleted successfully', 'success');
+                window.location.href = '/';
+                this.trackEvent('account', 'deleted');
+            } else {
+                const data = await response.json();
+                throw new Error(data.message || 'Failed to delete account');
+            }
+        } catch (error) {
+            showNotification(error.message, 'error');
+        }
+    }
+}
+
+// Initialize Auth Manager
+window.userAuth = new UserAuthManager();
+
+// Global helper functions
+window.requireLogin = function(callback) {
+    if (window.userAuth.isAuthenticated) {
+        if (callback) callback();
+    } else {
+        openModal('auth-modal');
+    }
+};
+
+window.getCurrentUser = function() {
+    return window.userAuth.currentUser;
+};
+
+window.isAuthenticated = function() {
+    return window.userAuth.isAuthenticated;
+};
+
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = UserAuthManager;
+}
