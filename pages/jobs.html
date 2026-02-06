@@ -1,0 +1,418 @@
+<!-- Template extends base.html -->
+<!-- Page-specific CSS: jobs.css -->
+<!-- Page-specific JS: jobs.js -->
+
+<div class="jobs-page">
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="jobs.hero.title">
+                    Find Your Dream Job in the Ethiopian Community
+                </h1>
+                <p class="hero-description" data-i18n="jobs.hero.description">
+                    Discover exciting opportunities from employers who value Ethiopian talent and culture.
+                </p>
+                
+                <!-- Search & Filter -->
+                <div class="jobs-search-container">
+                    <form class="jobs-search-form" id="jobs-search-form">
+                        <div class="search-field">
+                            <i class="fas fa-search"></i>
+                            <input type="text" 
+                                   placeholder="Job title, keywords, or company" 
+                                   data-i18n-placeholder="jobs.search.placeholder"
+                                   id="job-search-input">
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <input type="text" 
+                                   placeholder="City, state, or remote" 
+                                   data-i18n-placeholder="jobs.location.placeholder"
+                                   id="location-input">
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-briefcase"></i>
+                            <select id="job-type-select" data-i18n-placeholder="jobs.type.placeholder">
+                                <option value="">Job Type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="jobs.search.button">
+                            Search Jobs
+                        </button>
+                    </form>
+                    
+                    <!-- Quick Filters -->
+                    <div class="quick-filters">
+                        <span data-i18n="jobs.filters.quick">Quick filters:</span>
+                        <button class="filter-tag" data-filter="remote" data-i18n="jobs.filters.remote">Remote</button>
+                        <button class="filter-tag" data-filter="urgent" data-i18n="jobs.filters.urgent">Urgent Hiring</button>
+                        <button class="filter-tag" data-filter="entry" data-i18n="jobs.filters.entry">Entry Level</button>
+                        <button class="filter-tag" data-filter="tech" data-i18n="jobs.filters.tech">Tech</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="jobs-layout">
+            <!-- Sidebar Filters -->
+            <aside class="jobs-sidebar">
+                <div class="filter-card">
+                    <h3 data-i18n="jobs.filters.title">Filters</h3>
+                    
+                    <!-- Category Filter -->
+                    <div class="filter-section">
+                        <h4 data-i18n="jobs.filters.category">Category</h4>
+                        <div class="filter-options">
+                            <label class="checkbox">
+                                <input type="checkbox" name="category" value="technology">
+                                <span data-i18n="jobs.categories.technology">Technology</span>
+                                <span class="count">(124)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="category" value="healthcare">
+                                <span data-i18n="jobs.categories.healthcare">Healthcare</span>
+                                <span class="count">(89)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="category" value="education">
+                                <span data-i18n="jobs.categories.education">Education</span>
+                                <span class="count">(67)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="category" value="business">
+                                <span data-i18n="jobs.categories.business">Business</span>
+                                <span class="count">(142)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="category" value="engineering">
+                                <span data-i18n="jobs.categories.engineering">Engineering</span>
+                                <span class="count">(203)</span>
+                            </label>
+                            <button class="show-more" data-i18n="jobs.filters.show_more">Show more</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Location Filter -->
+                    <div class="filter-section">
+                        <h4 data-i18n="jobs.filters.location">Location</h4>
+                        <div class="filter-options">
+                            <label class="checkbox">
+                                <input type="checkbox" name="location" value="addis-ababa">
+                                <span data-i18n="jobs.locations.addis_ababa">Addis Ababa</span>
+                                <span class="count">(245)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="location" value="remote">
+                                <span data-i18n="jobs.locations.remote">Remote</span>
+                                <span class="count">(189)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="location" value="diaspora">
+                                <span data-i18n="jobs.locations.diaspora">Diaspora</span>
+                                <span class="count">(156)</span>
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="location" value="hybrid">
+                                <span data-i18n="jobs.locations.hybrid">Hybrid</span>
+                                <span class="count">(98)</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Salary Filter -->
+                    <div class="filter-section">
+                        <h4 data-i18n="jobs.filters.salary">Salary Range</h4>
+                        <div class="range-slider">
+                            <input type="range" min="0" max="100000" value="0" class="range-min" id="salary-min">
+                            <input type="range" min="0" max="100000" value="50000" class="range-max" id="salary-max">
+                            <div class="range-values">
+                                <span id="min-value">0</span> - <span id="max-value">50,000</span> ETB
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience Level -->
+                    <div class="filter-section">
+                        <h4 data-i18n="jobs.filters.experience">Experience Level</h4>
+                        <div class="filter-options">
+                            <label class="radio">
+                                <input type="radio" name="experience" value="entry">
+                                <span data-i18n="jobs.experience.entry">Entry Level</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="experience" value="mid">
+                                <span data-i18n="jobs.experience.mid">Mid Level</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="experience" value="senior">
+                                <span data-i18n="jobs.experience.senior">Senior Level</span>
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="experience" value="executive">
+                                <span data-i18n="jobs.experience.executive">Executive</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Clear Filters -->
+                    <div class="filter-actions">
+                        <button class="btn btn-outline" id="clear-filters" data-i18n="jobs.filters.clear">
+                            Clear All
+                        </button>
+                        <button class="btn btn-primary" id="apply-filters" data-i18n="jobs.filters.apply">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job Alerts -->
+                <div class="job-alert-card">
+                    <h3 data-i18n="jobs.alerts.title">Get Job Alerts</h3>
+                    <p data-i18n="jobs.alerts.description">
+                        Never miss an opportunity. Get notified about new jobs matching your criteria.
+                    </p>
+                    <form class="alert-form" id="job-alert-form">
+                        <input type="email" 
+                               placeholder="Your email" 
+                               data-i18n-placeholder="jobs.alerts.email"
+                               required>
+                        <button type="submit" class="btn btn-primary" data-i18n="jobs.alerts.create">
+                            Create Alert
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Featured Employers -->
+                <div class="featured-employers">
+                    <h3 data-i18n="jobs.featured.employers">Featured Employers</h3>
+                    <div class="employers-grid">
+                        <div class="employer-card">
+                            <img src="/assets/images/partners/ethio-telecom.png" alt="Ethio Telecom">
+                            <span class="employer-name">Ethio Telecom</span>
+                            <span class="job-count">12 jobs</span>
+                        </div>
+                        <div class="employer-card">
+                            <img src="/assets/images/partners/commercial-bank.png" alt="Commercial Bank">
+                            <span class="employer-name">Commercial Bank</span>
+                            <span class="job-count">8 jobs</span>
+                        </div>
+                        <div class="employer-card">
+                            <img src="/assets/images/partners/safaricom.png" alt="Safaricom">
+                            <span class="employer-name">Safaricom</span>
+                            <span class="job-count">15 jobs</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Job Listings -->
+            <section class="jobs-main">
+                <!-- Job Stats -->
+                <div class="jobs-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-briefcase"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" id="total-jobs">1,234</span>
+                            <span data-i18n="jobs.stats.total">Total Jobs</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" id="active-companies">245</span>
+                            <span data-i18n="jobs.stats.companies">Companies</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" id="today-jobs">24</span>
+                            <span data-i18n="jobs.stats.today">Posted Today</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-home"></i>
+                        <div class="stat-content">
+                            <span class="stat-number" id="remote-jobs">189</span>
+                            <span data-i18n="jobs.stats.remote">Remote Jobs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sort & View Options -->
+                <div class="jobs-header">
+                    <h2 data-i18n="jobs.results.title">Job Opportunities</h2>
+                    <div class="sort-options">
+                        <span data-i18n="jobs.sort.by">Sort by:</span>
+                        <select id="sort-select">
+                            <option value="relevance" data-i18n="jobs.sort.relevance">Relevance</option>
+                            <option value="newest" data-i18n="jobs.sort.newest">Newest</option>
+                            <option value="salary_high" data-i18n="jobs.sort.salary_high">Salary (High to Low)</option>
+                            <option value="salary_low" data-i18n="jobs.sort.salary_low">Salary (Low to High)</option>
+                            <option value="deadline" data-i18n="jobs.sort.deadline">Application Deadline</option>
+                        </select>
+                        <div class="view-toggle">
+                            <button class="view-btn active" data-view="grid" aria-label="Grid view">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" aria-label="List view">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jobs Grid/List -->
+                <div class="jobs-container" id="jobs-container">
+                    <!-- Jobs will be loaded dynamically -->
+                    <div class="jobs-loading">
+                        <div class="spinner"></div>
+                        <p data-i18n="messages.loading">Loading jobs...</p>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="jobs-pagination" id="jobs-pagination">
+                    <button class="pagination-btn prev" disabled data-i18n="buttons.previous">Previous</button>
+                    <div class="pagination-numbers">
+                        <button class="page-number active">1</button>
+                        <button class="page-number">2</button>
+                        <button class="page-number">3</button>
+                        <span class="ellipsis">...</span>
+                        <button class="page-number">10</button>
+                    </div>
+                    <button class="pagination-btn next" data-i18n="buttons.next">Next</button>
+                </div>
+                
+                <!-- No Results -->
+                <div class="no-results" id="no-results" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3 data-i18n="jobs.no_results.title">No jobs found</h3>
+                    <p data-i18n="jobs.no_results.description">
+                        Try adjusting your search filters or browse all jobs.
+                    </p>
+                    <button class="btn btn-primary" id="browse-all-jobs" data-i18n="jobs.no_results.browse">
+                        Browse All Jobs
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" data-i18n="jobs.how_it_works.title">How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-user-plus"></i>
+                    <h3 data-i18n="jobs.how_it_works.step1.title">Create Profile</h3>
+                    <p data-i18n="jobs.how_it_works.step1.description">
+                        Sign up and create your professional profile
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-search"></i>
+                    <h3 data-i18n="jobs.how_it_works.step2.title">Search Jobs</h3>
+                    <p data-i18n="jobs.how_it_works.step2.description">
+                        Find jobs matching your skills and preferences
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-file-upload"></i>
+                    <h3 data-i18n="jobs.how_it_works.step3.title">Apply Easily</h3>
+                    <p data-i18n="jobs.how_it_works.step3.description">
+                        Apply with one click using your profile
+                    </p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <i class="fas fa-bell"></i>
+                    <h3 data-i18n="jobs.how_it_works.step4.title">Get Notified</h3>
+                    <p data-i18n="jobs.how_it_works.step4.description">
+                        Receive alerts for new opportunities
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="jobs.cta.title">Ready to advance your career?</h2>
+                <p data-i18n="jobs.cta.description">
+                    Join thousands of Ethiopian professionals who found their dream jobs through our platform.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/pages/post-job.html" class="btn btn-primary" data-i18n="nav.post_job">
+                        Post a Job
+                    </a>
+                    <a href="/register.html" class="btn btn-outline" data-i18n="nav.register">
+                        Create Free Account
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Job Card Template (for dynamic loading) -->
+<template id="job-card-template">
+    <div class="job-card" data-job-id="">
+        <div class="job-header">
+            <div class="company-logo">
+                <img src="" alt="Company logo">
+            </div>
+            <div class="job-info">
+                <h3 class="job-title"></h3>
+                <div class="company-name"></div>
+                <div class="job-meta">
+                    <span class="job-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="location-text"></span>
+                    </span>
+                    <span class="job-type">
+                        <i class="fas fa-briefcase"></i>
+                        <span class="type-text"></span>
+                    </span>
+                    <span class="job-salary">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span class="salary-text"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="job-actions">
+                <button class="btn-save-job" aria-label="Save job">
+                    <i class="far fa-heart"></i>
+                </button>
+                <span class="job-posted"></span>
+            </div>
+        </div>
+        <div class="job-description">
+            <p class="description-text"></p>
+        </div>
+        <div class="job-footer">
+            <div class="job-tags"></div>
+            <div class="job-cta">
+                <a href="#" class="btn btn-primary" data-i18n="buttons.view">View Details</a>
+                <button class="btn btn-outline btn-quick-apply" data-i18n="jobs.apply.quick">
+                    Quick Apply
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
