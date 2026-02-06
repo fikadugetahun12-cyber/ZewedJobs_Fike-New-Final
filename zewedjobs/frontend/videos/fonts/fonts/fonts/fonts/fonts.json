@@ -1,0 +1,48 @@
+{
+  "primary": {
+    "family": "Inter",
+    "weights": {
+      "300": "/fonts/Inter-Light.woff2",
+      "400": "/fonts/Inter-Regular.woff2",
+      "500": "/fonts/Inter-Medium.woff2",
+      "600": "/fonts/Inter-SemiBold.woff2",
+      "700": "/fonts/Inter-Bold.woff2"
+    },
+    "italic": {
+      "400": "/fonts/Inter-Italic.woff2",
+      "700": "/fonts/Inter-BoldItalic.woff2"
+    },
+    "variable": "/fonts/Inter-Variable.woff2",
+    "fallback": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  "secondary": {
+    "family": "Merriweather",
+    "weights": {
+      "300": "/fonts/Merriweather-Light.woff2",
+      "400": "/fonts/Merriweather-Regular.woff2",
+      "700": "/fonts/Merriweather-Bold.woff2"
+    },
+    "fallback": "Georgia, 'Times New Roman', Times, serif"
+  },
+  "monospace": {
+    "family": "Roboto Mono",
+    "weights": {
+      "400": "/fonts/RobotoMono-Regular.woff2",
+      "700": "/fonts/RobotoMono-Bold.woff2"
+    },
+    "fallback": "'SF Mono', Monaco, 'Cascadia Code', monospace"
+  },
+  "iconFont": {
+    "family": "Material Icons",
+    "url": "/fonts/material-icons.woff2",
+    "format": "woff2"
+  },
+  "loadingStrategy": "swap",
+  "preload": ["Inter-Regular.woff2", "Inter-Bold.woff2"],
+  "subsets": {
+    "latin": true,
+    "latin-ext": true,
+    "cyrillic": false,
+    "greek": false
+  }
+}
