@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "title": "መድረኽ ማሕበረሰብ ኤርትራውያን",
+    "description": "ማሕበረሰባት ኤርትራውያን ኣብ መላእ ዓለም ብባህል፣ ንግድን ማሕበራዊ ተነሳስነትን ዝተኣሳሰር",
+    "keywords": "ኤርትራ፣ ማሕበረሰብ፣ ባህል፣ ዳያስፖራ፣ ንግድ፣ ማሕበራዊ",
+    "author": "መድረኽ ማሕበረሰብ ኤርትራውያን"
+  },
+  "nav": {
+    "home": "መእተዊ",
+    "about": "ብዛዕባና",
+    "services": "ኣገልግሎታት",
+    "projects": "ፕሮጀክታት",
+    "partners": "ኣጋርታት",
+    "certificates": "ምስክርነታት",
+    "donate": "ምግባር",
+    "contact": "ርኸቡና",
+    "language": "ቋንቋ",
+    "login": "እተወ",
+    "register": "ተመዝገብ",
+    "profile": "መልክዕ",
+    "logout": "ውጻእ",
+    "menu": "መርሖ",
+    "close": "ዕጸው"
+  },
+  "home": {
+    "hero": {
+      "title": "ንሓያሎ ማሕበረሰባት ምህናጽ",
+      "subtitle": "ኤርትራውያን ኣብ መላእ ዓለም ብባህል፣ ልምዓትን ትብባይን ዝተኣሳሰር",
+      "cta": "ኣብ ማሕበርና ተጸንበሩ",
+      "secondary": "ተወሳኺ ፍለጥ"
+    },
+    "features": {
+      "title": "እንታይ ከም እንህብ",
+      "cultural": {
+        "title": "ምክልካል ባህሊ",
+        "desc": "ውርድን ልምድታት ኤርትራውያን ምዕባለ"
+      },
+      "business": {
+        "title": "ናይ ንግዲ መርበብ",
+        "desc": "ንበዓልቲ ንግድን ኣበውቲ ሃብትን ምርኻብ"
+      },
+      "education": {
+        "title": "ፕሮግራማት ትምህርቲ",
+        "desc": "ክፍልታት ቋንቋን ስልጠና ክእለትን"
+      },
+      "social": {
+        "title": "ማሕበራዊ ተነሳስነታት",
+        "desc": "ፕሮጀክታት ምዕባለ ማሕበረሰብ"
+      }
+    },
+    "stats": {
+      "title": "ተጽዕኖና",
+      "members": "ኣባላት ማሕበረሰብ",
+      "projects": "ፕሮጀክታት ዝተዛዘሙ",
+      "partners": "ስትራተጅያዊ ኣጋርታት",
+      "countries": "ኣገራት ዝበጽሓ"
+    }
+  },
+  "about": {
+    "title": "ብዛዕባ ትካልና",
+    "mission": {
+      "title": "መስራሕና",
+      "desc": "ማሕበረሰባት ኤርትራውያን ኣብ መላእ ዓለም ብምዕባለ ዘይቋርጽ፣ ምክልካል ባህሊን ኢኮኖሚያዊ ሓይሊን ንምህድእ ከምኡውን ንምዕባለ።"
+    },
+    "vision": {
+      "title": "ራእይና",
+      "desc": "ሓደ ዓለም ኣብኡ ማሕበረሰባት ኤርትራውያን ንምሕያው ዘካይድሉ፣ ውርዶም ዘለውሉ፣ ከምኡውን ንግሉባዊ ምዕባለ ዓለም ኣገዳሲ ኣበርክቶ ዝገብርሉ።"
+    },
+    "values": {
+      "title": "ናይ ሓላውነት ዋጋታት",
+      "unity": "ሓድነት",
+      "integrity": "ግቡእነት",
+      "excellence": "ምሉእቲ",
+      "heritage": "ምክልካል ውርድ",
+      "innovation": "ልምዓት"
+    },
+    "history": {
+      "title": "ታሪኽና",
+      "desc": "ኣብ 2010 ዝተመስረተ ምዃኑ፣ ካብ ንእሽቶ ጉጅለ ማሕበረሰብ ናብ ናይ ዓለም ትካል ኣብ ልዕሊ 30 ኣገራት ኣባላት ዘለዎ ዝዓበየ።"
+    }
+  },
+  "services": {
+    "title": "ኣገልግሎታትና",
+    "cultural": {
+      "title": "ፕሮግራማት ባህሊ",
+      "desc": "ፕሮግራማት ሙዚቃ፣ ስግኣትን ምክልካል ቋንቋን ባህላዊ"
+    },
+    "business": {
+      "title": "ደገፍ ንግዲ",
+      "desc": "ስልጠና ንበዓልቲ ንግድ፣ ኣጋጣሚታት ኢንቨስትመንትን መእተዊ ዕዳጋን"
+    },
+    "education": {
+      "title": "ትምህርትን ስልጠናን",
+      "desc": "ክፍልታት ቋንቋ፣ ስልጠና ሞያን ፕሮግራማት ስትፓንድን"
+    },
+    "social": {
+      "title": "ማሕበራዊ ኣገልግሎታት",
+      "desc": "ደገፍ ማሕበረሰብ፣ ምኽርን ደገፍ ምውህሃድን"
+    },
+    "legal": {
+      "title": "ደገፍ ሕጊ",
+      "desc": "ደገፍ ኣግራውነትን ኣገልግሎታት ምኽር ሕጊን"
+    }
+  },
+  "projects": {
+    "title": "ናይ ሕጂ ፕሮጀክታት",
+    "view_all": "ኩሎም ፕሮጀክታት ርአ",
+    "status": {
+      "ongoing": "ኣብ ምህላው",
+      "completed": "ዝተዛዘመ",
+      "upcoming": "ዝመጽእ"
+    }
+  },
+  "partners": {
+    "title": "ኣጋርታትና",
+    "description": "ንመስራሕና ንምዕዋት ምስ ትካላት መላእ ዓለም ንተባበር",
+    "become_partner": "ኣጋር ተባሂልካ"
+  },
+  "certificates": {
+    "title": "ምስክርነታት & ምርግጋጽ",
+    "description": "ስራሕናን መለክዒታትናን ናይ ርእሰ መላእነት እሙንነት",
+    "view_certificate": "ምስክርነት ርአ"
+  },
+  "donate": {
+    "title": "ንዕላማና ደገፍ",
+    "description": "ግብሪኻ ፕሮግራማት ማሕበረሰብና ንምቕጻል ይሕግዘና",
+    "amount": "መጠን ግብሪ",
+    "one_time": "ሓንቲ ግዜ ግብሪ",
+    "monthly": "ወርሓዊ ግብሪ",
+    "custom": "ብግብሪ መጠን",
+    "currency": "ዎን",
+    "donate_now": "ሕጂ ግበር",
+    "secure": "ውሑስ ክፍሊት",
+    "tax_deductible": "ተኸላካላይ ግብሪ",
+    "receipt": "ራሲት ግብሪ",
+    "thank_you": "ምስጋና ንቘራጻኻ!"
+  },
+  "contact": {
+    "title": "ርኸቡና",
+    "name": "ምሉእ ስም",
+    "email": "ኣድራሻ ኢመይል",
+    "phone": "ቁጽሪ ተሌፎን",
+    "subject": "ኣርእስቲ",
+    "message": "መልእኽቲኻ",
+    "send": "መልእኽቲ ስደድ",
+    "success": "መልእኽቲኻ ብንጹር ተሰዲዱ!",
+    "error": "በጃኻ ኩሎም ኣገዳሲ ቦታታት ምልኣ",
+    "location": "ኣቀማምጣና",
+    "address": "ኣስመራ፣ ኤርትራ",
+    "working_hours": "ሰኑይ-ዓርቢ: 9:00 ቅ.ቀ. - 5:00 ድ.ቀ."
+  },
+  "auth": {
+    "login": {
+      "title": "ናብ ኣካውንትኻ እተወ",
+      "email": "ኢመይል",
+      "password": "መሕለፊ ቃል",
+      "remember": "ዘክረኒ",
+      "forgot": "መሕለፊ ቃል ረሲዐኻ?",
+      "no_account": "ኣካውንት የብልካን?",
+      "signup": "ተመዝገብ"
+    },
+    "register": {
+      "title": "ኣካውንት ፍጠር",
+      "fullname": "ምሉእ ስም",
+      "confirm_password": "መሕለፊ ቃል ኣረጋግጽ",
+      "agree": "ምስ ውዕላትን ምድላዋትን ተሰማሚዐ",
+      "have_account": "ቀደም ምሃር ኣካውንት ኣሎኻ?",
+      "login": "እተወ"
+    },
+    "validation": {
+      "email_required": "ኢመይል የድሊ",
+      "email_invalid": "በጃኻ ቅኑዕ ኢመይል ኣእቱ",
+      "password_required": "መሕለፊ ቃል የድሊ",
+      "password_min": "መሕለፊ ቃል እንተ ወሓደ 8 ፊደላት ክኸውን ኣለዎ",
+      "name_required": "ስም የድሊ",
+      "passwords_match": "መሕለፊ ቃላት ይመዳደሉ ኣለዉ"
+    }
+  },
+  "footer": {
+    "description": "ማሕበረሰባት ኤርትራውያን ብባህል፣ ትምህርትን ኢኮኖሚያዊ ምዕባለን ምምሕያሽ",
+    "quick_links": "ቅልጡፍ ሊንክታት",
+    "resources": "መርበብታት",
+    "newsletter": {
+      "title": "ኣመሓድር ተቐማጥ",
+      "placeholder": "ኣድራሻ ኢመይልኻ",
+      "subscribe": "ተመዝገብ",
+      "success": "ብንጹር ተመዝጊብካ!"
+    },
+    "social": "ተኸተልና",
+    "copyright": "© {year} መድረኽ ማሕበረሰብ ኤርትራውያን። ኩሎም መሰላት ዝሓለዉ።",
+    "privacy": "ፖሊሲ ስትር",
+    "terms": "ውዕላት ኣገልግሎት",
+    "cookies": "ፖሊሲ ኩኪ"
+  },
+  "buttons": {
+    "save": "ኣሕዝ",
+    "cancel": "ኣጽግዕ",
+    "submit": "ኣረክብ",
+    "delete": "ሰርዝ",
+    "edit": "ኣርህ",
+    "view": "ርአ",
+    "download": "ውርደ",
+    "upload": "ሰንደድ",
+    "search": "ድለይ",
+    "filter": "ኣጣራ",
+    "clear": "ኣጽርይ",
+    "back": "ተመለስ",
+    "next": "ቀፃሊ",
+    "confirm": "ኣረጋግጽ",
+    "close": "ዕጸው",
+    "yes": "እወ",
+    "no": "ኣይፋል",
+    "ok": "እሺ"
+  },
+  "messages": {
+    "loading": "ይጽዕን...",
+    "error": "ጌጋ ተፈጢሩ",
+    "success": "ስራሕ ተዛዚሙ",
+    "warning": "መጠንቀቕታ",
+    "info": "ሓበሬታ",
+    "confirm_delete": "ርግጸኛ ኢኻ ነዚ ኣቕሑ ክትሰርዮ?",
+    "no_data": "ዳታ የለን",
+    "try_again": "በጃኻ ደጊምካ ፈትን",
+    "offline": "ኦፍላይን ኢኻ። ገለ ባህርያት ኣይሰርሕን ይኸውን።",
+    "online": "ኦንላይን ተመለስካ!"
+  },
+  "dates": {
+    "today": "ሎሚ",
+    "yesterday": "ትማሊ",
+    "tomorrow": "ጽባሕ",
+    "this_week": "ሰሙን እዚ",
+    "this_month": "ወርሒ እዚ",
+    "this_year": "ዓመት እዚ",
+    "days": {
+      "monday": "ሰኑይ",
+      "tuesday": "ሰሉስ",
+      "wednesday": "ረቡዕ",
+      "thursday": "ሓሙስ",
+      "friday": "ዓርቢ",
+      "saturday": "ቀዳም",
+      "sunday": "ሰንበት"
+    },
+    "months": {
+      "january": "ጥሪ",
+      "february": "ለካቲት",
+      "march": "መጋቢት",
+      "april": "ሚያዝያ",
+      "may": "ግንቦት",
+      "june": "ሰነ",
+      "july": "ሓምለ",
+      "august": "ነሓሰ",
+      "september": "መስከረም",
+      "october": "ጥቅምቲ",
+      "november": "ሕዳር",
+      "december": "ታሕሳስ"
+    }
+  },
+  "validation": {
+    "required": "እዚ ቦታ ኣገዳሲ እዩ",
+    "email": "በጃኻ ቅኑዕ ኣድራሻ ኢመይል ኣእቱ",
+    "min_length": "ውሑድ {length} ፊደላት የድል",
+    "max_length": "ከቢድ {length} ፊደላት ብማለት",
+    "phone": "በጃኻ ቅኑዕ ቁጽሪ ተሌፎን ኣእቱ",
+    "url": "በጃኻ ቅኑዕ URL ኣእቱ"
+  },
+  "accessibility": {
+    "skip_to_content": "ናብ ቀንዲ ይውንና ዝለል",
+    "language_switch": "ለውጢ ቋንቋ",
+    "menu_toggle": "መርሖ ምቕያር",
+    "close_menu": "መርሖ ዕጸው"
+  }
+}
