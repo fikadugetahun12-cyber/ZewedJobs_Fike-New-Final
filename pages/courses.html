@@ -1,0 +1,395 @@
+<div class="courses-page">
+    <!-- Hero Section -->
+    <section class="page-hero courses-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="courses.hero.title">
+                    Advance Your Career with Professional Training
+                </h1>
+                <p class="hero-description" data-i18n="courses.hero.description">
+                    Access high-quality courses designed for Ethiopian professionals. 
+                    Learn in-demand skills and earn recognized certificates.
+                </p>
+                
+                <!-- Search Courses -->
+                <div class="courses-search">
+                    <form class="search-form" id="courses-search-form">
+                        <div class="search-field">
+                            <i class="fas fa-search"></i>
+                            <input type="text" 
+                                   placeholder="What do you want to learn?" 
+                                   data-i18n-placeholder="courses.search.placeholder"
+                                   id="course-search-input">
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-layer-group"></i>
+                            <select id="course-category-select">
+                                <option value="" data-i18n="courses.search.category_all">All Categories</option>
+                                <option value="technology" data-i18n="courses.categories.technology">Technology</option>
+                                <option value="business" data-i18n="courses.categories.business">Business</option>
+                                <option value="language" data-i18n="courses.categories.language">Language</option>
+                                <option value="professional" data-i18n="courses.categories.professional">Professional</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="courses.search.button">
+                            Search Courses
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Popular Categories -->
+                <div class="popular-categories">
+                    <span data-i18n="courses.popular.title">Popular:</span>
+                    <a href="#tech" class="category-tag" data-i18n="courses.categories.technology">Technology</a>
+                    <a href="#business" class="category-tag" data-i18n="courses.categories.business">Business</a>
+                    <a href="#language" class="category-tag" data-i18n="courses.categories.language">Language</a>
+                    <a href="#certification" class="category-tag" data-i18n="courses.categories.certification">Certification</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Courses -->
+    <section class="featured-courses">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="courses.featured.title">Featured Courses</h2>
+                <a href="/courses/all.html" class="view-all" data-i18n="courses.featured.view_all">
+                    View All <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="courses-grid" id="featured-courses">
+                <!-- Featured courses will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories -->
+    <section class="course-categories">
+        <div class="container">
+            <h2 class="section-title" data-i18n="courses.categories.title">Browse by Category</h2>
+            <div class="categories-grid">
+                <a href="/courses/category/technology.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 data-i18n="courses.categories.technology">Technology</h3>
+                    <p data-i18n="courses.categories.technology_desc">
+                        Programming, web development, data science
+                    </p>
+                    <span class="course-count">124 courses</span>
+                </a>
+                
+                <a href="/courses/category/business.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-i18n="courses.categories.business">Business</h3>
+                    <p data-i18n="courses.categories.business_desc">
+                        Management, marketing, entrepreneurship
+                    </p>
+                    <span class="course-count">89 courses</span>
+                </a>
+                
+                <a href="/courses/category/language.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 data-i18n="courses.categories.language">Language</h3>
+                    <p data-i18n="courses.categories.language_desc">
+                        English, Amharic, professional communication
+                    </p>
+                    <span class="course-count">67 courses</span>
+                </a>
+                
+                <a href="/courses/category/professional.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-i18n="courses.categories.professional">Professional</h3>
+                    <p data-i18n="courses.categories.professional_desc">
+                        Soft skills, leadership, career development
+                    </p>
+                    <span class="course-count">142 courses</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Learning Paths -->
+    <section class="learning-paths">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="courses.paths.title">Learning Paths</h2>
+                <p class="section-subtitle" data-i18n="courses.paths.subtitle">
+                    Structured programs to achieve your career goals
+                </p>
+            </div>
+            
+            <div class="paths-grid">
+                <div class="path-card">
+                    <div class="path-header">
+                        <h3 data-i18n="courses.paths.web_developer">Web Developer</h3>
+                        <span class="path-duration">6 months</span>
+                    </div>
+                    <p data-i18n="courses.paths.web_developer_desc">
+                        Become a full-stack web developer
+                    </p>
+                    <div class="path-courses">
+                        <span>8 courses</span>
+                        <span>4 projects</span>
+                    </div>
+                    <div class="path-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <span>60% complete</span>
+                    </div>
+                    <a href="/paths/web-developer.html" class="btn btn-outline">
+                        <span data-i18n="courses.paths.continue">Continue Path</span>
+                    </a>
+                </div>
+                
+                <div class="path-card">
+                    <div class="path-header">
+                        <h3 data-i18n="courses.paths.business_analyst">Business Analyst</h3>
+                        <span class="path-duration">4 months</span>
+                    </div>
+                    <p data-i18n="courses.paths.business_analyst_desc">
+                        Master business analysis skills
+                    </p>
+                    <div class="path-courses">
+                        <span>6 courses</span>
+                        <span>3 projects</span>
+                    </div>
+                    <a href="/paths/business-analyst.html" class="btn btn-primary">
+                        <span data-i18n="courses.paths.start">Start Path</span>
+                    </a>
+                </div>
+                
+                <div class="path-card">
+                    <div class="path-header">
+                        <h3 data-i18n="courses.paths.digital_marketing">Digital Marketing</h3>
+                        <span class="path-duration">3 months</span>
+                    </div>
+                    <p data-i18n="courses.paths.digital_marketing_desc">
+                        Learn modern marketing strategies
+                    </p>
+                    <div class="path-courses">
+                        <span>5 courses</span>
+                        <span>2 projects</span>
+                    </div>
+                    <a href="/paths/digital-marketing.html" class="btn btn-primary">
+                        <span data-i18n="courses.paths.start">Start Path</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- All Courses -->
+    <section class="all-courses">
+        <div class="container">
+            <div class="courses-layout">
+                <!-- Filters -->
+                <aside class="courses-sidebar">
+                    <div class="filter-card">
+                        <h3 data-i18n="courses.filters.title">Filters</h3>
+                        
+                        <!-- Level Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="courses.filters.level">Level</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="beginner">
+                                    <span data-i18n="courses.levels.beginner">Beginner</span>
+                                    <span class="count">(245)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="intermediate">
+                                    <span data-i18n="courses.levels.intermediate">Intermediate</span>
+                                    <span class="count">(189)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="advanced">
+                                    <span data-i18n="courses.levels.advanced">Advanced</span>
+                                    <span class="count">(98)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Duration Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="courses.filters.duration">Duration</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="duration" value="short">
+                                    <span data-i18n="courses.durations.short">Short (&lt; 5 hours)</span>
+                                    <span class="count">(156)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="duration" value="medium">
+                                    <span data-i18n="courses.durations.medium">Medium (5-20 hours)</span>
+                                    <span class="count">(234)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="duration" value="long">
+                                    <span data-i18n="courses.durations.long">Long (&gt; 20 hours)</span>
+                                    <span class="count">(142)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Price Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="courses.filters.price">Price</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="price" value="free">
+                                    <span data-i18n="courses.prices.free">Free</span>
+                                    <span class="count">(189)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="price" value="paid">
+                                    <span data-i18n="courses.prices.paid">Paid</span>
+                                    <span class="count">(343)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="price" value="subscription">
+                                    <span data-i18n="courses.prices.subscription">Subscription</span>
+                                    <span class="count">(45)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Language Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="courses.filters.language">Language</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="language" value="english">
+                                    <span data-i18n="languages.english">English</span>
+                                    <span class="count">(432)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="language" value="amharic">
+                                    <span data-i18n="languages.amharic">Amharic</span>
+                                    <span class="count">(156)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="language" value="oromo">
+                                    <span data-i18n="languages.oromo">Oromo</span>
+                                    <span class="count">(89)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Clear Filters -->
+                        <div class="filter-actions">
+                            <button class="btn btn-outline" id="clear-course-filters">
+                                <span data-i18n="courses.filters.clear">Clear All</span>
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Courses List -->
+                <main class="courses-main">
+                    <div class="courses-header">
+                        <h2 data-i18n="courses.all.title">All Courses</h2>
+                        <div class="sort-options">
+                            <span data-i18n="courses.sort.by">Sort by:</span>
+                            <select id="course-sort-select">
+                                <option value="popular" data-i18n="courses.sort.popular">Most Popular</option>
+                                <option value="newest" data-i18n="courses.sort.newest">Newest</option>
+                                <option value="rating" data-i18n="courses.sort.rating">Highest Rated</option>
+                                <option value="duration" data-i18n="courses.sort.duration">Duration</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="courses-list" id="courses-list">
+                        <!-- Courses will be loaded here -->
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="courses-pagination" id="courses-pagination">
+                        <!-- Pagination will be added here -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="courses-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="courses.cta.title">Ready to start learning?</h2>
+                <p data-i18n="courses.cta.description">
+                    Join thousands of professionals who have advanced their careers with our courses.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/register.html" class="btn btn-primary" data-i18n="courses.cta.signup">
+                        Sign Up Free
+                    </a>
+                    <a href="/courses/catalog.html" class="btn btn-outline" data-i18n="courses.cta.browse">
+                        Browse Catalog
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Course Card Template -->
+<template id="course-card-template">
+    <div class="course-card">
+        <div class="course-image">
+            <img src="" alt="Course thumbnail">
+            <div class="course-badge" data-badge-type=""></div>
+        </div>
+        <div class="course-content">
+            <div class="course-header">
+                <h3 class="course-title"></h3>
+                <div class="course-instructor">
+                    <img src="" alt="Instructor" class="instructor-avatar">
+                    <span class="instructor-name"></span>
+                </div>
+            </div>
+            <p class="course-description"></p>
+            <div class="course-meta">
+                <span class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="course-duration"></span>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-signal"></i>
+                    <span class="course-level"></span>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span class="course-students"></span>
+                </span>
+            </div>
+            <div class="course-rating">
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <span class="rating-text"></span>
+            </div>
+            <div class="course-footer">
+                <div class="course-price">
+                    <span class="current-price"></span>
+                    <span class="original-price"></span>
+                </div>
+                <a href="#" class="btn btn-primary" data-i18n="courses.card.enroll">Enroll Now</a>
+            </div>
+        </div>
+    </div>
+</template>
