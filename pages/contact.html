@@ -1,432 +1,258 @@
-<div class="contact-page">
-    <!-- Hero Section -->
-    <section class="page-hero contact-hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title" data-i18n="contact.hero.title">
-                    Get in Touch
-                </h1>
-                <p class="hero-description" data-i18n="contact.hero.description">
-                    We're here to help. Reach out to us with questions, feedback, 
-                    or partnership inquiries.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Options -->
-    <section class="contact-options">
-        <div class="container">
-            <div class="options-grid">
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 data-i18n="contact.options.support">General Support</h3>
-                    <p class="option-description" data-i18n="contact.options.support_desc">
-                        For general questions and platform support
-                    </p>
-                    <a href="mailto:support@ethiopiancommunity.org" class="option-link">
-                        support@ethiopiancommunity.org
-                    </a>
-                    <p class="option-response" data-i18n="contact.options.response_time">
-                        Response time: 24 hours
-                    </p>
-                </div>
-
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 data-i18n="contact.options.partnerships">Partnerships</h3>
-                    <p class="option-description" data-i18n="contact.options.partnerships_desc">
-                        For business and organization partnerships
-                    </p>
-                    <a href="mailto:partnerships@ethiopiancommunity.org" class="option-link">
-                        partnerships@ethiopiancommunity.org
-                    </a>
-                    <p class="option-response" data-i18n="contact.options.response_time">
-                        Response time: 48 hours
-                    </p>
-                </div>
-
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <h3 data-i18n="contact.options.media">Media Inquiries</h3>
-                    <p class="option-description" data-i18n="contact.options.media_desc">
-                        For press and media-related questions
-                    </p>
-                    <a href="mailto:press@ethiopiancommunity.org" class="option-link">
-                        press@ethiopiancommunity.org
-                    </a>
-                    <p class="option-response" data-i18n="contact.options.response_time">
-                        Response time: 24 hours
-                    </p>
-                </div>
-
-                <div class="option-card">
-                    <div class="option-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 data-i18n="contact.options.community">Community</h3>
-                    <p class="option-description" data-i18n="contact.options.community_desc">
-                        For community events and initiatives
-                    </p>
-                    <a href="mailto:community@ethiopiancommunity.org" class="option-link">
-                        community@ethiopiancommunity.org
-                    </a>
-                    <p class="option-response" data-i18n="contact.options.response_time">
-                        Response time: 48 hours
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section class="contact-form-section">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-header">
-                    <h2 data-i18n="contact.form.title">Send Us a Message</h2>
-                    <p data-i18n="contact.form.subtitle">
-                        Fill out the form below and we'll get back to you as soon as possible.
-                    </p>
-                </div>
-
-                <form class="contact-form" id="contact-form">
-                    <!-- Contact Information -->
-                    <div class="form-section">
-                        <h3 data-i18n="contact.form.contact_info">Contact Information</h3>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-first-name" data-i18n="contact.form.first_name">
-                                    First Name *
-                                </label>
-                                <input type="text" id="contact-first-name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact-last-name" data-i18n="contact.form.last_name">
-                                    Last Name *
-                                </label>
-                                <input type="text" id="contact-last-name" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-email" data-i18n="contact.form.email">
-                                    Email Address *
-                                </label>
-                                <input type="email" id="contact-email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact-phone" data-i18n="contact.form.phone">
-                                    Phone Number
-                                </label>
-                                <input type="tel" id="contact-phone">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact-organization" data-i18n="contact.form.organization">
-                                Organization
-                            </label>
-                            <input type="text" id="contact-organization">
-                        </div>
-                    </div>
-
-                    <!-- Inquiry Details -->
-                    <div class="form-section">
-                        <h3 data-i18n="contact.form.inquiry_details">Inquiry Details</h3>
-                        
-                        <div class="form-group">
-                            <label for="inquiry-department" data-i18n="contact.form.department">
-                                Department *
-                            </label>
-                            <select id="inquiry-department" required>
-                                <option value="" data-i18n="contact.form.select_department">
-                                    Select Department
-                                </option>
-                                <option value="general" data-i18n="contact.departments.general">
-                                    General Support
-                                </option>
-                                <option value="technical" data-i18n="contact.departments.technical">
-                                    Technical Support
-                                </option>
-                                <option value="partnerships" data-i18n="contact.departments.partnerships">
-                                    Partnerships
-                                </option>
-                                <option value="media" data-i18n="contact.departments.media">
-                                    Media Inquiries
-                                </option>
-                                <option value="community" data-i18n="contact.departments.community">
-                                    Community
-                                </option>
-                                <option value="feedback" data-i18n="contact.departments.feedback">
-                                    Feedback/Suggestions
-                                </option>
-                                <option value="other" data-i18n="contact.departments.other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inquiry-subject" data-i18n="contact.form.subject">
-                                Subject *
-                            </label>
-                            <input type="text" id="inquiry-subject" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="inquiry-message" data-i18n="contact.form.message">
-                                Message *
-                            </label>
-                            <textarea id="inquiry-message" rows="6" required></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="attachment" data-i18n="contact.form.attachment">
-                                Attachments (Optional)
-                            </label>
-                            <div class="file-upload">
-                                <input type="file" id="attachment" multiple>
-                                <label for="attachment" class="btn btn-outline">
-                                    <i class="fas fa-paperclip"></i>
-                                    <span data-i18n="contact.form.choose_file">Choose File</span>
-                                </label>
-                                <span class="file-info" data-i18n="contact.form.file_info">
-                                    Max 10MB per file
-                                </span>
-                            </div>
-                            <div class="file-list" id="file-list"></div>
-                        </div>
-                    </div>
-
-                    <!-- Follow-up -->
-                    <div class="form-section">
-                        <div class="form-group">
-                            <label class="checkbox">
-                                <input type="checkbox" id="newsletter-subscribe">
-                                <span data-i18n="contact.form.newsletter">
-                                    Subscribe to our newsletter for updates and announcements
-                                </span>
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="checkbox">
-                                <input type="checkbox" id="urgent-inquiry">
-                                <span data-i18n="contact.form.urgent">
-                                    This is an urgent inquiry requiring immediate attention
-                                </span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Submit -->
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-i18n="contact.form.send_message">Send Message</span>
-                        </button>
-                        <button type="reset" class="btn btn-outline" data-i18n="contact.form.reset">
-                            Reset Form
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Office Locations -->
-    <section class="office-locations">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="contact.locations.title">
-                    Our Offices
-                </h2>
-                <p class="section-subtitle" data-i18n="contact.locations.subtitle">
-                    Visit us in person at our locations worldwide
-                </p>
-            </div>
-
-            <div class="locations-grid">
-                <!-- Headquarters -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3 data-i18n="contact.locations.headquarters">Headquarters</h3>
-                        <span class="location-badge" data-i18n="contact.locations.main_office">
-                            Main Office
-                        </span>
-                    </div>
-                    <div class="location-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.address">Address</h4>
-                                <p>
-                                    Bole Road<br>
-                                    Addis Ababa, Ethiopia<br>
-                                    P.O. Box 12345
-                                </p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.phone">Phone</h4>
-                                <p>+251 11 123 4567</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.hours">Business Hours</h4>
-                                <p data-i18n="contact.locations.ethiopia_hours">
-                                    Mon-Fri: 8:30 AM - 5:30 PM EAT<br>
-                                    Sat: 9:00 AM - 1:00 PM EAT
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="location-actions">
-                        <a href="https://maps.google.com/?q=Bole+Road+Addis+Ababa+Ethiopia" 
-                           class="btn btn-outline" 
-                           target="_blank">
-                            <i class="fas fa-directions"></i>
-                            <span data-i18n="contact.locations.get_directions">Get Directions</span>
-                        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Your Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .left-side {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .right-side {
+            padding: 40px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .contact-info {
+            margin-bottom: 40px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .info-item i {
+            font-size: 20px;
+            margin-right: 15px;
+            color: #a78bfa;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #4f46e5;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+        
+        .ad-link {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 2px dashed #c7d2fe;
+        }
+        
+        .ad-link a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .ad-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .left-side {
+                padding: 30px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <h1 style="color: white;">Get In Touch</h1>
+            <p style="margin-bottom: 30px; opacity: 0.9;">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Our Location</h3>
+                        <p>123 Business Street, City, Country</p>
                     </div>
                 </div>
-
-                <!-- North America Office -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3 data-i18n="contact.locations.north_america">North America Office</h3>
-                    </div>
-                    <div class="location-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.address">Address</h4>
-                                <p>
-                                    123 Tech Street<br>
-                                    San Francisco, CA 94107<br>
-                                    United States
-                                </p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.phone">Phone</h4>
-                                <p>+1 (415) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.hours">Business Hours</h4>
-                                <p data-i18n="contact.locations.usa_hours">
-                                    Mon-Fri: 9:00 AM - 6:00 PM PST<br>
-                                    Closed Saturday & Sunday
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="location-actions">
-                        <a href="https://maps.google.com/?q=123+Tech+Street+San+Francisco+CA" 
-                           class="btn btn-outline" 
-                           target="_blank">
-                            <i class="fas fa-directions"></i>
-                            <span data-i18n="contact.locations.get_directions">Get Directions</span>
-                        </a>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone Number</h3>
+                        <p>+1 (555) 123-4567</p>
                     </div>
                 </div>
-
-                <!-- Europe Office -->
-                <div class="location-card">
-                    <div class="location-header">
-                        <h3 data-i18n="contact.locations.europe">Europe Office</h3>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email Address</h3>
+                        <p>contact@yourwebsite.com</p>
                     </div>
-                    <div class="location-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.address">Address</h4>
-                                <p>
-                                    45 Innovation Lane<br>
-                                    London EC2A 4NE<br>
-                                    United Kingdom
-                                </p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.phone">Phone</h4>
-                                <p>+44 20 1234 5678</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h4 data-i18n="contact.locations.hours">Business Hours</h4>
-                                <p data-i18n="contact.locations.uk_hours">
-                                    Mon-Fri: 9:00 AM - 5:30 PM GMT<br>
-                                    Closed Saturday & Sunday
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="location-actions">
-                        <a href="https://maps.google.com/?q=45+Innovation+Lane+London" 
-                           class="btn btn-outline" 
-                           target="_blank">
-                            <i class="fas fa-directions"></i>
-                            <span data-i18n="contact.locations.get_directions">Get Directions</span>
-                        </a>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h3>Working Hours</h3>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="contact-faq">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title" data-i18n="contact.faq.title">
-                    Frequently Asked Questions
-                </h2>
-            </div>
-
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span data-i18n="contact.faq.q1">What is your response time?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p data-i18n="contact.faq.a1">
-                            We aim to respond to all inquiries within 24 hours during 
-                            business days. Urgent inquiries marked as such receive 
-                            priority response within 4 hours.
-                        </p>
-                    </div>
+        
+        <div class="right-side">
+            <h1>Contact Us</h1>
+            <p style="color: #666; margin-bottom: 30px;">Fill out the form below and we'll get back to you soon.</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        <span data-i18n="contact.faq.q2">Do you offer phone support?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p data-i18n="contact.faq.a2">
-                            Yes, phone support is available during business hours at 
-                            our headquarters.
+                
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject"><i class="fas fa-tag"></i> Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Message</label>
+                    <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            
+            <div class="ad-link">
+                <a href="ads.html">
+                    <i class="fas fa-ad"></i> Interested in Advertising? Click Here
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if(name && email && message) {
+                // In a real application, you would send this data to a server
+                alert(`Thank you, ${name}! Your message has been sent. We'll contact you at ${email} soon.`);
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    </script>
+</body>
+</html>
