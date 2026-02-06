@@ -1,0 +1,670 @@
+<div class="media-page">
+    <!-- Hero Section -->
+    <section class="page-hero media-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="media.hero.title">
+                    Media & Press Resources
+                </h1>
+                <p class="hero-description" data-i18n="media.hero.description">
+                    Access press releases, media kits, brand assets, and contact information 
+                    for journalists and media professionals.
+                </p>
+                <div class="hero-actions">
+                    <a href="#press-releases" class="btn btn-primary" data-i18n="media.hero.press_releases">
+                        View Press Releases
+                    </a>
+                    <a href="#media-kit" class="btn btn-outline" data-i18n="media.hero.media_kit">
+                        Download Media Kit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="media-quick-links">
+        <div class="container">
+            <div class="links-grid">
+                <a href="#press-releases" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 data-i18n="media.links.press">Press Releases</h3>
+                    <p data-i18n="media.links.press_desc">
+                        Latest news and announcements
+                    </p>
+                </a>
+
+                <a href="#media-kit" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 data-i18n="media.links.media_kit">Media Kit</h3>
+                    <p data-i18n="media.links.media_kit_desc">
+                        Logos, photos, and brand assets
+                    </p>
+                </a>
+
+                <a href="#press-contacts" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <h3 data-i18n="media.links.contacts">Press Contacts</h3>
+                    <p data-i18n="media.links.contacts_desc">
+                        Media relations team
+                    </p>
+                </a>
+
+                <a href="#in-the-news" class="link-card">
+                    <div class="link-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3 data-i18n="media.links.news">In the News</h3>
+                    <p data-i18n="media.links.news_desc">
+                        Media coverage and features
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Releases -->
+    <section class="press-releases" id="press-releases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="media.press.title">Press Releases</h2>
+                <div class="section-actions">
+                    <button class="btn btn-outline" id="subscribe-press">
+                        <i class="fas fa-rss"></i>
+                        <span data-i18n="media.press.subscribe">Subscribe</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="press-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-category="all" data-i18n="media.categories.all">
+                        All Releases
+                    </button>
+                    <button class="filter-tab" data-category="announcements" data-i18n="media.categories.announcements">
+                        Announcements
+                    </button>
+                    <button class="filter-tab" data-category="partnerships" data-i18n="media.categories.partnerships">
+                        Partnerships
+                    </button>
+                    <button class="filter-tab" data-category="awards" data-i18n="media.categories.awards">
+                        Awards
+                    </button>
+                    <button class="filter-tab" data-category="events" data-i18n="media.categories.events">
+                        Events
+                    </button>
+                </div>
+            </div>
+
+            <!-- Releases Grid -->
+            <div class="releases-grid" id="releases-grid">
+                <!-- Press releases will be loaded dynamically -->
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more">
+                <button class="btn btn-outline" id="load-more-releases">
+                    <span data-i18n="media.press.load_more">Load More Releases</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Kit -->
+    <section class="media-kit" id="media-kit">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="media.kit.title">Media Kit</h2>
+                <button class="btn btn-primary" id="download-all-kit">
+                    <i class="fas fa-download"></i>
+                    <span data-i18n="media.kit.download_all">Download All Assets</span>
+                </button>
+            </div>
+
+            <!-- Brand Assets -->
+            <div class="brand-assets">
+                <h3 data-i18n="media.kit.brand_assets">Brand Assets</h3>
+                
+                <div class="assets-grid">
+                    <!-- Logos -->
+                    <div class="asset-category">
+                        <h4 data-i18n="media.kit.logos">Logos</h4>
+                        <div class="asset-items">
+                            <div class="asset-item">
+                                <div class="asset-preview">
+                                    <img src="/assets/images/logos/logo-main.svg" alt="Main Logo">
+                                </div>
+                                <div class="asset-info">
+                                    <h5 data-i18n="media.kit.logo_main">Main Logo</h5>
+                                    <div class="asset-formats">
+                                        <span>SVG</span>
+                                        <span>PNG</span>
+                                        <span>EPS</span>
+                                    </div>
+                                    <div class="asset-actions">
+                                        <button class="btn-download" data-asset="logo-main">
+                                            <i class="fas fa-download"></i>
+                                            <span data-i18n="media.kit.download">Download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="asset-item">
+                                <div class="asset-preview dark">
+                                    <img src="/assets/images/logos/logo-white.svg" alt="White Logo">
+                                </div>
+                                <div class="asset-info">
+                                    <h5 data-i18n="media.kit.logo_white">White Logo</h5>
+                                    <div class="asset-formats">
+                                        <span>SVG</span>
+                                        <span>PNG</span>
+                                    </div>
+                                    <div class="asset-actions">
+                                        <button class="btn-download" data-asset="logo-white">
+                                            <i class="fas fa-download"></i>
+                                            <span data-i18n="media.kit.download">Download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="asset-item">
+                                <div class="asset-preview">
+                                    <img src="/assets/images/logos/icon.svg" alt="Icon">
+                                </div>
+                                <div class="asset-info">
+                                    <h5 data-i18n="media.kit.icon">App Icon</h5>
+                                    <div class="asset-formats">
+                                        <span>SVG</span>
+                                        <span>PNG</span>
+                                    </div>
+                                    <div class="asset-actions">
+                                        <button class="btn-download" data-asset="icon">
+                                            <i class="fas fa-download"></i>
+                                            <span data-i18n="media.kit.download">Download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Colors -->
+                    <div class="asset-category">
+                        <h4 data-i18n="media.kit.colors">Brand Colors</h4>
+                        <div class="color-palette">
+                            <div class="color-item">
+                                <div class="color-sample" style="background-color: #2E3192;"></div>
+                                <div class="color-info">
+                                    <span class="color-name" data-i18n="media.kit.primary">Primary Blue</span>
+                                    <span class="color-value">#2E3192</span>
+                                    <span class="color-rgb">RGB: 46, 49, 146</span>
+                                </div>
+                            </div>
+
+                            <div class="color-item">
+                                <div class="color-sample" style="background-color: #00A651;"></div>
+                                <div class="color-info">
+                                    <span class="color-name" data-i18n="media.kit.secondary">Green</span>
+                                    <span class="color-value">#00A651</span>
+                                    <span class="color-rgb">RGB: 0, 166, 81</span>
+                                </div>
+                            </div>
+
+                            <div class="color-item">
+                                <div class="color-sample" style="background-color: #F15A24;"></div>
+                                <div class="color-info">
+                                    <span class="color-name" data-i18n="media.kit.accent">Accent Orange</span>
+                                    <span class="color-value">#F15A24</span>
+                                    <span class="color-rgb">RGB: 241, 90, 36</span>
+                                </div>
+                            </div>
+
+                            <div class="color-item">
+                                <div class="color-sample" style="background-color: #333333;"></div>
+                                <div class="color-info">
+                                    <span class="color-name" data-i18n="media.kit.dark">Dark Gray</span>
+                                    <span class="color-value">#333333</span>
+                                    <span class="color-rgb">RGB: 51, 51, 51</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typography -->
+                    <div class="asset-category">
+                        <h4 data-i18n="media.kit.typography">Typography</h4>
+                        <div class="typography-samples">
+                            <div class="font-sample">
+                                <h5 class="font-name" data-i18n="media.kit.font_primary">Inter</h5>
+                                <div class="font-weights">
+                                    <span class="font-weight light" style="font-weight: 300;">
+                                        Light 300
+                                    </span>
+                                    <span class="font-weight regular" style="font-weight: 400;">
+                                        Regular 400
+                                    </span>
+                                    <span class="font-weight medium" style="font-weight: 500;">
+                                        Medium 500
+                                    </span>
+                                    <span class="font-weight semibold" style="font-weight: 600;">
+                                        Semibold 600
+                                    </span>
+                                    <span class="font-weight bold" style="font-weight: 700;">
+                                        Bold 700
+                                    </span>
+                                </div>
+                                <a href="https://fonts.google.com/specimen/Inter" 
+                                   class="btn btn-text" 
+                                   target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span data-i18n="media.kit.download_font">Download Font</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photos & Videos -->
+            <div class="media-assets">
+                <h3 data-i18n="media.kit.photos_videos">Photos & Videos</h3>
+                
+                <div class="media-grid">
+                    <div class="media-category">
+                        <h4 data-i18n="media.kit.photos">High-Resolution Photos</h4>
+                        <div class="photos-grid">
+                            <div class="photo-item">
+                                <img src="/assets/images/media/team-photo.jpg" alt="Team Photo">
+                                <div class="photo-info">
+                                    <span data-i18n="media.kit.photo_team">Team Photo</span>
+                                    <button class="btn-download" data-asset="team-photo">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="photo-item">
+                                <img src="/assets/images/media/event-photo.jpg" alt="Event Photo">
+                                <div class="photo-info">
+                                    <span data-i18n="media.kit.photo_event">Community Event</span>
+                                    <button class="btn-download" data-asset="event-photo">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="photo-item">
+                                <img src="/assets/images/media/project-photo.jpg" alt="Project Photo">
+                                <div class="photo-info">
+                                    <span data-i18n="media.kit.photo_project">Project Implementation</span>
+                                    <button class="btn-download" data-asset="project-photo">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="photo-item">
+                                <img src="/assets/images/media/office-photo.jpg" alt="Office Photo">
+                                <div class="photo-info">
+                                    <span data-i18n="media.kit.photo_office">Office Space</span>
+                                    <button class="btn-download" data-asset="office-photo">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-category">
+                        <h4 data-i18n="media.kit.videos">Videos & B-Roll</h4>
+                        <div class="videos-grid">
+                            <div class="video-item">
+                                <div class="video-preview">
+                                    <img src="/assets/images/media/video-preview1.jpg" alt="Video Preview">
+                                    <div class="play-overlay">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h5 data-i18n="media.kit.video_overview">Platform Overview</h5>
+                                    <div class="video-details">
+                                        <span>2:30</span>
+                                        <span>MP4</span>
+                                        <span>1080p</span>
+                                    </div>
+                                    <button class="btn-download" data-asset="video-overview">
+                                        <i class="fas fa-download"></i>
+                                        <span data-i18n="media.kit.download">Download</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="video-item">
+                                <div class="video-preview">
+                                    <img src="/assets/images/media/video-preview2.jpg" alt="Video Preview">
+                                    <div class="play-overlay">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                </div>
+                                <div class="video-info">
+                                    <h5 data-i18n="media.kit.video_impact">Impact Story</h5>
+                                    <div class="video-details">
+                                        <span>4:15</span>
+                                        <span>MP4</span>
+                                        <span>1080p</span>
+                                    </div>
+                                    <button class="btn-download" data-asset="video-impact">
+                                        <i class="fas fa-download"></i>
+                                        <span data-i18n="media.kit.download">Download</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Guidelines -->
+            <div class="brand-guidelines">
+                <h3 data-i18n="media.kit.guidelines">Brand Guidelines</h3>
+                <div class="guidelines-content">
+                    <p data-i18n="media.kit.guidelines_text">
+                        Download our comprehensive brand guidelines document for complete 
+                        information on logo usage, color palettes, typography, and brand voice.
+                    </p>
+                    <a href="/documents/brand-guidelines.pdf" class="btn btn-primary" download>
+                        <i class="fas fa-file-pdf"></i>
+                        <span data-i18n="media.kit.download_guidelines">Download Brand Guidelines (PDF)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Contacts -->
+    <section class="press-contacts" id="press-contacts">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="media.contacts.title">Press Contacts</h2>
+                <p class="section-subtitle" data-i18n="media.contacts.subtitle">
+                    For media inquiries and interview requests
+                </p>
+            </div>
+
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-avatar">
+                        <img src="/assets/images/team/media-director.jpg" alt="Media Director">
+                    </div>
+                    <div class="contact-info">
+                        <h3 data-i18n="media.contacts.director_name">Selamawit Bekele</h3>
+                        <p class="contact-title" data-i18n="media.contacts.director_title">
+                            Director of Communications
+                        </p>
+                        <div class="contact-details">
+                            <a href="mailto:press@ethiopiancommunity.org" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                press@ethiopiancommunity.org
+                            </a>
+                            <a href="tel:+1234567890" class="contact-link">
+                                <i class="fas fa-phone"></i>
+                                +1 (234) 567-890
+                            </a>
+                        </div>
+                        <p class="contact-bio" data-i18n="media.contacts.director_bio">
+                            Selamawit oversees all media relations and communication strategies. 
+                            She can arrange interviews with leadership and provide background information.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-avatar">
+                        <img src="/assets/images/team/media-manager.jpg" alt="Media Manager">
+                    </div>
+                    <div class="contact-info">
+                        <h3 data-i18n="media.contacts.manager_name">Michael Tesfaye</h3>
+                        <p class="contact-title" data-i18n="media.contacts.manager_title">
+                            Media Relations Manager
+                        </p>
+                        <div class="contact-details">
+                            <a href="mailto:media@ethiopiancommunity.org" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                                media@ethiopiancommunity.org
+                            </a>
+                            <a href="tel:+1234567891" class="contact-link">
+                                <i class="fas fa-phone"></i>
+                                +1 (234) 567-891
+                            </a>
+                        </div>
+                        <p class="contact-bio" data-i18n="media.contacts.manager_bio">
+                            Michael handles day-to-day media inquiries, press releases, 
+                            and coordinates media coverage of events and initiatives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Inquiry Form -->
+            <div class="media-inquiry-form">
+                <h3 data-i18n="media.contacts.inquiry_title">Media Inquiry Form</h3>
+                <form id="media-inquiry-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inquiry-name" data-i18n="media.contacts.form_name">
+                                Your Name *
+                            </label>
+                            <input type="text" id="inquiry-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-organization" data-i18n="media.contacts.form_organization">
+                                Media Organization *
+                            </label>
+                            <input type="text" id="inquiry-organization" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="inquiry-email" data-i18n="media.contacts.form_email">
+                                Email Address *
+                            </label>
+                            <input type="email" id="inquiry-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-phone" data-i18n="media.contacts.form_phone">
+                                Phone Number
+                            </label>
+                            <input type="tel" id="inquiry-phone">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-subject" data-i18n="media.contacts.form_subject">
+                            Subject *
+                        </label>
+                        <select id="inquiry-subject" required>
+                            <option value="" data-i18n="media.contacts.select_subject">
+                                Select Subject
+                            </option>
+                            <option value="interview" data-i18n="media.contacts.subject_interview">
+                                Interview Request
+                            </option>
+                            <option value="press-release" data-i18n="media.contacts.subject_press">
+                                Press Release Inquiry
+                            </option>
+                            <option value="fact-check" data-i18n="media.contacts.subject_fact">
+                                Fact Checking
+                            </option>
+                            <option value="background" data-i18n="media.contacts.subject_background">
+                                Background Information
+                            </option>
+                            <option value="other" data-i18n="media.contacts.subject_other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-message" data-i18n="media.contacts.form_message">
+                            Your Inquiry *
+                        </label>
+                        <textarea id="inquiry-message" rows="5" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry-deadline" data-i18n="media.contacts.form_deadline">
+                            Deadline (if applicable)
+                        </label>
+                        <input type="date" id="inquiry-deadline">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span data-i18n="media.contacts.form_submit">Submit Inquiry</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- In the News -->
+    <section class="in-the-news" id="in-the-news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="media.news.title">In the News</h2>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-logo">
+                        <img src="/assets/images/media/bbc-logo.png" alt="BBC">
+                    </div>
+                    <div class="news-content">
+                        <h3 data-i18n="media.news.bbc_title">
+                            Ethiopian Diaspora Platform Connects Global Community
+                        </h3>
+                        <p class="news-excerpt" data-i18n="media.news.bbc_excerpt">
+                            A new digital platform is revolutionizing how the Ethiopian 
+                            diaspora stays connected and supports development back home.
+                        </p>
+                        <div class="news-meta">
+                            <span class="news-date">November 15, 2024</span>
+                            <a href="#" class="news-link" target="_blank" data-i18n="media.news.read_more">
+                                Read Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-logo">
+                        <img src="/assets/images/media/cnn-logo.png" alt="CNN">
+                    </div>
+                    <div class="news-content">
+                        <h3 data-i18n="media.news.cnn_title">
+                            Digital Platform Creates 500+ Jobs for Ethiopian Youth
+                        </h3>
+                        <p class="news-excerpt" data-i18n="media.news.cnn_excerpt">
+                            Innovative job matching system connects employers with 
+                            skilled young professionals across Ethiopia.
+                        </p>
+                        <div class="news-meta">
+                            <span class="news-date">October 28, 2024</span>
+                            <a href="#" class="news-link" target="_blank" data-i18n="media.news.read_more">
+                                Read Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-logo">
+                        <img src="/assets/images/media/aljazeera-logo.png" alt="Al Jazeera">
+                    </div>
+                    <div class="news-content">
+                        <h3 data-i18n="media.news.aljazeera_title">
+                            Preserving Culture Through Technology
+                        </h3>
+                        <p class="news-excerpt" data-i18n="media.news.aljazeera_excerpt">
+                            How digital platforms are helping preserve Ethiopian languages 
+                            and traditions for future generations.
+                        </p>
+                        <div class="news-meta">
+                            <span class="news-date">September 10, 2024</span>
+                            <a href="#" class="news-link" target="_blank" data-i18n="media.news.read_more">
+                                Read Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Release Modal -->
+    <div class="modal" id="press-release-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="release-meta">
+                    <span class="release-date" id="modal-release-date">December 15, 2024</span>
+                    <span class="release-category" id="modal-release-category">Announcement</span>
+                </div>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h2 id="modal-release-title">Press Release Title</h2>
+                <div class="release-content" id="modal-release-content">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+                <div class="release-attachments" id="modal-release-attachments">
+                    <!-- Attachments will be loaded dynamically -->
+                </div>
+                <div class="release-actions">
+                    <button class="btn btn-outline" id="print-release">
+                        <i class="fas fa-print"></i>
+                        <span data-i18n="media.press.print">Print</span>
+                    </button>
+                    <button class="btn btn-outline" id="share-release">
+                        <i class="fas fa-share-alt"></i>
+                        <span data-i18n="media.press.share">Share</span>
+                    </button>
+                    <button class="btn btn-primary" id="download-release">
+                        <i class="fas fa-download"></i>
+                        <span data-i18n="media.press.download_pdf">Download PDF</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Press Release Card Template -->
+<template id="press-release-template">
+    <div class="release-card" data-release-id="" data-category="">
+        <div class="release-header">
+            <span class="release-date"></span>
+            <span class="release-category"></span>
+        </div>
+        <div class="release-content">
+            <h3 class="release-title"></h3>
+            <p class="release-excerpt"></p>
+        </div>
+        <div class="release-footer">
+            <button class="btn btn-text btn-read-more" data-i18n="media.press.read_more">
+                Read More
+            </button>
+        </div>
+    </div>
+</template>
