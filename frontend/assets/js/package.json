@@ -1,0 +1,14 @@
+{
+  "name": "website-modules",
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:modules",
+    "build:modules": "rollup -c"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.0.0"
+  }
+}
