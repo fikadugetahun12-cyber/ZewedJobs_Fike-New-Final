@@ -1,0 +1,681 @@
+<div class="post-job-page">
+    <!-- Progress Bar -->
+    <div class="post-progress">
+        <div class="container">
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <span data-i18n="post_job.steps.details">Job Details</span>
+                </div>
+                <div class="step" data-step="2">
+                    <div class="step-number">2</div>
+                    <span data-i18n="post_job.steps.requirements">Requirements</span>
+                </div>
+                <div class="step" data-step="3">
+                    <div class="step-number">3</div>
+                    <span data-i18n="post_job.steps.description">Description</span>
+                </div>
+                <div class="step" data-step="4">
+                    <div class="step-number">4</div>
+                    <span data-i18n="post_job.steps.preview">Preview & Post</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="post-job-container">
+            <!-- Left: Form -->
+            <div class="post-job-form">
+                <form id="job-post-form">
+                    <!-- Step 1: Job Details -->
+                    <div class="form-step active" data-step="1">
+                        <h2 class="step-title" data-i18n="post_job.step1.title">Job Details</h2>
+                        
+                        <div class="form-group">
+                            <label for="job-title-input" data-i18n="post_job.form.job_title">
+                                Job Title *
+                            </label>
+                            <input type="text" 
+                                   id="job-title-input" 
+                                   placeholder="e.g., Senior Software Engineer" 
+                                   data-i18n-placeholder="post_job.form.job_title_placeholder"
+                                   required>
+                            <div class="hint" data-i18n="post_job.form.job_title_hint">
+                                Be specific and use common job titles
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="job-type-select" data-i18n="post_job.form.job_type">
+                                    Job Type *
+                                </label>
+                                <select id="job-type-select" required>
+                                    <option value="" data-i18n="post_job.form.select_job_type">
+                                        Select job type
+                                    </option>
+                                    <option value="full-time" data-i18n="jobs.types.full_time">Full-time</option>
+                                    <option value="part-time" data-i18n="jobs.types.part_time">Part-time</option>
+                                    <option value="contract" data-i18n="jobs.types.contract">Contract</option>
+                                    <option value="internship" data-i18n="jobs.types.internship">Internship</option>
+                                    <option value="temporary" data-i18n="jobs.types.temporary">Temporary</option>
+                                    <option value="volunteer" data-i18n="jobs.types.volunteer">Volunteer</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="job-category-select" data-i18n="post_job.form.category">
+                                    Category *
+                                </label>
+                                <select id="job-category-select" required>
+                                    <option value="" data-i18n="post_job.form.select_category">
+                                        Select category
+                                    </option>
+                                    <option value="technology" data-i18n="jobs.categories.technology">Technology</option>
+                                    <option value="healthcare" data-i18n="jobs.categories.healthcare">Healthcare</option>
+                                    <option value="education" data-i18n="jobs.categories.education">Education</option>
+                                    <option value="business" data-i18n="jobs.categories.business">Business</option>
+                                    <option value="engineering" data-i18n="jobs.categories.engineering">Engineering</option>
+                                    <option value="marketing" data-i18n="jobs.categories.marketing">Marketing</option>
+                                    <option value="finance" data-i18n="jobs.categories.finance">Finance</option>
+                                    <option value="creative" data-i18n="jobs.categories.creative">Creative</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="post_job.form.location">Location</label>
+                            <div class="location-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="location-type" value="onsite" checked>
+                                    <span data-i18n="post_job.form.location_onsite">On-site</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="location-type" value="remote">
+                                    <span data-i18n="post_job.form.location_remote">Remote</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="location-type" value="hybrid">
+                                    <span data-i18n="post_job.form.location_hybrid">Hybrid</span>
+                                </label>
+                            </div>
+                            
+                            <div class="location-details" id="location-details">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="job-country" data-i18n="post_job.form.country">
+                                            Country
+                                        </label>
+                                        <select id="job-country">
+                                            <option value="ethiopia" data-i18n="countries.ethiopia">Ethiopia</option>
+                                            <option value="usa" data-i18n="countries.usa">United States</option>
+                                            <option value="uk" data-i18n="countries.uk">United Kingdom</option>
+                                            <option value="canada" data-i18n="countries.canada">Canada</option>
+                                            <option value="uae" data-i18n="countries.uae">UAE</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="job-city" data-i18n="post_job.form.city">
+                                            City
+                                        </label>
+                                        <input type="text" 
+                                               id="job-city" 
+                                               placeholder="e.g., Addis Ababa"
+                                               data-i18n-placeholder="post_job.form.city_placeholder">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="salary-min" data-i18n="post_job.form.salary_min">
+                                    Minimum Salary
+                                </label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="salary-min" min="0" step="1000">
+                                    <select id="salary-currency">
+                                        <option value="ETB" data-i18n="currency.etb">ETB</option>
+                                        <option value="USD" data-i18n="currency.usd">USD</option>
+                                        <option value="EUR" data-i18n="currency.eur">EUR</option>
+                                        <option value="GBP" data-i18n="currency.gbp">GBP</option>
+                                    </select>
+                                    <select id="salary-period">
+                                        <option value="month" data-i18n="salary.period.month">per month</option>
+                                        <option value="year" data-i18n="salary.period.year">per year</option>
+                                        <option value="hour" data-i18n="salary.period.hour">per hour</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="salary-max" data-i18n="post_job.form.salary_max">
+                                    Maximum Salary
+                                </label>
+                                <div class="input-with-unit">
+                                    <input type="number" id="salary-max" min="0" step="1000">
+                                    <span class="unit-text" id="salary-unit">ETB/month</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="application-deadline" data-i18n="post_job.form.deadline">
+                                Application Deadline
+                            </label>
+                            <input type="date" id="application-deadline" min="">
+                            <div class="hint" data-i18n="post_job.form.deadline_hint">
+                                Leave empty to accept applications indefinitely
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" data-next-step="2">
+                                <span data-i18n="buttons.next">Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Requirements -->
+                    <div class="form-step" data-step="2">
+                        <h2 class="step-title" data-i18n="post_job.step2.title">Requirements</h2>
+                        
+                        <div class="form-group">
+                            <label for="experience-min" data-i18n="post_job.form.experience">
+                                Experience Required
+                            </label>
+                            <select id="experience-min">
+                                <option value="0" data-i18n="post_job.form.experience_none">No experience</option>
+                                <option value="1" data-i18n="post_job.form.experience_1">1+ years</option>
+                                <option value="2" data-i18n="post_job.form.experience_2">2+ years</option>
+                                <option value="3" data-i18n="post_job.form.experience_3">3+ years</option>
+                                <option value="5" data-i18n="post_job.form.experience_5">5+ years</option>
+                                <option value="7" data-i18n="post_job.form.experience_7">7+ years</option>
+                                <option value="10" data-i18n="post_job.form.experience_10">10+ years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="education-level" data-i18n="post_job.form.education">
+                                Education Level
+                            </label>
+                            <select id="education-level">
+                                <option value="any" data-i18n="post_job.form.education_any">Any</option>
+                                <option value="high-school" data-i18n="post_job.form.education_high_school">
+                                    High School
+                                </option>
+                                <option value="diploma" data-i18n="post_job.form.education_diploma">
+                                    Diploma
+                                </option>
+                                <option value="bachelors" data-i18n="post_job.form.education_bachelors">
+                                    Bachelor's Degree
+                                </option>
+                                <option value="masters" data-i18n="post_job.form.education_masters">
+                                    Master's Degree
+                                </option>
+                                <option value="phd" data-i18n="post_job.form.education_phd">PhD</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="post_job.form.skills">Required Skills</label>
+                            <div class="skills-input">
+                                <div class="skills-tags" id="skills-tags-container">
+                                    <!-- Skills will be added here -->
+                                </div>
+                                <div class="skills-input-wrapper">
+                                    <input type="text" 
+                                           id="skills-input" 
+                                           placeholder="Type a skill and press Enter"
+                                           data-i18n-placeholder="post_job.form.skills_placeholder">
+                                    <div class="skills-suggestions" id="skills-suggestions">
+                                        <div class="suggestion" data-skill="JavaScript">JavaScript</div>
+                                        <div class="suggestion" data-skill="React">React</div>
+                                        <div class="suggestion" data-skill="Node.js">Node.js</div>
+                                        <div class="suggestion" data-skill="Python">Python</div>
+                                        <div class="suggestion" data-skill="Communication">Communication</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="post_job.form.languages">Language Requirements</label>
+                            <div class="language-requirements">
+                                <div class="language-row">
+                                    <select class="language-select">
+                                        <option value="english" data-i18n="languages.english">English</option>
+                                        <option value="amharic" data-i18n="languages.amharic">Amharic</option>
+                                        <option value="oromo" data-i18n="languages.oromo">Oromo</option>
+                                        <option value="tigrinya" data-i18n="languages.tigrinya">Tigrinya</option>
+                                    </select>
+                                    <select class="proficiency-select">
+                                        <option value="basic" data-i18n="languages.proficiency.basic">Basic</option>
+                                        <option value="intermediate" data-i18n="languages.proficiency.intermediate">
+                                            Intermediate
+                                        </option>
+                                        <option value="fluent" data-i18n="languages.proficiency.fluent">Fluent</option>
+                                        <option value="native" data-i18n="languages.proficiency.native">Native</option>
+                                    </select>
+                                    <button type="button" class="btn-remove-language" aria-label="Remove language">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-add-language" id="add-language-btn">
+                                <i class="fas fa-plus"></i>
+                                <span data-i18n="post_job.form.add_language">Add Language</span>
+                            </button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label data-i18n="post_job.form.certifications">Certifications (Optional)</label>
+                            <textarea id="certifications-text" 
+                                      rows="3"
+                                      placeholder="List any required certifications"
+                                      data-i18n-placeholder="post_job.form.certifications_placeholder"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" data-prev-step="1">
+                                <i class="fas fa-arrow-left"></i>
+                                <span data-i18n="buttons.previous">Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-next-step="3">
+                                <span data-i18n="buttons.next">Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Description -->
+                    <div class="form-step" data-step="3">
+                        <h2 class="step-title" data-i18n="post_job.step3.title">Job Description</h2>
+                        
+                        <div class="form-group">
+                            <label for="job-overview" data-i18n="post_job.form.overview">
+                                Job Overview *
+                            </label>
+                            <textarea id="job-overview" 
+                                      rows="4"
+                                      placeholder="Briefly describe the role and its importance"
+                                      data-i18n-placeholder="post_job.form.overview_placeholder"
+                                      required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="responsibilities" data-i18n="post_job.form.responsibilities">
+                                Responsibilities *
+                            </label>
+                            <div class="rich-text-editor" id="responsibilities-editor">
+                                <!-- Rich text editor will be initialized here -->
+                            </div>
+                            <div class="hint" data-i18n="post_job.form.responsibilities_hint">
+                                Use bullet points for clarity
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="benefits" data-i18n="post_job.form.benefits">
+                                Benefits & Perks
+                            </label>
+                            <div class="benefits-checklist">
+                                <div class="benefits-grid">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="health-insurance">
+                                        <span data-i18n="post_job.benefits.health_insurance">Health Insurance</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="remote-work">
+                                        <span data-i18n="post_job.benefits.remote_work">Remote Work</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="training">
+                                        <span data-i18n="post_job.benefits.training">Training & Development</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="flexible-hours">
+                                        <span data-i18n="post_job.benefits.flexible_hours">Flexible Hours</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="bonus">
+                                        <span data-i18n="post_job.benefits.bonus">Performance Bonus</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="paid-time-off">
+                                        <span data-i18n="post_job.benefits.paid_time_off">Paid Time Off</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="retirement">
+                                        <span data-i18n="post_job.benefits.retirement">Retirement Plan</span>
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="benefits" value="stock-options">
+                                        <span data-i18n="post_job.benefits.stock_options">Stock Options</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company-description-input" data-i18n="post_job.form.company_description">
+                                About Your Company
+                            </label>
+                            <textarea id="company-description-input" 
+                                      rows="3"
+                                      placeholder="Tell candidates about your company culture and values"
+                                      data-i18n-placeholder="post_job.form.company_description_placeholder"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="application-instructions" data-i18n="post_job.form.application_instructions">
+                                Application Instructions
+                            </label>
+                            <textarea id="application-instructions" 
+                                      rows="3"
+                                      placeholder="How should candidates apply? Any specific requirements?"
+                                      data-i18n-placeholder="post_job.form.application_instructions_placeholder"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" data-prev-step="2">
+                                <i class="fas fa-arrow-left"></i>
+                                <span data-i18n="buttons.previous">Previous</span>
+                            </button>
+                            <button type="button" class="btn btn-primary" data-next-step="4">
+                                <span data-i18n="buttons.next">Next</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Preview & Post -->
+                    <div class="form-step" data-step="4">
+                        <h2 class="step-title" data-i18n="post_job.step4.title">Preview & Post</h2>
+                        
+                        <div class="preview-container">
+                            <div class="preview-card">
+                                <div class="preview-header">
+                                    <h3 id="preview-job-title">Senior Software Engineer</h3>
+                                    <div class="preview-company" id="preview-company">Your Company Name</div>
+                                    <div class="preview-meta">
+                                        <span id="preview-location">Addis Ababa, Ethiopia</span>
+                                        <span id="preview-type">Full-time</span>
+                                        <span id="preview-salary">ETB 80,000 - 120,000/month</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="preview-section">
+                                    <h4 data-i18n="post_job.preview.overview">Overview</h4>
+                                    <p id="preview-overview">Job overview will appear here...</p>
+                                </div>
+                                
+                                <div class="preview-section">
+                                    <h4 data-i18n="post_job.preview.requirements">Requirements</h4>
+                                    <div class="preview-tags" id="preview-skills">
+                                        <!-- Skills will appear here -->
+                                    </div>
+                                    <div class="preview-details">
+                                        <div class="detail-item">
+                                            <span data-i18n="post_job.preview.experience">Experience:</span>
+                                            <span id="preview-experience">3+ years</span>
+                                        </div>
+                                        <div class="detail-item">
+                                            <span data-i18n="post_job.preview.education">Education:</span>
+                                            <span id="preview-education">Bachelor's Degree</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="preview-section">
+                                    <h4 data-i18n="post_job.preview.benefits">Benefits</h4>
+                                    <div class="preview-benefits" id="preview-benefits">
+                                        <!-- Benefits will appear here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="job-visibility" data-i18n="post_job.form.visibility">
+                                Job Visibility
+                            </label>
+                            <div class="visibility-options">
+                                <label class="radio-option">
+                                    <input type="radio" name="visibility" value="public" checked>
+                                    <div>
+                                        <h4 data-i18n="post_job.visibility.public">Public</h4>
+                                        <p data-i18n="post_job.visibility.public_desc">
+                                            Visible to all job seekers
+                                        </p>
+                                    </div>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="visibility" value="community">
+                                    <div>
+                                        <h4 data-i18n="post_job.visibility.community">Community Only</h4>
+                                        <p data-i18n="post_job.visibility.community_desc">
+                                            Only visible to registered community members
+                                        </p>
+                                    </div>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="visibility" value="private">
+                                    <div>
+                                        <h4 data-i18n="post_job.visibility.private">Private</h4>
+                                        <p data-i18n="post_job.visibility.private_desc">
+                                            Only visible via direct link
+                                        </p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="promotion-options" data-i18n="post_job.form.promotion">
+                                Promotion Options
+                            </label>
+                            <div class="promotion-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="featured-job">
+                                    <div>
+                                        <h4 data-i18n="post_job.promotion.featured">Featured Job</h4>
+                                        <p data-i18n="post_job.promotion.featured_desc">
+                                            Highlight your job at the top of search results
+                                            <span class="price">$49.99</span>
+                                        </p>
+                                    </div>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="urgent-hiring">
+                                    <div>
+                                        <h4 data-i18n="post_job.promotion.urgent">Urgent Hiring</h4>
+                                        <p data-i18n="post_job.promotion.urgent_desc">
+                                            Mark as urgent to attract more applicants
+                                            <span class="price">$29.99</span>
+                                        </p>
+                                    </div>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" id="social-promotion">
+                                    <div>
+                                        <h4 data-i18n="post_job.promotion.social">Social Media Promotion</h4>
+                                        <p data-i18n="post_job.promotion.social_desc">
+                                            Share on our social media channels
+                                            <span class="price">$19.99</span>
+                                        </p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" data-prev-step="3">
+                                <i class="fas fa-arrow-left"></i>
+                                <span data-i18n="buttons.previous">Previous</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="post-job-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span data-i18n="post_job.form.post_job">Post Job</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Right: Help & Tips -->
+            <aside class="post-job-sidebar">
+                <!-- Pricing Info -->
+                <div class="sidebar-card pricing-card">
+                    <h3 data-i18n="post_job.pricing.title">Pricing</h3>
+                    <div class="pricing-info">
+                        <div class="price-item">
+                            <span data-i18n="post_job.pricing.basic">Basic Posting</span>
+                            <span class="price free" data-i18n="post_job.pricing.free">Free</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-i18n="post_job.pricing.featured">Featured Job</span>
+                            <span class="price">$49.99</span>
+                        </div>
+                        <div class="price-item">
+                            <span data-i18n="post_job.pricing.urgent">Urgent Hiring</span>
+                            <span class="price">$29.99</span>
+                        </div>
+                        <div class="price-item total">
+                            <span data-i18n="post_job.pricing.total">Total</span>
+                            <span class="price" id="total-price">$0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tips -->
+                <div class="sidebar-card tips-card">
+                    <h3 data-i18n="post_job.tips.title">Tips for a Great Job Post</h3>
+                    <ul class="tips-list">
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <span data-i18n="post_job.tips.clear_title">Use a clear, specific job title</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <span data-i18n="post_job.tips.detailed_description">
+                                Include detailed job responsibilities
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <span data-i18n="post_job.tips.salary_range">
+                                Provide a competitive salary range
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <span data-i18n="post_job.tips.company_culture">
+                                Describe your company culture
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <span data-i18n="post_job.tips.application_process">
+                                Explain the application process
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Preview Stats -->
+                <div class="sidebar-card stats-card">
+                    <h3 data-i18n="post_job.stats.title">What You Get</h3>
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <div>
+                                <span class="stat-number">10,000+</span>
+                                <span data-i18n="post_job.stats.views">Monthly Views</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <span class="stat-number">50,000+</span>
+                                <span data-i18n="post_job.stats.members">Active Members</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div>
+                                <span class="stat-number">85%</span>
+                                <span data-i18n="post_job.stats.success">Success Rate</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="stat-number">24/7</span>
+                                <span data-i18n="post_job.stats.support">Support</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Need Help? -->
+                <div class="sidebar-card help-card">
+                    <h3 data-i18n="post_job.help.title">Need Help?</h3>
+                    <p data-i18n="post_job.help.description">
+                        Our team is here to help you create the perfect job posting.
+                    </p>
+                    <div class="help-actions">
+                        <button class="btn btn-outline" id="contact-support-btn">
+                            <i class="fas fa-headset"></i>
+                            <span data-i18n="post_job.help.contact">Contact Support</span>
+                        </button>
+                        <button class="btn btn-text" id="view-examples-btn">
+                            <i class="fas fa-file-alt"></i>
+                            <span data-i18n="post_job.help.examples">View Examples</span>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal success-modal" id="success-modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2 data-i18n="post_job.success.title">Job Posted Successfully!</h2>
+                <p data-i18n="post_job.success.description">
+                    Your job has been posted and is now visible to job seekers.
+                </p>
+                <div class="success-actions">
+                    <a href="/pages/job-details.html?id=123" class="btn btn-primary">
+                        <i class="fas fa-eye"></i>
+                        <span data-i18n="post_job.success.view">View Job</span>
+                    </a>
+                    <a href="/pages/jobs.html" class="btn btn-outline">
+                        <i class="fas fa-briefcase"></i>
+                        <span data-i18n="post_job.success.browse">Browse Jobs</span>
+                    </a>
+                    <button class="btn btn-text" id="post-another-btn">
+                        <i class="fas fa-plus"></i>
+                        <span data-i18n="post_job.success.another">Post Another</span>
+                    </button>
+                </div>
+                <div class="success-tips">
+                    <h4 data-i18n="post_job.success.tips_title">Next Steps:</h4>
+                    <ul>
+                        <li data-i18n="post_job.success.tip1">Share your job on social media</li>
+                        <li data-i18n="post_job.success.tip2">Review incoming applications</li>
+                        <li data-i18n="post_job.success.tip3">Consider upgrading to featured</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
