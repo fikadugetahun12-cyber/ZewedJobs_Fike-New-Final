@@ -1,0 +1,31 @@
+// Import specific utilities
+import { api } from './utils/api.js';
+import { auth } from './utils/auth.js';
+import { i18n } from './utils/i18n.js';
+import { $, formatDate, showToast } from './utils/helpers.js';
+
+// Or import everything
+import utils from './utils/helpers.js';
+
+// Example usage
+async function loadData() {
+    try {
+        const data = await api.get('/users');
+        console.log(data);
+    } catch (error) {
+        showToast('Failed to load data', 'error');
+    }
+}
+
+// Internationalization
+const greeting = i18n.t('welcome.message', { name: 'John' });
+console.log(greeting);
+
+// Formatting
+const today = formatDate(new Date(), 'YYYY-MM-DD');
+console.log(today);
+
+// Authentication
+if (auth.hasPermission('edit_post')) {
+    // Allow editing
+}
