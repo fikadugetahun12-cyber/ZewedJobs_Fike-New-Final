@@ -1,0 +1,229 @@
+<div class="events-page">
+    <!-- Hero Section -->
+    <section class="page-hero events-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="events.hero.title">
+                    Connect with the Ethiopian Community
+                </h1>
+                <p class="hero-description" data-i18n="events.hero.description">
+                    Discover networking events, workshops, cultural celebrations, and professional gatherings.
+                </p>
+                
+                <!-- Event Stats -->
+                <div class="event-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="upcoming-events">245</span>
+                        <span data-i18n="events.stats.upcoming">Upcoming Events</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="total-attendees">10,245</span>
+                        <span data-i18n="events.stats.attendees">Community Members</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="cities">15</span>
+                        <span data-i18n="events.stats.cities">Cities Worldwide</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upcoming Events -->
+    <section class="upcoming-events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="events.upcoming.title">Upcoming Events</h2>
+                <div class="view-options">
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="calendar">
+                            <i class="fas fa-calendar-alt"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    <a href="/events/create.html" class="btn btn-primary" data-i18n="events.create">
+                        <i class="fas fa-plus"></i>
+                        Create Event
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Events Filter -->
+            <div class="events-filter">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all" data-i18n="events.filters.all">
+                        All Events
+                    </button>
+                    <button class="filter-tab" data-filter="today" data-i18n="events.filters.today">
+                        Today
+                    </button>
+                    <button class="filter-tab" data-filter="week" data-i18n="events.filters.week">
+                        This Week
+                    </button>
+                    <button class="filter-tab" data-filter="month" data-i18n="events.filters.month">
+                        This Month
+                    </button>
+                    <button class="filter-tab" data-filter="online" data-i18n="events.filters.online">
+                        Online
+                    </button>
+                    <button class="filter-tab" data-filter="free" data-i18n="events.filters.free">
+                        Free
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Events Grid -->
+            <div class="events-grid" id="events-grid">
+                <!-- Events will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Event Categories -->
+    <section class="event-categories">
+        <div class="container">
+            <h2 class="section-title" data-i18n="events.categories.title">Browse by Category</h2>
+            <div class="categories-grid">
+                <a href="/events/category/networking.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 data-i18n="events.categories.networking">Networking</h3>
+                    <p data-i18n="events.categories.networking_desc">
+                        Connect with professionals
+                    </p>
+                </a>
+                
+                <a href="/events/category/workshop.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 data-i18n="events.categories.workshop">Workshops</h3>
+                    <p data-i18n="events.categories.workshop_desc">
+                        Skill-building sessions
+                    </p>
+                </a>
+                
+                <a href="/events/category/cultural.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 data-i18n="events.categories.cultural">Cultural</h3>
+                    <p data-i18n="events.categories.cultural_desc">
+                        Celebrations and traditions
+                    </p>
+                </a>
+                
+                <a href="/events/category/conference.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-i18n="events.categories.conference">Conferences</h3>
+                    <p data-i18n="events.categories.conference_desc">
+                        Industry gatherings
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Calendar View (Hidden by default) -->
+    <section class="calendar-view" id="calendar-view" style="display: none;">
+        <div class="container">
+            <div class="calendar-header">
+                <button class="calendar-nav" id="prev-month">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <h2 id="current-month">December 2024</h2>
+                <button class="calendar-nav" id="next-month">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="calendar" id="calendar">
+                <!-- Calendar will be generated here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Past Events -->
+    <section class="past-events">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="events.past.title">Past Events</h2>
+                <a href="/events/archive.html" class="view-all" data-i18n="events.past.view_all">
+                    View Archive <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="past-events-slider">
+                <!-- Past events slider will be here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="events-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="events.cta.title">Host Your Own Event</h2>
+                <p data-i18n="events.cta.description">
+                    Reach thousands of community members by hosting your event on our platform.
+                </p>
+                <a href="/events/create.html" class="btn btn-primary" data-i18n="events.cta.host">
+                    Host an Event
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Event Card Template -->
+<template id="event-card-template">
+    <div class="event-card" data-event-id="">
+        <div class="event-image">
+            <img src="" alt="Event image">
+            <div class="event-date">
+                <span class="date-day"></span>
+                <span class="date-month"></span>
+            </div>
+            <div class="event-badge" data-badge-type=""></div>
+        </div>
+        <div class="event-content">
+            <div class="event-header">
+                <h3 class="event-title"></h3>
+                <div class="event-organizer">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="organizer-name"></span>
+                </div>
+            </div>
+            <p class="event-description"></p>
+            <div class="event-meta">
+                <span class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="event-time"></span>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="event-location"></span>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-users"></i>
+                    <span class="event-attendees"></span>
+                </span>
+            </div>
+            <div class="event-footer">
+                <div class="event-price">
+                    <span class="price-text"></span>
+                </div>
+                <button class="btn btn-primary btn-rsvp" data-i18n="events.card.rsvp">
+                    RSVP
+                </button>
+            </div>
+        </div>
+    </div>
+</template>
