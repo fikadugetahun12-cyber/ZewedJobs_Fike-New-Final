@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "i18n:validate": "node i18n/build.js validate",
+    "i18n:report": "node i18n/build.js report",
+    "i18n:build": "node i18n/build.js build",
+    "i18n:watch": "nodemon --watch i18n/*.json --exec npm run i18n:validate"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}
