@@ -1,0 +1,614 @@
+<div class="pricing-page">
+    <!-- Hero Section -->
+    <section class="page-hero pricing-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="pricing.hero.title">
+                    Simple, Transparent Pricing
+                </h1>
+                <p class="hero-description" data-i18n="pricing.hero.description">
+                    Choose the plan that works for you. All plans include our core features 
+                    with options to scale as your needs grow.
+                </p>
+                <div class="billing-toggle">
+                    <span data-i18n="pricing.billing.monthly">Monthly</span>
+                    <label class="switch">
+                        <input type="checkbox" id="billing-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span data-i18n="pricing.billing.annual">Annual</span>
+                    <span class="discount-badge" data-i18n="pricing.billing.save_20">Save 20%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Pricing -->
+    <section class="main-pricing">
+        <div class="container">
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 data-i18n="pricing.plans.free">Free</h3>
+                        <p class="plan-description" data-i18n="pricing.plans.free_desc">
+                            For individuals getting started
+                        </p>
+                    </div>
+                    
+                    <div class="plan-price">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount">0</span>
+                        </div>
+                        <span class="price-period" data-i18n="pricing.per_month">per month</span>
+                    </div>
+
+                    <ul class="plan-features">
+                        <li data-i18n="pricing.features.free1">
+                            <i class="fas fa-check"></i> Basic job search
+                        </li>
+                        <li data-i18n="pricing.features.free2">
+                            <i class="fas fa-check"></i> Limited course access
+                        </li>
+                        <li data-i18n="pricing.features.free3">
+                            <i class="fas fa-check"></i> Community forum access
+                        </li>
+                        <li data-i18n="pricing.features.free4">
+                            <i class="fas fa-check"></i> Basic profile
+                        </li>
+                        <li data-i18n="pricing.features.free5">
+                            <i class="fas fa-times"></i> Advanced job filters
+                        </li>
+                        <li data-i18n="pricing.features.free6">
+                            <i class="fas fa-times"></i> Certificate verification
+                        </li>
+                        <li data-i18n="pricing.features.free7">
+                            <i class="fas fa-times"></i> Priority support
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline btn-select-plan" data-plan="free" data-i18n="pricing.get_started">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="pricing-card featured">
+                    <div class="plan-badge" data-i18n="pricing.most_popular">Most Popular</div>
+                    
+                    <div class="plan-header">
+                        <h3 data-i18n="pricing.plans.professional">Professional</h3>
+                        <p class="plan-description" data-i18n="pricing.plans.professional_desc">
+                            For serious job seekers and learners
+                        </p>
+                    </div>
+                    
+                    <div class="plan-price">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount monthly">9.99</span>
+                            <span class="amount annual" style="display: none;">7.99</span>
+                        </div>
+                        <span class="price-period" data-i18n="pricing.per_month">per month</span>
+                        <span class="annual-savings" data-i18n="pricing.save_per_year">
+                            Save $24/year with annual billing
+                        </span>
+                    </div>
+
+                    <ul class="plan-features">
+                        <li data-i18n="pricing.features.pro1">
+                            <i class="fas fa-check"></i> <strong>All Free features</strong>
+                        </li>
+                        <li data-i18n="pricing.features.pro2">
+                            <i class="fas fa-check"></i> Unlimited job applications
+                        </li>
+                        <li data-i18n="pricing.features.pro3">
+                            <i class="fas fa-check"></i> Full course catalog access
+                        </li>
+                        <li data-i18n="pricing.features.pro4">
+                            <i class="fas fa-check"></i> Advanced job search filters
+                        </li>
+                        <li data-i18n="pricing.features.pro5">
+                            <i class="fas fa-check"></i> Resume builder
+                        </li>
+                        <li data-i18n="pricing.features.pro6">
+                            <i class="fas fa-check"></i> Certificate verification
+                        </li>
+                        <li data-i18n="pricing.features.pro7">
+                            <i class="fas fa-times"></i> Dedicated career coach
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-primary btn-select-plan" data-plan="professional" data-i18n="pricing.get_started">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Business Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 data-i18n="pricing.plans.business">Business</h3>
+                        <p class="plan-description" data-i18n="pricing.plans.business_desc">
+                            For employers and organizations
+                        </p>
+                    </div>
+                    
+                    <div class="plan-price">
+                        <div class="price-amount">
+                            <span class="currency">$</span>
+                            <span class="amount monthly">49.99</span>
+                            <span class="amount annual" style="display: none;">39.99</span>
+                        </div>
+                        <span class="price-period" data-i18n="pricing.per_month">per month</span>
+                        <span class="annual-savings" data-i18n="pricing.save_per_year">
+                            Save $120/year with annual billing
+                        </span>
+                    </div>
+
+                    <ul class="plan-features">
+                        <li data-i18n="pricing.features.business1">
+                            <i class="fas fa-check"></i> <strong>All Professional features</strong>
+                        </li>
+                        <li data-i18n="pricing.features.business2">
+                            <i class="fas fa-check"></i> Post unlimited jobs
+                        </li>
+                        <li data-i18n="pricing.features.business3">
+                            <i class="fas fa-check"></i> Advanced candidate search
+                        </li>
+                        <li data-i18n="pricing.features.business4">
+                            <i class="fas fa-check"></i> Company profile page
+                        </li>
+                        <li data-i18n="pricing.features.business5">
+                            <i class="fas fa-check"></i> Applicant tracking system
+                        </li>
+                        <li data-i18n="pricing.features.business6">
+                            <i class="fas fa-check"></i> Analytics dashboard
+                        </li>
+                        <li data-i18n="pricing.features.business7">
+                            <i class="fas fa-check"></i> Dedicated account manager
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline btn-select-plan" data-plan="business" data-i18n="pricing.get_started">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section class="enterprise-pricing">
+        <div class="container">
+            <div class="enterprise-card">
+                <div class="enterprise-content">
+                    <div class="enterprise-header">
+                        <h2 data-i18n="pricing.enterprise.title">Enterprise</h2>
+                        <p class="enterprise-description" data-i18n="pricing.enterprise.description">
+                            Custom solutions for large organizations, universities, and government agencies
+                        </p>
+                    </div>
+                    
+                    <div class="enterprise-features">
+                        <div class="feature-column">
+                            <h4 data-i18n="pricing.enterprise.features">Features</h4>
+                            <ul>
+                                <li data-i18n="pricing.enterprise.feature1">
+                                    <i class="fas fa-check"></i> Custom platform branding
+                                </li>
+                                <li data-i18n="pricing.enterprise.feature2">
+                                    <i class="fas fa-check"></i> API access
+                                </li>
+                                <li data-i18n="pricing.enterprise.feature3">
+                                    <i class="fas fa-check"></i> SSO integration
+                                </li>
+                                <li data-i18n="pricing.enterprise.feature4">
+                                    <i class="fas fa-check"></i> Custom reporting
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-column">
+                            <h4 data-i18n="pricing.enterprise.support">Support</h4>
+                            <ul>
+                                <li data-i18n="pricing.enterprise.support1">
+                                    <i class="fas fa-check"></i> 24/7 priority support
+                                </li>
+                                <li data-i18n="pricing.enterprise.support2">
+                                    <i class="fas fa-check"></i> Dedicated success manager
+                                </li>
+                                <li data-i18n="pricing.enterprise.support3">
+                                    <i class="fas fa-check"></i> Custom training sessions
+                                </li>
+                                <li data-i18n="pricing.enterprise.support4">
+                                    <i class="fas fa-check"></i> SLA guarantees
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="enterprise-cta">
+                        <a href="/contact.html" class="btn btn-primary" data-i18n="pricing.enterprise.contact">
+                            Contact Sales
+                        </a>
+                        <a href="/demo.html" class="btn btn-outline" data-i18n="pricing.enterprise.demo">
+                            Request Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section class="feature-comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="pricing.comparison.title">
+                    Feature Comparison
+                </h2>
+                <p class="section-subtitle" data-i18n="pricing.comparison.subtitle">
+                    Compare all plans side by side
+                </p>
+            </div>
+
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="pricing.comparison.feature">Feature</th>
+                            <th data-i18n="pricing.plans.free">Free</th>
+                            <th data-i18n="pricing.plans.professional">Professional</th>
+                            <th data-i18n="pricing.plans.business">Business</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Job Features -->
+                        <tr class="category-header">
+                            <td colspan="4" data-i18n="pricing.categories.jobs">Job Search Features</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.job_search">Job Search</td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.advanced_filters">Advanced Filters</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.job_alerts">Job Alerts</td>
+                            <td>3 alerts</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.job_applications">Job Applications</td>
+                            <td>5/month</td>
+                            <td>Unlimited</td>
+                            <td>Unlimited</td>
+                        </tr>
+
+                        <!-- Course Features -->
+                        <tr class="category-header">
+                            <td colspan="4" data-i18n="pricing.categories.courses">Course Features</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.course_access">Course Access</td>
+                            <td>Limited</td>
+                            <td>Full Catalog</td>
+                            <td>Full Catalog</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.certificates">Certificates</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.offline_access">Offline Access</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+
+                        <!-- Profile Features -->
+                        <tr class="category-header">
+                            <td colspan="4" data-i18n="pricing.categories.profile">Profile Features</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.resume_builder">Resume Builder</td>
+                            <td>Basic</td>
+                            <td>Advanced</td>
+                            <td>Advanced</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.portfolio">Portfolio</td>
+                            <td>1 project</td>
+                            <td>10 projects</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.visibility">Profile Visibility</td>
+                            <td>Low</td>
+                            <td>High</td>
+                            <td>Premium</td>
+                        </tr>
+
+                        <!-- Support Features -->
+                        <tr class="category-header">
+                            <td colspan="4" data-i18n="pricing.categories.support">Support</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.email_support">Email Support</td>
+                            <td>48h response</td>
+                            <td>24h response</td>
+                            <td>12h response</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.chat_support">Chat Support</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="pricing.features.phone_support">Phone Support</td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-times"></i></td>
+                            <td><i class="fas fa-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add-ons -->
+    <section class="pricing-addons">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="pricing.addons.title">
+                    Add-on Services
+                </h2>
+                <p class="section-subtitle" data-i18n="pricing.addons.subtitle">
+                    Enhance your plan with additional services
+                </p>
+            </div>
+
+            <div class="addons-grid">
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 data-i18n="pricing.addons.coaching">Career Coaching</h3>
+                    <p class="addon-description" data-i18n="pricing.addons.coaching_desc">
+                        One-on-one sessions with career experts
+                    </p>
+                    <div class="addon-price">
+                        <span class="price">$99</span>
+                        <span class="period" data-i18n="pricing.addons.per_session">per session</span>
+                    </div>
+                    <button class="btn btn-outline btn-add-addon" data-addon="coaching">
+                        <span data-i18n="pricing.addons.add">Add</span>
+                    </button>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-file-certificate"></i>
+                    </div>
+                    <h3 data-i18n="pricing.addons.certification">Premium Certification</h3>
+                    <p class="addon-description" data-i18n="pricing.addons.certification_desc">
+                        Official verified certificates
+                    </p>
+                    <div class="addon-price">
+                        <span class="price">$49</span>
+                        <span class="period" data-i18n="pricing.addons.per_certificate">per certificate</span>
+                    </div>
+                    <button class="btn btn-outline btn-add-addon" data-addon="certification">
+                        <span data-i18n="pricing.addons.add">Add</span>
+                    </button>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 data-i18n="pricing.addons.analytics">Advanced Analytics</h3>
+                    <p class="addon-description" data-i18n="pricing.addons.analytics_desc">
+                        Detailed insights and reports
+                    </p>
+                    <div class="addon-price">
+                        <span class="price">$29</span>
+                        <span class="period" data-i18n="pricing.addons.per_month">per month</span>
+                    </div>
+                    <button class="btn btn-outline btn-add-addon" data-addon="analytics">
+                        <span data-i18n="pricing.addons.add">Add</span>
+                    </button>
+                </div>
+
+                <div class="addon-card">
+                    <div class="addon-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 data-i18n="pricing.addons.international">International Job Access</h3>
+                    <p class="addon-description" data-i18n="pricing.addons.international_desc">
+                        Access to global job markets
+                    </p>
+                    <div class="addon-price">
+                        <span class="price">$19</span>
+                        <span class="period" data-i18n="pricing.addons.per_month">per month</span>
+                    </div>
+                    <button class="btn btn-outline btn-add-addon" data-addon="international">
+                        <span data-i18n="pricing.addons.add">Add</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="pricing-faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="pricing.faq.title">
+                    Frequently Asked Questions
+                </h2>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="pricing.faq.q1">Can I switch plans later?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="pricing.faq.a1">
+                            Yes, you can upgrade or downgrade your plan at any time. 
+                            When upgrading, you'll be charged the prorated difference. 
+                            When downgrading, changes take effect at the next billing cycle.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="pricing.faq.q2">Is there a free trial?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="pricing.faq.a2">
+                            Yes! All paid plans come with a 14-day free trial. 
+                            No credit card is required to start the trial. 
+                            You can cancel anytime during the trial period.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="pricing.faq.q3">What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="pricing.faq.a3">
+                            We accept all major credit cards (Visa, MasterCard, American Express), 
+                            PayPal, bank transfers for annual plans, and mobile payments in 
+                            supported countries.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="pricing.faq.q4">Can I get a refund?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="pricing.faq.a4">
+                            We offer a 30-day money-back guarantee for all annual plans. 
+                            Monthly plans can be canceled anytime with no further charges.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="pricing.faq.q5">Do you offer discounts for students or nonprofits?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="pricing.faq.a5">
+                            Yes! We offer a 50% discount for verified students and educational 
+                            institutions, and special rates for registered non-profit organizations. 
+                            Contact our sales team for more information.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span data-i18n="pricing.faq.q6">What happens if I exceed my plan limits?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p data-i18n="pricing.faq.a6">
+                            You'll receive a notification when you're approaching your limits. 
+                            You can either upgrade your plan or purchase additional capacity 
+                            as add-ons to continue using the service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="pricing-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="pricing.cta.title">Ready to get started?</h2>
+                <p data-i18n="pricing.cta.description">
+                    Join thousands of users who have advanced their careers with our platform.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" id="start-free-trial">
+                        <span data-i18n="pricing.cta.start_trial">Start 14-Day Free Trial</span>
+                    </button>
+                    <a href="/contact.html" class="btn btn-outline" data-i18n="pricing.cta.contact_sales">
+                        Contact Sales
+                    </a>
+                </div>
+                <p class="cta-note" data-i18n="pricing.cta.note">
+                    No credit card required · Cancel anytime
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-i18n="pricing.checkout.title">Complete Your Purchase</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="checkout-container">
+                    <!-- Order Summary -->
+                    <div class="order-summary">
+                        <h3 data-i18n="pricing.checkout.order_summary">Order Summary</h3>
+                        <div class="summary-items" id="checkout-items">
+                            <!-- Items will be loaded dynamically -->
+                        </div>
+                        <div class="summary-total">
+                            <div class="total-row">
+                                <span data-i18n="pricing.checkout.subtotal">Subtotal:</span>
+                                <span id="checkout-subtotal">$9.99</span>
+                            </div>
+                            <div class="total-row">
+                                <span data-i18n="pricing.checkout.tax">Tax:</span>
+                                <span id="checkout-tax">$0.00</span>
+                            </div>
+                            <div class="total-row grand-total">
+                                <span data-i18n="pricing.checkout.total">Total:</span>
+                                <span id="checkout-total">$9.99</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Form -->
+                    <div class="checkout-form">
+                        <form id="payment-form">
+                            <!-- Plan selection will be loaded here -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
