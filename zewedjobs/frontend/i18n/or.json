@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "title": "Tarii Oromiyaa",
+    "description": "Ummatoota Oromiyaa addunyaa maraa walitti fidu hawaasummaa, daldalaafi hojii hawaasaa keessatti",
+    "keywords": "Oromiyaa, hawaasa, aadaa, diaspora, daldala, hawaasaa",
+    "author": "Tarii Oromiyaa"
+  },
+  "nav": {
+    "home": "Mana",
+    "about": "Waa'ee keenya",
+    "services": "Tajaajiloota",
+    "projects": "Pirojeektota",
+    "partners": "Hiriyoota",
+    "certificates": "Mallattoolee",
+    "donate": "Kenni",
+    "contact": "Nu qunnamuu",
+    "language": "Afaan",
+    "login": "Seeni",
+    "register": "Galmeessi",
+    "profile": "Profile",
+    "logout": "Ba'i",
+    "menu": "Menyuu",
+    "close": "Cufi"
+  },
+  "home": {
+    "hero": {
+      "title": "Hawaasota Cimoo Taasisuu",
+      "subtitle": "Oromoon addunyaa maraa jiran aadaa, innovationfi walii galaan walitti fidu",
+      "cta": "Hawaasa Keenya Makamu",
+      "secondary": "Dabalataan Baradhu"
+    },
+    "features": {
+      "title": "Waan Nuti Kenna",
+      "cultural": {
+        "title": "Eegumsa Aadaa",
+        "desc": "Aadaafi duudhaa Oromiyaa dagaagsuu"
+      },
+      "business": {
+        "title": "Ikkooloo Daldalaa",
+        "desc": "Daldaltootaafi investoroota walitti fiduu"
+      },
+      "education": {
+        "title": "Programoota Barumsaa",
+        "desc": "Koota Afaanii fi barsiisa skillii"
+      },
+      "social": {
+        "title": "Kaayyoo Hawaasaa",
+        "desc": "Pirojeektota guddina hawaasaa"
+      }
+    },
+    "stats": {
+      "title": "Maddaalee Keenya",
+      "members": "Miseensota Hawaasaa",
+      "projects": "Pirojeektota Xumuraman",
+      "partners": "Hiriyoota Stratejii",
+      "countries": "Biyyoota Ga'aniiru"
+    }
+  },
+  "about": {
+    "title": "Waa'ee Dhaabbata Keenya",
+    "mission": {
+      "title": "Kaayyoo Keenya",
+      "desc": "Ummatoota Oromiyaa addunyaa maraa jiran guddina sustainable, eegumsa aadaafi sochii daldalaan walitti qabuu fi humna kennuu."
+    },
+    "vision": {
+      "title": "Argaa Keenya",
+      "desc": "Addunyaa hawaasni Oromiyaa jiraatu, duudhaa isaanii eegu, fi guddina addunyaatti gumaacha guddaa kennu."
+    },
+    "values": {
+      "title": "Qophiiwwan Keenya",
+      "unity": "Tokkummaa",
+      "integrity": "Amantii",
+      "excellence": "Gaarii Ta'uu",
+      "heritage": "Eegumsa Duudhaa",
+      "innovation": "Innovation"
+    },
+    "history": {
+      "title": "Seenaa Keenya",
+      "desc": "2010 keessatti ijaaramtee, garee hawaasaa xiqqaa irraa ka'ee dhaabbata addunyaa kan miseensota biyyoota 30 ol keessa jiran ta'anitti guddine."
+    }
+  },
+  "services": {
+    "title": "Tajaajiloota Keenya",
+    "cultural": {
+      "title": "Programoota Aadaa",
+      "desc": "Programoota muuziqaa aadaa, shagayyuu fi eegumsa afaanii"
+    },
+    "business": {
+      "title": "Deeggarsa Daldalaa",
+      "desc": "Barsiisa daldalaa, carraa investimentii fi access maarkettii"
+    },
+    "education": {
+      "title": "Barumsa & Barsiisaa",
+      "desc": "Koota afaanii, barsiisa skillii fi programoota scholarship"
+    },
+    "social": {
+      "title": "Tajaajiloota Hawaasaa",
+      "desc": "Deeggarsa hawaasaa, gorsaa fi deeggarsa makamuu"
+    },
+    "legal": {
+      "title": "Deeggarsa Seeraa",
+      "desc": "Deeggarsa immigrationii fi tajaajiloota gorsaa seeraa"
+    }
+  },
+  "projects": {
+    "title": "Pirojeektota Ammaa Jiran",
+    "view_all": "Pirojeektota Hundaa Ilalla",
+    "status": {
+      "ongoing": "Itti Fufaa Jira",
+      "completed": "Xumurame",
+      "upcoming": "Dhufu Jira"
+    }
+  },
+  "partners": {
+    "title": "Hiriyoota Keenya",
+    "description": "Kaayyoo keenya akka milkaa'uuf dhaabbatawwan addunyaa mara waliin hojjanna",
+    "become_partner": "Hiriyya Ta'i"
+  },
+  "certificates": {
+    "title": "Mallattoolee & Sertifikettii",
+    "description": "Hojii keenyaafi standards keenya mirkaneessuu ofiisaa",
+    "view_certificate": "Sertifikettii Ilalla"
+  },
+  "donate": {
+    "title": "Kaayyoo Keenya Deeggarsi",
+    "description": "Kennii keessan programoota hawaasaa keenya itti fufuuf nu gargaara",
+    "amount": "Baay'ina Kennii",
+    "one_time": "Kennii Tokko",
+    "monthly": "Kennii Ji'a Hunda",
+    "custom": "Baay'ina Custom",
+    "currency": "USD",
+    "donate_now": "Amma Kennaa",
+    "secure": "Payment Safe",
+    "tax_deductible": "Tax Deductible",
+    "receipt": "Receipt Kennii",
+    "thank_you": "Gammachuu keessanif galatoomaa!"
+  },
+  "contact": {
+    "title": "Nu Qunnamuu",
+    "name": "Maqaa Guutuu",
+    "email": "Email Address",
+    "phone": "Lakkoofsa Bilbilaa",
+    "subject": "Subject",
+    "message": "Ergaa Keessan",
+    "send": "Ergaa Ergaa",
+    "success": "Ergaa keessan sirriitti ergame!",
+    "error": "Maaloo bakkoota barbaachisaa hunda guutaa",
+    "location": "Bakka Keenya",
+    "address": "Finfinne, Oromiyaa",
+    "working_hours": "Mon-Fri: 9:00 AM - 5:00 PM"
+  },
+  "auth": {
+    "login": {
+      "title": "Account keessan Seenuu",
+      "email": "Email",
+      "password": "Password",
+      "remember": "Na Yaadadhu",
+      "forgot": "Password Ilaaltee?",
+      "no_account": "Account hin qabduu?",
+      "signup": "Galmeessi"
+    },
+    "register": {
+      "title": "Account Uumuu",
+      "fullname": "Maqaa Guutuu",
+      "confirm_password": "Password Mirkaneessi",
+      "agree": "Hayyamaafi conditions waliin walii galan",
+      "have_account": "Account qabduu?",
+      "login": "Seenuu"
+    },
+    "validation": {
+      "email_required": "Email barbaachisaa dha",
+      "email_invalid": "Maaloo email sirrii ta'e galchi",
+      "password_required": "Password barbaachisaa dha",
+      "password_min": "Password yoo xadidame 8 characters ta'uu qaba",
+      "name_required": "Maqaan barbaachisaa dha",
+      "passwords_match": "Passwordwwan wal fakkaatuu qabu"
+    }
+  },
+  "footer": {
+    "description": "Ummatoota Oromiyaa aadaa, barumsaafi guddina daldalaan humna kennuu",
+    "quick_links": "Linkkota Saffisaan",
+    "resources": "Qabeenya",
+    "newsletter": {
+      "title": "Update Ta'aa Jiraadhu",
+      "placeholder": "Email Address keessan",
+      "subscribe": "Subscribe",
+      "success": "Sirriitti Subscribe godhamte!"
+    },
+    "social": "Nu Hordofaa",
+    "copyright": "© {year} Tarii Oromiyaa. Mirgi hundi kan isaani.",
+    "privacy": "Policy Iccitii",
+    "terms": "Hayyama Tajaajilaa",
+    "cookies": "Policy Cookie"
+  },
+  "buttons": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "download": "Download",
+    "upload": "Upload",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "back": "Back",
+    "next": "Next",
+    "confirm": "Confirm",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK"
+  },
+  "messages": {
+    "loading": "Loading...",
+    "error": "Dogoggorri itti fufe",
+    "success": "Hojii milkaa'e",
+    "warning": "Akeekkachiisaa",
+    "info": "Odeeffannoo",
+    "confirm_delete": "Kana haquu mirkaneeffatta?",
+    "no_data": "Daataan hin jiru",
+    "try_again": "Maaloo irra deebi'i",
+    "offline": "Offline jirta. Functionwwan tokko tokko hin hojjanu.",
+    "online": "Online deebite!"
+  },
+  "dates": {
+    "today": "Har'a",
+    "yesterday": "Kaleessa",
+    "tomorrow": "Boru",
+    "this_week": "Torban Kana",
+    "this_month": "Ji'a Kana",
+    "this_year": "Waggaa Kana",
+    "days": {
+      "monday": "Wiixata",
+      "tuesday": "Qibxata",
+      "wednesday": "Roobii",
+      "thursday": "Kamiisa",
+      "friday": "Jimaata",
+      "saturday": "Sanbata",
+      "sunday": "Dilbata"
+    },
+    "months": {
+      "january": "Amajjii",
+      "february": "Guraandhala",
+      "march": "Bitootessa",
+      "april": "Elba",
+      "may": "Caamsa",
+      "june": "Waxabajjii",
+      "july": "Adooleessa",
+      "august": "Hagayya",
+      "september": "Fuulbana",
+      "october": "Onkololeessa",
+      "november": "Sadaasa",
+      "december": "Muddee"
+    }
+  },
+  "validation": {
+    "required": "Kun barbaachisaa dha",
+    "email": "Maaloo email address sirrii galchi",
+    "min_length": "Yoo xadidame {length} characters barbaachisaa",
+    "max_length": "Maximum {length} characters hayyama",
+    "phone": "Maaloo lakkoofsa bilbilaa sirrii galchi",
+    "url": "Maaloo URL sirrii galchi"
+  },
+  "accessibility": {
+    "skip_to_content": "Content Seenaa Irra Darbi",
+    "language_switch": "Language Switch",
+    "menu_toggle": "Menu Toggle",
+    "close_menu": "Menu Cufi"
+  }
+}
