@@ -1,0 +1,242 @@
+<div class="live-page">
+    <!-- Live Hero -->
+    <section class="live-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="live-badge">
+                    <span class="pulse"></span>
+                    <span data-i18n="live.badge.live">LIVE</span>
+                </div>
+                <h1 class="hero-title" data-i18n="live.hero.title">
+                    Community Live Streams
+                </h1>
+                <p class="hero-description" data-i18n="live.hero.description">
+                    Watch live events, discussions, and connect with the community in real-time.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Current Live Streams -->
+    <section class="current-streams">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="live.current.title">
+                    Currently Live
+                </h2>
+                <div class="live-stats">
+                    <span class="stat">
+                        <i class="fas fa-eye"></i>
+                        <span id="total-viewers">2,345</span>
+                        <span data-i18n="live.stats.viewers">Viewers</span>
+                    </span>
+                    <span class="stat">
+                        <i class="fas fa-video"></i>
+                        <span id="active-streams">8</span>
+                        <span data-i18n="live.stats.streams">Streams</span>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Featured Stream -->
+            <div class="featured-stream">
+                <div class="stream-player" id="main-stream-player">
+                    <!-- Video player will be loaded here -->
+                </div>
+                <div class="stream-info">
+                    <h3 class="stream-title" id="featured-stream-title">
+                        Community Town Hall Meeting
+                    </h3>
+                    <div class="stream-meta">
+                        <div class="streamer-info">
+                            <img src="/assets/images/avatars/host1.jpg" alt="Streamer">
+                            <div>
+                                <h4>Community Council</h4>
+                                <span class="stream-category" data-i18n="live.categories.discussion">
+                                    Discussion
+                                </span>
+                            </div>
+                        </div>
+                        <div class="stream-stats">
+                            <span class="viewers">
+                                <i class="fas fa-eye"></i>
+                                1,245 watching
+                            </span>
+                            <span class="duration">
+                                <i class="fas fa-clock"></i>
+                                45:22
+                            </span>
+                        </div>
+                    </div>
+                    <p class="stream-description">
+                        Join us for our monthly community town hall meeting where we discuss 
+                        upcoming projects and community initiatives.
+                    </p>
+                    <div class="stream-actions">
+                        <button class="btn btn-primary" id="join-chat-btn">
+                            <i class="fas fa-comments"></i>
+                            <span data-i18n="live.actions.chat">Join Chat</span>
+                        </button>
+                        <button class="btn btn-outline" id="share-stream-btn">
+                            <i class="fas fa-share-alt"></i>
+                            <span data-i18n="live.actions.share">Share</span>
+                        </button>
+                        <button class="btn btn-outline" id="notify-btn">
+                            <i class="fas fa-bell"></i>
+                            <span data-i18n="live.actions.notify">Get Notified</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Live Streams -->
+            <div class="other-streams">
+                <h3 data-i18n="live.other.title">Other Live Streams</h3>
+                <div class="streams-grid" id="other-streams-grid">
+                    <!-- Other streams will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upcoming Streams -->
+    <section class="upcoming-streams">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="live.upcoming.title">
+                    Upcoming Streams
+                </h2>
+                <a href="/live/schedule.html" class="view-all" data-i18n="live.upcoming.view_all">
+                    View Schedule <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="upcoming-list" id="upcoming-streams">
+                <!-- Upcoming streams will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chat Section -->
+    <section class="live-chat-section">
+        <div class="container">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h3 data-i18n="live.chat.title">Live Chat</h3>
+                    <div class="chat-stats">
+                        <span id="chat-users">245</span>
+                        <span data-i18n="live.chat.users">Users Online</span>
+                    </div>
+                </div>
+                <div class="chat-window" id="chat-window">
+                    <!-- Chat messages will be loaded here -->
+                </div>
+                <div class="chat-input">
+                    <input type="text" 
+                           placeholder="Type your message..." 
+                           data-i18n-placeholder="live.chat.placeholder"
+                           id="chat-input">
+                    <button class="btn btn-primary" id="send-message-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stream Categories -->
+    <section class="stream-categories">
+        <div class="container">
+            <h2 class="section-title" data-i18n="live.categories.title">
+                Browse Categories
+            </h2>
+            <div class="categories-grid">
+                <a href="/live/category/discussion.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 data-i18n="live.categories.discussion">Discussions</h3>
+                    <p data-i18n="live.categories.discussion_desc">
+                        Community talks and Q&A sessions
+                    </p>
+                </a>
+                
+                <a href="/live/category/workshop.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3 data-i18n="live.categories.workshop">Workshops</h3>
+                    <p data-i18n="live.categories.workshop_desc">
+                        Live training and skill sessions
+                    </p>
+                </a>
+                
+                <a href="/live/category/cultural.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 data-i18n="live.categories.cultural">Cultural</h3>
+                    <p data-i18n="live.categories.cultural_desc">
+                        Music, dance, and cultural events
+                    </p>
+                </a>
+                
+                <a href="/live/category/business.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 data-i18n="live.categories.business">Business</h3>
+                    <p data-i18n="live.categories.business_desc">
+                        Networking and business talks
+                    </p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Go Live CTA -->
+    <section class="go-live-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="live.cta.title">Want to Go Live?</h2>
+                <p data-i18n="live.cta.description">
+                    Share your knowledge, host discussions, or showcase your talents to the community.
+                </p>
+                <button class="btn btn-primary" id="go-live-btn">
+                    <i class="fas fa-video"></i>
+                    <span data-i18n="live.cta.go_live">Start Streaming</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Stream Card Template -->
+<template id="stream-card-template">
+    <div class="stream-card" data-stream-id="">
+        <div class="stream-thumbnail">
+            <img src="" alt="Stream thumbnail">
+            <div class="live-indicator">
+                <span class="pulse"></span>
+                <span data-i18n="live.badge.live">LIVE</span>
+            </div>
+            <div class="viewer-count">
+                <i class="fas fa-eye"></i>
+                <span class="count"></span>
+            </div>
+        </div>
+        <div class="stream-info-small">
+            <div class="streamer-avatar">
+                <img src="" alt="Streamer">
+            </div>
+            <div class="stream-details">
+                <h4 class="stream-title"></h4>
+                <span class="streamer-name"></span>
+                <span class="stream-category"></span>
+            </div>
+            <button class="btn-watch" data-i18n="live.card.watch">
+                Watch
+            </button>
+        </div>
+    </div>
+</template>
