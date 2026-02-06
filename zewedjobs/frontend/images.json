@@ -1,0 +1,48 @@
+{
+  "logos": {
+    "main": "/images/logos/logo-main.svg",
+    "alt": "/images/logos/logo-alt.svg",
+    "white": "/images/logos/logo-white.svg",
+    "black": "/images/logos/logo-black.svg",
+    "icon": "/images/logos/icon.svg",
+    "favicon": "/images/logos/favicon.ico",
+    "apple-touch": "/images/logos/apple-touch-icon.png"
+  },
+  "partners": {
+    "microsoft": "/images/partners/microsoft.png",
+    "google": "/images/partners/google.png",
+    "amazon": "/images/partners/amazon.png",
+    "ibm": "/images/partners/ibm.png",
+    "dell": "/images/partners/dell.png",
+    "cisco": "/images/partners/cisco.png"
+  },
+  "certificates": {
+    "iso-9001": "/images/certificates/iso-9001.png",
+    "iso-27001": "/images/certificates/iso-27001.png",
+    "soc2": "/images/certificates/soc2.png",
+    "gdpr": "/images/certificates/gdpr.png",
+    "award-2023": "/images/certificates/award-2023.png"
+  },
+  "banners": {
+    "homepage-main": "/images/banners/homepage-main.jpg",
+    "promo-summer": "/images/banners/promo-summer.jpg",
+    "cta-download": "/images/banners/cta-download.png",
+    "newsletter": "/images/banners/newsletter.png"
+  },
+  "ads": {
+    "sponsor-google": "/images/ads/sponsor-google.jpg",
+    "sponsor-amazon": "/images/ads/sponsor-amazon.jpg",
+    "sidebar-300x250": "/images/ads/sidebar-300x250.jpg",
+    "leaderboard-728x90": "/images/ads/leaderboard-728x90.jpg"
+  },
+  "optimization": {
+    "formats": ["webp", "jpg", "png"],
+    "sizes": {
+      "thumbnail": "150x150",
+      "small": "300x300",
+      "medium": "600x600",
+      "large": "1200x1200"
+    },
+    "quality": 85
+  }
+}
