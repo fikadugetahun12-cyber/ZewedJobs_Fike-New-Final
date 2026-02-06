@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="am" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">Ethiopian Community Platform</title>
+    <meta name="description" data-i18n-attr="meta.description:content">
+    
+    <!-- Language switcher styles -->
+    <style>
+        /* Add language switcher styles here */
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div data-language-switcher></div>
+    
+    <!-- Navigation -->
+    <nav>
+        <a href="/" data-i18n="nav.home">Home</a>
+        <a href="/about" data-i18n="nav.about">About</a>
+        <a href="/contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        <h1 data-i18n="home.hero.title">Building Stronger Communities</h1>
+        <p data-i18n="home.hero.subtitle">Connecting Ethiopians worldwide...</p>
+        
+        <!-- Dynamic content with parameters -->
+        <div data-i18n="footer.copyright" 
+             data-i18n-param-year="2024">
+            © 2024 Ethiopian Community Platform
+        </div>
+    </main>
+    
+    <!-- Scripts -->
+    <script type="module">
+        import { i18n } from './utils/i18n.js';
+        import LanguageSwitcher from './i18n/language-switcher.js';
+        
+        // Initialize language
+        await i18n.init();
+        
+        // Initialize language switcher
+        new LanguageSwitcher();
+        
+        // Listen for language changes
+        window.addEventListener('languageChanged', (event) => {
+            console.log('Language changed to:', event.detail);
+            // Update any dynamic content
+        });
+    </script>
+</body>
+</html>
