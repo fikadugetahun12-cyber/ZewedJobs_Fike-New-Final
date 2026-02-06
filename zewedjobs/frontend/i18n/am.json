@@ -1,0 +1,272 @@
+{
+  "meta": {
+    "title": "የኢትዮጵያ ማህበረሰብ መድረክ",
+    "description": "በባህል፣ ንግድ እና ማህበራዊ ተነሳሽነቶች በዓለም ዙሪያ ያሉ የኢትዮጵያ ማህበረሰቦች የሚያገናኝ",
+    "keywords": "ኢትዮጵያ፣ ማህበረሰብ፣ ባህል፣ ዳያስፖራ፣ ንግድ፣ ማህበራዊ",
+    "author": "የኢትዮጵያ ማህበረሰብ መድረክ"
+  },
+  "nav": {
+    "home": "መነሻ",
+    "about": "ስለ እኛ",
+    "services": "አገልግሎቶች",
+    "projects": "ፕሮጀክቶች",
+    "partners": "አጋሮች",
+    "certificates": "ማረጋገጫዎች",
+    "donate": "ለግሱ",
+    "contact": "አግኙን",
+    "language": "ቋንቋ",
+    "login": "ግባ",
+    "register": "ተመዝገብ",
+    "profile": "መገለጫ",
+    "logout": "ውጣ",
+    "menu": "ምናሌ",
+    "close": "ዝጋ"
+  },
+  "home": {
+    "hero": {
+      "title": "ጠንካራ ማህበረሰቦችን መገንባት",
+      "subtitle": "በባህል፣ ፈጠራ እና ትብብር በዓለም ዙሪያ ያሉ ኢትዮጵያውያንን የሚያገናኝ",
+      "cta": "ለማህበራችን ይቀላቀሉ",
+      "secondary": "ተጨማሪ ለመረዳት"
+    },
+    "features": {
+      "title": "የምናቀርበው",
+      "cultural": {
+        "title": "የባህል ጥበቃ",
+        "desc": "የኢትዮጵያ ቅርስና ልማዶችን ማስፋፋት"
+      },
+      "business": {
+        "title": "የንግድ ኔትወርክ",
+        "desc": "አጋሮችን እና ባለሀብቶችን መገናኘት"
+      },
+      "education": {
+        "title": "የትምህርት ፕሮግራሞች",
+        "desc": "የቋንቋ ክፍሎች እና የክህሎት ስልጠና"
+      },
+      "social": {
+        "title": "ማህበራዊ ተነሳሽነቶች",
+        "desc": "የማህበረሰብ ልማት ፕሮጀክቶች"
+      }
+    },
+    "stats": {
+      "title": "የእኛ ተፅእኖ",
+      "members": "የማህበረሰብ አባላት",
+      "projects": "የተጠናቀቁ ፕሮጀክቶች",
+      "partners": "የትብብር አጋሮች",
+      "countries": "የደረሰባቸው አገሮች"
+    }
+  },
+  "about": {
+    "title": "ስለ ድርጅታችን",
+    "mission": {
+      "title": "ተልዕኳችን",
+      "desc": "በአስተዳደር ልማት፣ ባህላዊ ጥበቃ እና ኢኮኖሚያዊ ኃይል በዓለም ዙሪያ ያሉ የኢትዮጵያ ማህበረሰቦች የሚያንቀሳቅስ እና የሚያጠናክር።"
+    },
+    "vision": {
+      "title": "ራዕያችን",
+      "desc": "ኢትዮጵያውያን በተሻለ ሁኔታ የሚኖሩበት፣ ቅርሳቸውን የሚጠብቁበት እና ለአለም አቀፍ ልማት አስፈላጊ አስተዋፅዖ የሚያደርጉበት ዓለም።"
+    },
+    "values": {
+      "title": "�ረጋጋ እሴቶቻችን",
+      "unity": "አንድነት",
+      "integrity": "ንጽህና",
+      "excellence": "ሙሉ ጥራት",
+      "heritage": "የቅርስ ጥበቃ",
+      "innovation": "ፈጠራ"
+    },
+    "history": {
+      "title": "ታሪካችን",
+      "desc": "በ 2010 የተመሰረተ ሲሆን ከትንሽ የማህበረሰብ ቡድን በላይ በ 30 አገሮች ውስጥ አባላት ካላቸው ዓለም አቀፍ ድርጅት ወደ ተዘምነ ነው።"
+    }
+  },
+  "services": {
+    "title": "አገልግሎቶቻችን",
+    "cultural": {
+      "title": "የባህል ፕሮግራሞች",
+      "desc": "ባህላዊ ሙዚቃ፣ ዳንስ እና የቋንቋ ጥበቃ ፕሮግራሞች"
+    },
+    "business": {
+      "title": "የንግድ ድጋፍ",
+      "desc": "የአጋርነት ስልጠና፣ የኢንቨስትመንት እድሎች እና የገበያ መዳረሻ"
+    },
+    "education": {
+      "title": "ትምህርት እና ስልጠና",
+      "desc": "የቋንቋ ክፍሎች፣ የሙያ ስልጠና እና የትምህርት እርዳታ ፕሮግራሞች"
+    },
+    "social": {
+      "title": "ማህበራዊ አገልግሎቶች",
+      "desc": "የማህበረሰብ ድጋፍ፣ ምክር እና ውህደት እርዳታ"
+    },
+    "legal": {
+      "title": "የህግ እርዳታ",
+      "desc": "የስደተኝነት ድጋፍ እና የህግ ምክር አገልግሎቶች"
+    }
+  },
+  "projects": {
+    "title": "አሁን ያሉ ፕሮጀክቶች",
+    "view_all": "ሁሉንም ፕሮጀክቶች ይመልከቱ",
+    "status": {
+      "ongoing": "በሂደት ላይ",
+      "completed": "የተጠናቀቀ",
+      "upcoming": "የሚመጣ"
+    }
+  },
+  "partners": {
+    "title": "የእኛ አጋሮች",
+    "description": "ተልዕኳችንን ለማሳካት ከዓለም ዙሪያ ካሉ ድርጅቶች ጋር እንተባበራለን",
+    "become_partner": "አጋር ይሁኑ"
+  },
+  "certificates": {
+    "title": "የተረጋገጡ ማረጋገጫዎች",
+    "description": "ስራችን እና መስፈርቶቻችን ኦፊሴላዊ እውቅና",
+    "view_certificate": "ማረጋገጫ ይመልከቱ"
+  },
+  "donate": {
+    "title": "ዓላማችንን ይደግፉ",
+    "description": "እርዳታዎ የማህበረሰብ ፕሮግራሞቻችንን ለመቀጠል ይረዳናል",
+    "amount": "የልገሳ መጠን",
+    "one_time": "አንድ ጊዜ ልገሳ",
+    "monthly": "ወርሃዊ ልገሳ",
+    "custom": "ብጁ መጠን",
+    "currency": "የአሜሪካ ዶላር",
+    "donate_now": "አሁን ይለግሱ",
+    "secure": "ደህንነቱ የተጠበቀ",
+    "tax_deductible": "የግብር ቅነሳ ያለው",
+    "receipt": "የልገሳ ደረሰኝ",
+    "thank_you": "ለእውርወራዎ እናመሰግናለን!"
+  },
+  "contact": {
+    "title": "አግኙን",
+    "name": "ሙሉ ስም",
+    "email": "የኢሜል አድራሻ",
+    "phone": "የስልክ ቁጥር",
+    "subject": "ርዕስ",
+    "message": "መልእክትዎ",
+    "send": "መልእክት ይላኩ",
+    "success": "መልእክትዎ በሚገባ ተልኳል!",
+    "error": "እባክዎ ሁሉንም አስፈላጊ መስኮች ይሙሉ",
+    "location": "አድራሻችን",
+    "address": "አዲስ አበባ፣ ኢትዮጵያ",
+    "working_hours": "ሰኞ-አርብ: ጧት 9:00 - ከሰዓት 5:00"
+  },
+  "auth": {
+    "login": {
+      "title": "ወደ መለያዎ ይግቡ",
+      "email": "ኢሜይል",
+      "password": "የይለፍ ቃል",
+      "remember": "አስታውሰኝ",
+      "forgot": "የይለፍ ቃል ረሳኽሁ?",
+      "no_account": "መለያ የሎትም?",
+      "signup": "ተመዝገብ"
+    },
+    "register": {
+      "title": "መለያ ይፍጠሩ",
+      "fullname": "ሙሉ ስም",
+      "confirm_password": "የይለፍ ቃል አረጋግጥ",
+      "agree": "ከውሎች እና ሁኔታዎች ጋር ተስማምቻለሁ",
+      "have_account": "ቀድሞውኑ መለያ አለዎት?",
+      "login": "ግባ"
+    },
+    "validation": {
+      "email_required": "ኢሜይል ያስፈልጋል",
+      "email_invalid": "እባክዎ ትክክለኛ ኢሜይል ያስገቡ",
+      "password_required": "የይለፍ ቃል ያስፈልጋል",
+      "password_min": "የይለፍ ቃል ቢያንስ 8 ቁምፊዎች መሆን አለበት",
+      "name_required": "ስም ያስፈልጋል",
+      "passwords_match": "የይለፍ ቃሎች መመሳሰል አለባቸው"
+    }
+  },
+  "footer": {
+    "description": "በባህል፣ ትምህርት እና ኢኮኖሚያዊ ልማት የኢትዮጵያ ማህበረሰቦችን ማስተዋወቅ",
+    "quick_links": "ፈጣን አገናኞች",
+    "resources": "መርጃዎች",
+    "newsletter": {
+      "title": "ዘመናዊ ይሁኑ",
+      "placeholder": "የኢሜል አድራሻዎ",
+      "subscribe": "ተመዝገብ",
+      "success": "በሚገባ ተመዝግበዋል!"
+    },
+    "social": "ይከተሉን",
+    "copyright": "© {year} የኢትዮጵያ ማህበረሰብ መድረክ። ሁሉም መብቶች የተጠበቁ ናቸው።",
+    "privacy": "የግላዊነት ፖሊሲ",
+    "terms": "የአገልግሎት ውሎች",
+    "cookies": "የኩኪ ፖሊሲ"
+  },
+  "buttons": {
+    "save": "አስቀምጥ",
+    "cancel": "ሰርዝ",
+    "submit": "አስገባ",
+    "delete": "ሰርዝ",
+    "edit": "አርትዕ",
+    "view": "ይመልከቱ",
+    "download": "አውርድ",
+    "upload": "ጫን",
+    "search": "ፈልግ",
+    "filter": "አጣራ",
+    "clear": "አጽዳ",
+    "back": "ተመለስ",
+    "next": "ቀጣይ",
+    "confirm": "አረጋግጥ",
+    "close": "ዝጋ",
+    "yes": "አዎ",
+    "no": "አይ",
+    "ok": "እሺ"
+  },
+  "messages": {
+    "loading": "በመጫን ላይ...",
+    "error": "ስህተት ተከስቷል",
+    "success": "ክንውኑ ተሳክቷል",
+    "warning": "ማስጠንቀቂያ",
+    "info": "መረጃ",
+    "confirm_delete": "ይህን ንጥል ለማጥፋት እርግጠኛ ነዎት?",
+    "no_data": "ምንም ውሂብ የለም",
+    "try_again": "እባክዎ እንደገና ይሞክሩ",
+    "offline": "ኦፍላይን ነዎት። አንዳንድ ባህሪያት ላይሰሩ ይችላሉ።",
+    "online": "ኦንላይን ነዎት!"
+  },
+  "dates": {
+    "today": "ዛሬ",
+    "yesterday": "ትላንት",
+    "tomorrow": "ነገ",
+    "this_week": "ይህ ሳምንት",
+    "this_month": "ይህ ወር",
+    "this_year": "ይህ ዓመት",
+    "days": {
+      "monday": "ሰኞ",
+      "tuesday": "ማክሰኞ",
+      "wednesday": "ረቡዕ",
+      "thursday": "ሐሙስ",
+      "friday": "አርብ",
+      "saturday": "ቅዳሜ",
+      "sunday": "እሁድ"
+    },
+    "months": {
+      "january": "ጥር",
+      "february": "የካቲት",
+      "march": "መጋቢት",
+      "april": "ሚያዝያ",
+      "may": "ግንቦት",
+      "june": "ሰኔ",
+      "july": "ሐምሌ",
+      "august": "ነሐሴ",
+      "september": "መስከረም",
+      "october": "ጥቅምት",
+      "november": "ሕዳር",
+      "december": "ታህሳስ"
+    }
+  },
+  "validation": {
+    "required": "ይህ መስክ አስፈላጊ ነው",
+    "email": "እባክዎ ትክክለኛ የኢሜል አድራሻ ያስገቡ",
+    "min_length": "ቢያንስ {length} ቁምፊዎች ያስፈልጋሉ",
+    "max_length": "ከፍተኛ {length} ቁምፊዎች ብቻ",
+    "phone": "እባክዎ ትክክለኛ የስልክ ቁጥር ያስገቡ",
+    "url": "እባክዎ ትክክለኛ URL ያስገቡ"
+  },
+  "accessibility": {
+    "skip_to_content": "ወደ ዋናው ይዘት ዝለል",
+    "language_switch": "የቋንቋ ለውጥ",
+    "menu_toggle": "ምናሌ ቀያይር",
+    "close_menu": "ምናሌ ዝጋ"
+  }
+}
