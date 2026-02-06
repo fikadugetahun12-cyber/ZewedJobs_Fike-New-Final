@@ -1,0 +1,585 @@
+<div class="job-details-page">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <a href="/" data-i18n="nav.home">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="/pages/jobs.html" data-i18n="nav.jobs">Jobs</a>
+            <i class="fas fa-chevron-right"></i>
+            <span class="current" id="breadcrumb-title">Job Details</span>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="job-details-layout">
+            <!-- Main Job Details -->
+            <main class="job-details-main">
+                <!-- Job Header -->
+                <div class="job-header-detail">
+                    <div class="company-header">
+                        <div class="company-logo-large">
+                            <img src="" alt="Company logo" id="company-logo">
+                        </div>
+                        <div class="company-info">
+                            <h1 class="job-title" id="job-title">Senior Software Engineer</h1>
+                            <div class="company-details">
+                                <a href="#" class="company-name" id="company-name">Tech Solutions Inc.</a>
+                                <div class="company-rating">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="rating-text">4.5 (128 reviews)</span>
+                                </div>
+                            </div>
+                            <div class="job-meta-detail">
+                                <div class="meta-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span id="job-location">Addis Ababa, Ethiopia</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-briefcase"></i>
+                                    <span id="job-type">Full-time</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span id="job-salary">ETB 80,000 - 120,000/month</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="job-posted">Posted 2 days ago</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-calendar-times"></i>
+                                    <span id="job-deadline">Apply by: Dec 31, 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="job-actions-detail">
+                        <button class="btn btn-primary btn-apply" id="apply-now-btn" data-i18n="jobs.apply.now">
+                            Apply Now
+                        </button>
+                        <button class="btn btn-outline" id="save-job-btn">
+                            <i class="far fa-heart"></i>
+                            <span data-i18n="jobs.save">Save Job</span>
+                        </button>
+                        <button class="btn btn-outline" id="share-job-btn">
+                            <i class="fas fa-share-alt"></i>
+                            <span data-i18n="jobs.share">Share</span>
+                        </button>
+                        <button class="btn btn-outline btn-report" id="report-job-btn">
+                            <i class="fas fa-flag"></i>
+                            <span data-i18n="jobs.report">Report</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Job Tabs -->
+                <div class="job-tabs">
+                    <nav class="tab-nav">
+                        <button class="tab-btn active" data-tab="description" data-i18n="jobs.tabs.description">
+                            Description
+                        </button>
+                        <button class="tab-btn" data-tab="requirements" data-i18n="jobs.tabs.requirements">
+                            Requirements
+                        </button>
+                        <button class="tab-btn" data-tab="benefits" data-i18n="jobs.tabs.benefits">
+                            Benefits
+                        </button>
+                        <button class="tab-btn" data-tab="company" data-i18n="jobs.tabs.company">
+                            Company
+                        </button>
+                        <button class="tab-btn" data-tab="reviews" data-i18n="jobs.tabs.reviews">
+                            Reviews
+                        </button>
+                    </nav>
+                    
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- Description Tab -->
+                        <div class="tab-pane active" id="description-tab">
+                            <div class="section">
+                                <h3 data-i18n="jobs.description.overview">Job Overview</h3>
+                                <p id="job-overview">
+                                    We are looking for a skilled Senior Software Engineer to join our growing team. 
+                                    You will be responsible for developing and maintaining high-quality software solutions.
+                                </p>
+                            </div>
+                            
+                            <div class="section">
+                                <h3 data-i18n="jobs.description.responsibilities">Key Responsibilities</h3>
+                                <ul class="responsibilities-list" id="responsibilities-list">
+                                    <li>Design, develop, and maintain software applications</li>
+                                    <li>Collaborate with cross-functional teams</li>
+                                    <li>Write clean, efficient, and maintainable code</li>
+                                    <li>Participate in code reviews and technical discussions</li>
+                                    <li>Mentor junior developers</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="section">
+                                <h3 data-i18n="jobs.description.technologies">Technologies</h3>
+                                <div class="tech-tags" id="tech-tags">
+                                    <span class="tech-tag">JavaScript</span>
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Node.js</span>
+                                    <span class="tech-tag">TypeScript</span>
+                                    <span class="tech-tag">MongoDB</span>
+                                    <span class="tech-tag">AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Requirements Tab -->
+                        <div class="tab-pane" id="requirements-tab">
+                            <div class="section">
+                                <h3 data-i18n="jobs.requirements.education">Education & Experience</h3>
+                                <ul id="education-requirements">
+                                    <li>Bachelor's degree in Computer Science or related field</li>
+                                    <li>5+ years of software development experience</li>
+                                    <li>Experience with modern JavaScript frameworks</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="section">
+                                <h3 data-i18n="jobs.requirements.skills">Required Skills</h3>
+                                <ul id="required-skills">
+                                    <li>Strong proficiency in JavaScript/TypeScript</li>
+                                    <li>Experience with React and Node.js</li>
+                                    <li>Knowledge of RESTful APIs</li>
+                                    <li>Experience with databases (SQL/NoSQL)</li>
+                                    <li>Familiarity with Git and Agile methodologies</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="section">
+                                <h3 data-i18n="jobs.requirements.preferred">Preferred Qualifications</h3>
+                                <ul id="preferred-qualifications">
+                                    <li>Experience with cloud platforms (AWS/Azure)</li>
+                                    <li>Knowledge of Docker and Kubernetes</li>
+                                    <li>Contributions to open-source projects</li>
+                                    <li>Experience in fintech industry</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Benefits Tab -->
+                        <div class="tab-pane" id="benefits-tab">
+                            <div class="benefits-grid">
+                                <div class="benefit-card">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <h4 data-i18n="jobs.benefits.salary">Competitive Salary</h4>
+                                    <p data-i18n="jobs.benefits.salary_desc">Above market rate compensation</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-heartbeat"></i>
+                                    <h4 data-i18n="jobs.benefits.health">Health Insurance</h4>
+                                    <p data-i18n="jobs.benefits.health_desc">Comprehensive medical coverage</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <h4 data-i18n="jobs.benefits.training">Training & Development</h4>
+                                    <p data-i18n="jobs.benefits.training_desc">Continuous learning opportunities</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-home"></i>
+                                    <h4 data-i18n="jobs.benefits.remote">Remote Work Options</h4>
+                                    <p data-i18n="jobs.benefits.remote_desc">Flexible work arrangements</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <h4 data-i18n="jobs.benefits.leave">Paid Time Off</h4>
+                                    <p data-i18n="jobs.benefits.leave_desc">Generous vacation policy</p>
+                                </div>
+                                <div class="benefit-card">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <h4 data-i18n="jobs.benefits.wellness">Wellness Program</h4>
+                                    <p data-i18n="jobs.benefits.wellness_desc">Gym membership & wellness activities</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Company Tab -->
+                        <div class="tab-pane" id="company-tab">
+                            <div class="company-profile">
+                                <div class="company-header">
+                                    <img src="/assets/images/partners/tech-solutions.png" alt="Company" class="company-banner">
+                                    <div class="company-logo-overlay">
+                                        <img src="" alt="Company logo" id="company-logo-detail">
+                                    </div>
+                                </div>
+                                <div class="company-content">
+                                    <h3 id="company-name-detail">Tech Solutions Inc.</h3>
+                                    <div class="company-stats">
+                                        <div class="stat">
+                                            <i class="fas fa-users"></i>
+                                            <div>
+                                                <span class="stat-number">500+</span>
+                                                <span data-i18n="jobs.company.employees">Employees</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div>
+                                                <span class="stat-number">5</span>
+                                                <span data-i18n="jobs.company.locations">Locations</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <div>
+                                                <span class="stat-number">2015</span>
+                                                <span data-i18n="jobs.company.founded">Founded</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat">
+                                            <i class="fas fa-industry"></i>
+                                            <div>
+                                                <span class="stat-text">Technology</span>
+                                                <span data-i18n="jobs.company.industry">Industry</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="company-description" id="company-description">
+                                        Tech Solutions Inc. is a leading technology company specializing in 
+                                        innovative software solutions for businesses worldwide. We pride ourselves 
+                                        on our commitment to excellence and our diverse, talented team.
+                                    </p>
+                                    <div class="company-links">
+                                        <a href="#" class="company-link">
+                                            <i class="fas fa-globe"></i>
+                                            <span id="company-website">www.techsolutions.com</span>
+                                        </a>
+                                        <a href="#" class="company-link">
+                                            <i class="fab fa-linkedin"></i>
+                                            <span data-i18n="jobs.company.linkedin">LinkedIn</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Reviews Tab -->
+                        <div class="tab-pane" id="reviews-tab">
+                            <div class="reviews-header">
+                                <div class="overall-rating">
+                                    <h3>4.5</h3>
+                                    <div class="stars-large">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p data-i18n="jobs.reviews.count">Based on 128 reviews</p>
+                                </div>
+                                <div class="rating-breakdown">
+                                    <div class="rating-bar">
+                                        <span data-i18n="jobs.reviews.5star">5 stars</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 65%"></div>
+                                        </div>
+                                        <span>65%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span data-i18n="jobs.reviews.4star">4 stars</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 20%"></div>
+                                        </div>
+                                        <span>20%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span data-i18n="jobs.reviews.3star">3 stars</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 10%"></div>
+                                        </div>
+                                        <span>10%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span data-i18n="jobs.reviews.2star">2 stars</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 3%"></div>
+                                        </div>
+                                        <span>3%</span>
+                                    </div>
+                                    <div class="rating-bar">
+                                        <span data-i18n="jobs.reviews.1star">1 star</span>
+                                        <div class="bar">
+                                            <div class="fill" style="width: 2%"></div>
+                                        </div>
+                                        <span>2%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Reviews List -->
+                            <div class="reviews-list">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer">
+                                            <img src="/assets/images/avatars/user1.jpg" alt="Reviewer">
+                                            <div>
+                                                <h4>Alex Johnson</h4>
+                                                <span class="review-date">2 months ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                            <span>Software Engineer</span>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">
+                                        Great company culture and excellent growth opportunities. 
+                                        Management is supportive and the work-life balance is perfect.
+                                    </p>
+                                    <div class="review-tags">
+                                        <span class="tag">Work-life balance</span>
+                                        <span class="tag">Growth opportunities</span>
+                                        <span class="tag">Supportive management</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="reviewer">
+                                            <img src="/assets/images/avatars/user2.jpg" alt="Reviewer">
+                                            <div>
+                                                <h4>Sarah Mohammed</h4>
+                                                <span class="review-date">4 months ago</span>
+                                            </div>
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                            </div>
+                                            <span>Product Manager</span>
+                                        </div>
+                                    </div>
+                                    <p class="review-text">
+                                        Good benefits and competitive salary. The projects are interesting 
+                                        and challenging. Communication could be improved between departments.
+                                    </p>
+                                    <div class="review-tags">
+                                        <span class="tag">Good benefits</span>
+                                        <span class="tag">Interesting projects</span>
+                                        <span class="tag">Communication</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Write Review Button -->
+                            <div class="write-review">
+                                <button class="btn btn-primary" id="write-review-btn" data-i18n="jobs.reviews.write">
+                                    Write a Review
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Application Form (Modal will be used instead) -->
+            </main>
+            
+            <!-- Sidebar -->
+            <aside class="job-sidebar">
+                <!-- Company Card -->
+                <div class="sidebar-card company-card">
+                    <div class="card-header">
+                        <h3 data-i18n="jobs.sidebar.company">Company</h3>
+                        <button class="btn-follow" id="follow-company-btn">
+                            <i class="far fa-heart"></i>
+                            <span data-i18n="jobs.follow">Follow</span>
+                        </button>
+                    </div>
+                    <div class="company-sidebar">
+                        <img src="" alt="Company" id="sidebar-company-logo">
+                        <h4 id="sidebar-company-name">Tech Solutions Inc.</h4>
+                        <div class="company-meta">
+                            <span>
+                                <i class="fas fa-users"></i>
+                                <span id="company-size">500+ employees</span>
+                            </span>
+                            <span>
+                                <i class="fas fa-industry"></i>
+                                <span id="company-industry">Technology</span>
+                            </span>
+                        </div>
+                        <a href="#" class="btn btn-outline btn-view-company" data-i18n="jobs.view_company">
+                            View Company Profile
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Similar Jobs -->
+                <div class="sidebar-card similar-jobs">
+                    <h3 data-i18n="jobs.sidebar.similar">Similar Jobs</h3>
+                    <div class="similar-jobs-list" id="similar-jobs-list">
+                        <div class="similar-job">
+                            <div class="similar-job-header">
+                                <h4>Frontend Developer</h4>
+                                <span class="similar-company">Digital Agency</span>
+                            </div>
+                            <div class="similar-job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Addis Ababa</span>
+                                <span><i class="fas fa-money-bill-wave"></i> ETB 60,000+</span>
+                            </div>
+                            <a href="#" class="btn btn-text">View Details</a>
+                        </div>
+                        
+                        <div class="similar-job">
+                            <div class="similar-job-header">
+                                <h4>Full Stack Engineer</h4>
+                                <span class="similar-company">Startup Inc.</span>
+                            </div>
+                            <div class="similar-job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                                <span><i class="fas fa-money-bill-wave"></i> ETB 90,000+</span>
+                            </div>
+                            <a href="#" class="btn btn-text">View Details</a>
+                        </div>
+                        
+                        <div class="similar-job">
+                            <div class="similar-job-header">
+                                <h4>Mobile App Developer</h4>
+                                <span class="similar-company">Tech Ventures</span>
+                            </div>
+                            <div class="similar-job-meta">
+                                <span><i class="fas fa-map-marker-alt"></i> Hybrid</span>
+                                <span><i class="fas fa-money-bill-wave"></i> ETB 75,000+</span>
+                            </div>
+                            <a href="#" class="btn btn-text">View Details</a>
+                        </div>
+                    </div>
+                    <a href="/pages/jobs.html" class="btn btn-text view-all" data-i18n="jobs.view_all">
+                        View All Jobs
+                    </a>
+                </div>
+                
+                <!-- Job Stats -->
+                <div class="sidebar-card job-stats-card">
+                    <h3 data-i18n="jobs.sidebar.stats">Job Statistics</h3>
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <span class="stat-label" data-i18n="jobs.stats.applicants">Applicants</span>
+                            <span class="stat-value" id="applicant-count">245</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label" data-i18n="jobs.stats.views">Views</span>
+                            <span class="stat-value" id="job-views">1,845</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label" data-i18n="jobs.stats.saved">Saved</span>
+                            <span class="stat-value" id="saved-count">89</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label" data-i18n="jobs.stats.days_left">Days Left</span>
+                            <span class="stat-value" id="days-left">15</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Application Tips -->
+                <div class="sidebar-card tips-card">
+                    <h3 data-i18n="jobs.sidebar.tips">Application Tips</h3>
+                    <ul class="tips-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="jobs.tips.resume">Update your resume</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="jobs.tips.customize">Customize your cover letter</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="jobs.tips.research">Research the company</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="jobs.tips.portfolio">Prepare your portfolio</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span data-i18n="jobs.tips.followup">Follow up after applying</span>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+    
+    <!-- Application Modal -->
+    <div class="modal" id="application-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-i18n="jobs.apply.modal_title">Apply for this position</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="application-form" id="application-form">
+                    <!-- Application steps will be loaded here -->
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Share Modal -->
+    <div class="modal" id="share-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-i18n="jobs.share.title">Share this job</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="share-options">
+                    <button class="share-option" data-platform="facebook">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </button>
+                    <button class="share-option" data-platform="twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </button>
+                    <button class="share-option" data-platform="linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </button>
+                    <button class="share-option" data-platform="telegram">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </button>
+                    <button class="share-option" data-platform="whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </button>
+                    <button class="share-option" data-platform="email">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </button>
+                </div>
+                <div class="share-link">
+                    <input type="text" readonly id="share-url" value="https://ethiopiancommunity.org/jobs/123">
+                    <button class="btn btn-primary" id="copy-link-btn" data-i18n="jobs.share.copy">
+                        Copy Link
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
