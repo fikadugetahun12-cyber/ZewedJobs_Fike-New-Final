@@ -1,0 +1,367 @@
+<div class="certificates-page">
+    <!-- Hero Section -->
+    <section class="page-hero certificates-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="certificates.hero.title">
+                    Verified Certifications & Accreditations
+                </h1>
+                <p class="hero-description" data-i18n="certificates.hero.description">
+                    Discover recognized certifications, verify credentials, and showcase your achievements 
+                    to employers and the community.
+                </p>
+                
+                <!-- Search Certificates -->
+                <div class="certificates-search">
+                    <form class="search-form" id="certificates-search-form">
+                        <div class="search-field">
+                            <i class="fas fa-search"></i>
+                            <input type="text" 
+                                   placeholder="Search certificates..." 
+                                   data-i18n-placeholder="certificates.search.placeholder"
+                                   id="certificate-search-input">
+                        </div>
+                        <div class="search-field">
+                            <i class="fas fa-filter"></i>
+                            <select id="certificate-category-select">
+                                <option value="" data-i18n="certificates.search.category_all">All Categories</option>
+                                <option value="professional" data-i18n="certificates.categories.professional">
+                                    Professional
+                                </option>
+                                <option value="technical" data-i18n="certificates.categories.technical">
+                                    Technical
+                                </option>
+                                <option value="language" data-i18n="certificates.categories.language">
+                                    Language
+                                </option>
+                                <option value="community" data-i18n="certificates.categories.community">
+                                    Community
+                                </option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="certificates.search.button">
+                            Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Certificates -->
+    <section class="featured-certificates">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="certificates.featured.title">
+                    Featured Certificates
+                </h2>
+                <a href="/certificates/all.html" class="view-all" data-i18n="certificates.featured.view_all">
+                    View All <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="certificates-grid" id="featured-certificates">
+                <!-- Featured certificates will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Certificate Categories -->
+    <section class="certificate-categories">
+        <div class="container">
+            <h2 class="section-title" data-i18n="certificates.categories.title">
+                Browse by Category
+            </h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-i18n="certificates.categories.professional">Professional</h3>
+                    <p data-i18n="certificates.categories.professional_desc">
+                        Business, management, leadership
+                    </p>
+                    <span class="count">45 certificates</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 data-i18n="certificates.categories.technical">Technical</h3>
+                    <p data-i18n="certificates.categories.technical_desc">
+                        IT, engineering, technical skills
+                    </p>
+                    <span class="count">78 certificates</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 data-i18n="certificates.categories.language">Language</h3>
+                    <p data-i18n="certificates.categories.language_desc">
+                        Language proficiency certifications
+                    </p>
+                    <span class="count">23 certificates</span>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 data-i18n="certificates.categories.community">Community</h3>
+                    <p data-i18n="certificates.categories.community_desc">
+                        Community service and leadership
+                    </p>
+                    <span class="count">34 certificates</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- All Certificates -->
+    <section class="all-certificates">
+        <div class="container">
+            <div class="certificates-layout">
+                <!-- Filters -->
+                <aside class="certificates-sidebar">
+                    <div class="filter-card">
+                        <h3 data-i18n="certificates.filters.title">Filters</h3>
+                        
+                        <!-- Type Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="certificates.filters.type">Type</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="type" value="digital">
+                                    <span data-i18n="certificates.types.digital">Digital</span>
+                                    <span class="count">(156)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="type" value="physical">
+                                    <span data-i18n="certificates.types.physical">Physical</span>
+                                    <span class="count">(89)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="type" value="verifiable">
+                                    <span data-i18n="certificates.types.verifiable">Verifiable</span>
+                                    <span class="count">(203)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Level Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="certificates.filters.level">Level</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="beginner">
+                                    <span data-i18n="certificates.levels.beginner">Beginner</span>
+                                    <span class="count">(98)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="intermediate">
+                                    <span data-i18n="certificates.levels.intermediate">Intermediate</span>
+                                    <span class="count">(145)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="advanced">
+                                    <span data-i18n="certificates.levels.advanced">Advanced</span>
+                                    <span class="count">(67)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="level" value="expert">
+                                    <span data-i18n="certificates.levels.expert">Expert</span>
+                                    <span class="count">(34)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Provider Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="certificates.filters.provider">Provider</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="provider" value="community">
+                                    <span data-i18n="certificates.providers.community">Community</span>
+                                    <span class="count">(89)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="provider" value="university">
+                                    <span data-i18n="certificates.providers.university">University</span>
+                                    <span class="count">(45)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="provider" value="industry">
+                                    <span data-i18n="certificates.providers.industry">Industry</span>
+                                    <span class="count">(156)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="provider" value="international">
+                                    <span data-i18n="certificates.providers.international">International</span>
+                                    <span class="count">(78)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Validity Filter -->
+                        <div class="filter-section">
+                            <h4 data-i18n="certificates.filters.validity">Validity</h4>
+                            <div class="filter-options">
+                                <label class="checkbox">
+                                    <input type="checkbox" name="validity" value="lifetime">
+                                    <span data-i18n="certificates.validity.lifetime">Lifetime</span>
+                                    <span class="count">(123)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="validity" value="annual">
+                                    <span data-i18n="certificates.validity.annual">Annual Renewal</span>
+                                    <span class="count">(98)</span>
+                                </label>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="validity" value="renewable">
+                                    <span data-i18n="certificates.validity.renewable">Renewable</span>
+                                    <span class="count">(67)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Clear Filters -->
+                        <div class="filter-actions">
+                            <button class="btn btn-outline" id="clear-certificate-filters">
+                                <span data-i18n="certificates.filters.clear">Clear All</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Verify Certificate -->
+                    <div class="verify-card">
+                        <h3 data-i18n="certificates.verify.title">Verify Certificate</h3>
+                        <p data-i18n="certificates.verify.description">
+                            Verify the authenticity of a certificate using its ID.
+                        </p>
+                        <form class="verify-form" id="verify-form">
+                            <input type="text" 
+                                   placeholder="Enter certificate ID" 
+                                   data-i18n-placeholder="certificates.verify.placeholder"
+                                   id="certificate-id-input">
+                            <button type="submit" class="btn btn-primary" data-i18n="certificates.verify.button">
+                                Verify
+                            </button>
+                        </form>
+                    </div>
+                </aside>
+                
+                <!-- Certificates List -->
+                <main class="certificates-main">
+                    <div class="certificates-header">
+                        <h2 data-i18n="certificates.all.title">All Certificates</h2>
+                        <div class="sort-options">
+                            <span data-i18n="certificates.sort.by">Sort by:</span>
+                            <select id="certificate-sort-select">
+                                <option value="popular" data-i18n="certificates.sort.popular">Most Popular</option>
+                                <option value="newest" data-i18n="certificates.sort.newest">Newest</option>
+                                <option value="name" data-i18n="certificates.sort.name">Name (A-Z)</option>
+                                <option value="level" data-i18n="certificates.sort.level">Level</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="certificates-list" id="certificates-list">
+                        <!-- Certificates will be loaded here -->
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="certificates-pagination" id="certificates-pagination">
+                        <!-- Pagination will be added here -->
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+    
+    <!-- My Certificates (Logged In Users) -->
+    <section class="my-certificates" id="my-certificates-section" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="certificates.my.title">My Certificates</h2>
+                <button class="btn btn-primary" id="add-certificate-btn">
+                    <i class="fas fa-plus"></i>
+                    <span data-i18n="certificates.my.add">Add Certificate</span>
+                </button>
+            </div>
+            
+            <div class="my-certificates-grid" id="my-certificates-grid">
+                <!-- User's certificates will be loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="certificates-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 data-i18n="certificates.cta.title">Get Certified Today</h2>
+                <p data-i18n="certificates.cta.description">
+                    Enhance your credentials and stand out in the job market with recognized certifications.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/certificates/earn.html" class="btn btn-primary" data-i18n="certificates.cta.earn">
+                        Earn a Certificate
+                    </a>
+                    <a href="/certificates/verify.html" class="btn btn-outline" data-i18n="certificates.cta.verify">
+                        Verify Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Certificate Card Template -->
+<template id="certificate-card-template">
+    <div class="certificate-card" data-certificate-id="">
+        <div class="certificate-image">
+            <img src="" alt="Certificate thumbnail">
+            <div class="certificate-badge" data-badge-type=""></div>
+        </div>
+        <div class="certificate-content">
+            <div class="certificate-header">
+                <h3 class="certificate-title"></h3>
+                <div class="certificate-provider">
+                    <img src="" alt="Provider logo" class="provider-logo">
+                    <span class="provider-name"></span>
+                </div>
+            </div>
+            <p class="certificate-description"></p>
+            <div class="certificate-meta">
+                <span class="meta-item">
+                    <i class="fas fa-signal"></i>
+                    <span class="certificate-level"></span>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="certificate-duration"></span>
+                </span>
+                <span class="meta-item">
+                    <i class="fas fa-certificate"></i>
+                    <span class="certificate-type"></span>
+                </span>
+            </div>
+            <div class="certificate-footer">
+                <div class="certificate-price">
+                    <span class="price-text"></span>
+                </div>
+                <div class="certificate-actions">
+                    <button class="btn btn-outline btn-view" data-i18n="certificates.card.view">
+                        View Details
+                    </button>
+                    <button class="btn btn-primary btn-earn" data-i18n="certificates.card.earn">
+                        Earn Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
