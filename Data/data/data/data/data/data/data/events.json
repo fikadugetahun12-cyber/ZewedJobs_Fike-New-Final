@@ -1,0 +1,31 @@
+{
+  "events": [
+    {
+      "id": "event-001",
+      "title": "Africa Tech Job Fair 2024",
+      "description": "Virtual job fair connecting African tech talent with global companies",
+      "date": "2024-04-15T10:00:00Z",
+      "endDate": "2024-04-16T18:00:00Z",
+      "location": "Virtual",
+      "type": "virtual",
+      "organizer": "Zewed Jobs & Partners",
+      "speakers": [
+        { "name": "Chinwe Okoli", "title": "CTO, FinTech Africa" },
+        { "name": "David Mensah", "title": "Head of Talent, Google Africa" }
+      ],
+      "registrationLink": "https://zewedjobs.com/events/tech-fair-2024",
+      "attendeeCount": 1500,
+      "maxAttendees": 2000
+    },
+    {
+      "id": "event-002",
+      "title": "Resume Writing Workshop",
+      "description": "Learn how to craft resumes that get noticed by African employers",
+      "date": "2024-03-25T14:00:00Z",
+      "location": "Lagos, Nigeria",
+      "type": "in-person",
+      "organizer": "Zewed Jobs Career Services",
+      "registrationLink": "https://zewedjobs.com/events/resume-workshop"
+    }
+  ]
+}
