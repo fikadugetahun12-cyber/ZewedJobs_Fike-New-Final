@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs Management - Zewed Jobs Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <span>Zewed Jobs</span>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="jobs.html" class="active" data-page="jobs"><i class="fas fa-briefcase"></i> <span>Jobs Management</span></a></li>
+            <li><a href="courses.html" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>Courses</span></a></li>
+            <li><a href="events.html" data-page="events"><i class="fas fa-calendar-alt"></i> <span>Events</span></a></li>
+            <li><a href="payments.html" data-page="payments"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
+            <li><a href="users.html" data-page="users"><i class="fas fa-users"></i> <span>Users</span></a></li>
+            <li><a href="certificates.html" data-page="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+            <li><a href="partners.html" data-page="partners"><i class="fas fa-handshake"></i> <span>Partners</span></a></li>
+            <li><a href="donations.html" data-page="donations"><i class="fas fa-donate"></i> <span>Donations</span></a></li>
+            <li><a href="ads.html" data-page="ads"><i class="fas fa-ad"></i> <span>Ads Management</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Jobs Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <h4>Admin User</h4>
+                        <p style="font-size: 0.8rem; color: var(--gray-color);">Super Admin</p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Jobs Content -->
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Job Listings</h2>
+                    <button class="btn btn-primary" id="addJobBtn"><i class="fas fa-plus"></i> Add New Job</button>
+                </div>
+                
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="jobSearch" placeholder="Search jobs...">
+                </div>
+                
+                <div class="filter-bar">
+                    <select class="form-select" style="width: 200px;" id="jobTypeFilter">
+                        <option value="">All Types</option>
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="contract">Contract</option>
+                        <option value="internship">Internship</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                    
+                    <select class="form-select" style="width: 200px;" id="jobStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Job Title</th>
+                                <th>Company</th>
+                                <th>Type</th>
+                                <th>Applications</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jobsTableBody">
+                            <!-- Jobs loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Job Modal -->
+    <div id="addJobModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Job</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="jobForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Job Title *</label>
+                            <input type="text" class="form-control" id="jobTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Company *</label>
+                            <input type="text" class="form-control" id="jobCompany" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Job Type *</label>
+                            <select class="form-select" id="jobType" required>
+                                <option value="">Select Type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" class="form-control" id="jobLocation">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea class="form-control" id="jobDescription" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Salary Range</label>
+                            <input type="text" class="form-control" id="jobSalary" placeholder="e.g., ETB 20,000 - ETB 40,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Application Deadline</label>
+                            <input type="date" class="form-control" id="jobDeadline">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Requirements</label>
+                        <textarea class="form-control" id="jobRequirements" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveJobBtn">Save Job</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="editModalTitle">Edit Item</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+    <script>
+        // Add Job Button Event Listener
+        document.addEventListener('DOMContentLoaded', function() {
+            const addJobBtn = document.getElementById('addJobBtn');
+            if (addJobBtn) {
+                addJobBtn.addEventListener('click', function() {
+                    document.getElementById('jobForm').reset();
+                    document.getElementById('addJobModal').style.display = 'flex';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
