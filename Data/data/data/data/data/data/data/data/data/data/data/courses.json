@@ -1,0 +1,39 @@
+{
+  "courses": [
+    {
+      "id": "course-001",
+      "title": "Modern Frontend Development",
+      "provider": "African Tech Academy",
+      "instructor": "Dr. Amina Bello",
+      "description": "Master React, TypeScript, and modern frontend practices",
+      "duration": "8 weeks",
+      "level": "Intermediate",
+      "price": {
+        "amount": 299,
+        "currency": "USD",
+        "discount": 149,
+        "isFree": false
+      },
+      "rating": 4.8,
+      "enrollmentCount": 1245,
+      "tags": ["react", "typescript", "frontend"],
+      "category": "technology"
+    },
+    {
+      "id": "course-002",
+      "title": "Digital Marketing Mastery",
+      "provider": "Growth Africa Institute",
+      "description": "Comprehensive guide to digital marketing in African markets",
+      "duration": "6 weeks",
+      "level": "Beginner",
+      "price": {
+        "amount": 199,
+        "currency": "USD",
+        "isFree": false
+      },
+      "rating": 4.6,
+      "enrollmentCount": 890,
+      "category": "marketing"
+    }
+  ]
+}
