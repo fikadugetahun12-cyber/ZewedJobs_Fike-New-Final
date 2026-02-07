@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "id": "technology",
+      "name": "Technology",
+      "icon": "💻",
+      "description": "Software development, IT, engineering",
+      "jobCount": 345,
+      "subcategories": [
+        { "id": "frontend", "name": "Frontend Development" },
+        { "id": "backend", "name": "Backend Development" },
+        { "id": "mobile", "name": "Mobile Development" },
+        { "id": "devops", "name": "DevOps" },
+        { "id": "data-science", "name": "Data Science" }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing",
+      "icon": "📈",
+      "description": "Digital marketing, advertising, PR",
+      "jobCount": 189
+    },
+    {
+      "id": "finance",
+      "name": "Finance",
+      "icon": "💰",
+      "description": "Banking, accounting, investment",
+      "jobCount": 156
+    },
+    {
+      "id": "healthcare",
+      "name": "Healthcare",
+      "icon": "🏥",
+      "description": "Medical, pharmaceutical, nursing",
+      "jobCount": 203
+    },
+    {
+      "id": "education",
+      "name": "Education",
+      "icon": "📚",
+      "description": "Teaching, training, academic",
+      "jobCount": 98
+    }
+  ]
+}
