@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations Management - Zewed Jobs Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <span>Zewed Jobs</span>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="jobs.html" data-page="jobs"><i class="fas fa-briefcase"></i> <span>Jobs Management</span></a></li>
+            <li><a href="courses.html" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>Courses</span></a></li>
+            <li><a href="events.html" data-page="events"><i class="fas fa-calendar-alt"></i> <span>Events</span></a></li>
+            <li><a href="payments.html" data-page="payments"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
+            <li><a href="users.html" data-page="users"><i class="fas fa-users"></i> <span>Users</span></a></li>
+            <li><a href="certificates.html" data-page="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+            <li><a href="partners.html" data-page="partners"><i class="fas fa-handshake"></i> <span>Partners</span></a></li>
+            <li><a href="donations.html" class="active" data-page="donations"><i class="fas fa-donate"></i> <span>Donations</span></a></li>
+            <li><a href="ads.html" data-page="ads"><i class="fas fa-ad"></i> <span>Ads Management</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Donations Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <h4>Admin User</h4>
+                        <p style="font-size: 0.8rem; color: var(--gray-color);">Super Admin</p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Donations Content -->
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Donations Management</h2>
+                    <button class="btn btn-primary" id="addDonationBtn"><i class="fas fa-plus"></i> Record Donation</button>
+                </div>
+                
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="donationSearch" placeholder="Search donations...">
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Donation ID</th>
+                                <th>Donor Name</th>
+                                <th>Amount</th>
+                                <th>Purpose</th>
+                                <th>Date</th>
+                                <th>Payment Method</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="donationsTableBody">
+                            <!-- Donations loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Donation Modal -->
+    <div id="addDonationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Record New Donation</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="donationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Donor Name/Organization *</label>
+                            <input type="text" class="form-control" id="donationDonor" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" id="donationEmail">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Amount (ETB) *</label>
+                            <input type="number" class="form-control" id="donationAmount" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Donation Date *</label>
+                            <input type="date" class="form-control" id="donationDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Payment Method *</label>
+                            <select class="form-select" id="donationMethod" required>
+                                <option value="">Select Method</option>
+                                <option value="Bank Transfer">Bank Transfer</option>
+                                <option value="Online Payment">Online Payment</option>
+                                <option value="Mobile Payment">Mobile Payment</option>
+                                <option value="Cash">Cash</option>
+                                <option value="Check">Check</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Purpose</label>
+                            <select class="form-select" id="donationPurpose">
+                                <option value="General Support">General Support</option>
+                                <option value="Platform Development">Platform Development</option>
+                                <option value="Student Scholarships">Student Scholarships</option>
+                                <option value="Event Sponsorship">Event Sponsorship</option>
+                                <option value="Job Training Program">Job Training Program</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Notes/Description</label>
+                        <textarea class="form-control" id="donationNotes" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-select" id="donationStatus">
+                            <option value="Received">Received</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Acknowledged">Acknowledged</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveDonationBtn">Record Donation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+    <script>
+        // Add Donation Button Event Listener
+        document.addEventListener('DOMContentLoaded', function() {
+            const addDonationBtn = document.getElementById('addDonationBtn');
+            if (addDonationBtn) {
+                addDonationBtn.addEventListener('click', function() {
+                    document.getElementById('donationForm').reset();
+                    document.getElementById('addDonationModal').style.display = 'flex';
+                });
+            }
+            
+            const saveDonationBtn = document.getElementById('saveDonationBtn');
+            if (saveDonationBtn) {
+                saveDonationBtn.addEventListener('click', saveDonation);
+            }
+        });
+        
+        function saveDonation() {
+            const donor = document.getElementById('donationDonor').value;
+            const amount = document.getElementById('donationAmount').value;
+            const date = document.getElementById('donationDate').value;
+            const method = document.getElementById('donationMethod').value;
+            
+            if (!donor || !amount || !date || !method) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Generate new donation ID
+            const newId = `#D${Math.floor(Math.random() * 900) + 100}`;
+            
+            // Add to data
+            const newDonation = {
+                id: newId,
+                donor: donor,
+                amount: `ETB ${parseInt(amount).toLocaleString()}`,
+                purpose: document.getElementById('donationPurpose').value,
+                date: date,
+                method: method,
+                status: document.getElementById('donationStatus').value
+            };
+            
+            currentData.donations.unshift(newDonation);
+            renderDonationsTable(currentData.donations);
+            document.getElementById('addDonationModal').style.display = 'none';
+            alert('Donation recorded successfully!');
+        }
+    </script>
+</body>
+</html>
