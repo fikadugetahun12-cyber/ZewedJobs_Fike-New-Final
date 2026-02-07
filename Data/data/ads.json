@@ -1,0 +1,212 @@
+{
+  "activeCampaigns": [
+    {
+      "id": "ad-campaign-001",
+      "title": "Premium Employer Spotlight",
+      "description": "Reach 500,000+ qualified candidates across Africa",
+      "type": "featured-banner",
+      "position": "top-homepage",
+      "priority": 1,
+      "content": {
+        "headline": "Hiring Top Talent?",
+        "subtitle": "Post your job listing today and find the perfect fit",
+        "ctaText": "Advertise With Us",
+        "ctaLink": "/employers/advertise",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+        "backgroundColor": "linear-gradient(135deg, #FF0042 0%, #FF416C 100%)",
+        "textColor": "#FFFFFF"
+      },
+      "targeting": {
+        "audience": ["employers", "recruiters"],
+        "geography": ["all"],
+        "devices": ["desktop", "mobile"],
+        "frequencyCap": 5,
+        "schedule": {
+          "startDate": "2024-01-01T00:00:00Z",
+          "endDate": "2024-12-31T23:59:59Z",
+          "daysOfWeek": [1, 2, 3, 4, 5, 6, 7],
+          "hours": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+        }
+      },
+      "metrics": {
+        "impressions": 12500,
+        "clicks": 850,
+        "conversions": 45,
+        "budget": 5000,
+        "spent": 3200,
+        "ctr": 6.8
+      },
+      "status": "active",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "updatedAt": "2024-03-20T14:45:00Z"
+    },
+    {
+      "id": "ad-campaign-002",
+      "title": "Resume Builder Promotion",
+      "description": "Professional resume builder tool advertisement",
+      "type": "sidebar-banner",
+      "position": "right-sidebar",
+      "priority": 2,
+      "content": {
+        "headline": "Upgrade Your Resume",
+        "subtitle": "Get 50% off our professional resume builder",
+        "ctaText": "Try Free",
+        "ctaLink": "/resume-builder",
+        "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "backgroundColor": "#F8F9FA",
+        "textColor": "#2C2C2C",
+        "borderColor": "#F39C12"
+      },
+      "targeting": {
+        "audience": ["job-seekers", "students"],
+        "geography": ["nigeria", "kenya", "ghana", "south-africa"],
+        "devices": ["desktop", "tablet"],
+        "frequencyCap": 3,
+        "userStatus": ["logged-out", "new-users"]
+      },
+      "metrics": {
+        "impressions": 8500,
+        "clicks": 1200,
+        "conversions": 180,
+        "budget": 2000,
+        "spent": 1500,
+        "ctr": 14.1
+      },
+      "status": "active",
+      "createdAt": "2024-02-10T09:15:00Z"
+    },
+    {
+      "id": "ad-campaign-003",
+      "title": "Tech Conference 2024",
+      "description": "Africa Tech Summit sponsorship",
+      "type": "inline-content",
+      "position": "between-job-listings",
+      "priority": 3,
+      "content": {
+        "headline": "Africa Tech Summit 2024",
+        "subtitle": "Join 5,000+ tech professionals in Nairobi this November",
+        "ctaText": "Register Now",
+        "ctaLink": "https://africatechsummit.com",
+        "sponsor": "Tech Solutions Africa",
+        "logo": "https://example.com/logos/tech-africa.png"
+      },
+      "targeting": {
+        "audience": ["tech-professionals", "developers", "engineers"],
+        "geography": ["kenya", "east-africa"],
+        "jobCategories": ["technology", "engineering", "data-science"],
+        "devices": ["all"]
+      },
+      "status": "active",
+      "createdAt": "2024-03-01T11:20:00Z"
+    }
+  ],
+  "adPositions": [
+    {
+      "id": "top-homepage",
+      "name": "Homepage Top Banner",
+      "description": "Large banner at the top of homepage",
+      "dimensions": {
+        "desktop": "1200x200",
+        "tablet": "768x150",
+        "mobile": "360x100"
+      },
+      "price": {
+        "cpc": 1.5,
+        "cpm": 15,
+        "weekly": 500,
+        "monthly": 1800
+      },
+      "available": true
+    },
+    {
+      "id": "right-sidebar",
+      "name": "Sidebar Banner",
+      "description": "Vertical banner in the right sidebar",
+      "dimensions": {
+        "desktop": "300x600",
+        "tablet": "200x400",
+        "mobile": "hidden"
+      },
+      "price": {
+        "cpc": 0.8,
+        "cpm": 8,
+        "weekly": 200,
+        "monthly": 700
+      },
+      "available": true
+    },
+    {
+      "id": "between-job-listings",
+      "name": "Job Listings Ad",
+      "description": "Native ad between job listings",
+      "dimensions": "responsive",
+      "price": {
+        "cpc": 1.2,
+        "cpm": 12,
+        "weekly": 300,
+        "monthly": 1000
+      },
+      "available": true
+    },
+    {
+      "id": "job-detail-sidebar",
+      "name": "Job Detail Sidebar",
+      "description": "Ad on job detail pages",
+      "dimensions": {
+        "desktop": "250x250",
+        "tablet": "200x200"
+      },
+      "price": {
+        "cpc": 0.9,
+        "cpm": 9,
+        "weekly": 150,
+        "monthly": 500
+      },
+      "available": true
+    }
+  ],
+  "adTypes": [
+    {
+      "id": "featured-banner",
+      "name": "Featured Banner",
+      "description": "Large promotional banner with image",
+      "maxFileSize": "2MB",
+      "allowedFormats": ["jpg", "png", "gif", "svg"],
+      "animationAllowed": true
+    },
+    {
+      "id": "sidebar-banner",
+      "name": "Sidebar Banner",
+      "description": "Smaller sidebar advertisement",
+      "maxFileSize": "1MB",
+      "allowedFormats": ["jpg", "png"],
+      "animationAllowed": false
+    },
+    {
+      "id": "inline-content",
+      "name": "Inline Content",
+      "description": "Native ad that matches content style",
+      "maxFileSize": "500KB",
+      "allowedFormats": ["jpg", "png"],
+      "animationAllowed": false
+    },
+    {
+      "id": "featured-listing",
+      "name": "Featured Job Listing",
+      "description": "Promoted job listing with highlight",
+      "duration": 30,
+      "priorityBoost": 3
+    }
+  ],
+  "analytics": {
+    "totalImpressions": 1250000,
+    "totalClicks": 85000,
+    "averageCTR": 6.8,
+    "totalRevenue": 45000,
+    "topPerformingCampaign": "ad-campaign-001",
+    "dateRange": {
+      "start": "2024-01-01",
+      "end": "2024-03-20"
+    }
+  }
+}
