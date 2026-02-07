@@ -1,0 +1,87 @@
+{
+  "jobs": [
+    {
+      "id": "job-001",
+      "title": "Frontend Developer",
+      "company": {
+        "id": "company-001",
+        "name": "Tech Solutions Africa",
+        "logo": "/logos/tech-solutions-africa.png",
+        "isVerified": true
+      },
+      "location": {
+        "city": "Lagos",
+        "country": "Nigeria",
+        "isRemote": true,
+        "timezone": "WAT"
+      },
+      "employmentType": "full-time",
+      "experienceLevel": "mid-level",
+      "salary": {
+        "min": 3500,
+        "max": 4200,
+        "currency": "USD",
+        "period": "monthly",
+        "isDisclosed": true
+      },
+      "description": "We're looking for a talented Frontend Developer to join our growing team...",
+      "requirements": [
+        "3+ years experience with React",
+        "Proficient in TypeScript",
+        "Experience with responsive design",
+        "Knowledge of state management (Redux/MobX)"
+      ],
+      "benefits": [
+        "Health insurance",
+        "Remote work options",
+        "Learning budget",
+        "Stock options"
+      ],
+      "category": "technology",
+      "tags": ["react", "typescript", "frontend", "remote"],
+      "isFeatured": true,
+      "featuredExpiry": "2024-04-30T23:59:59Z",
+      "applicationCount": 45,
+      "views": 320,
+      "postedAt": "2024-03-15T09:30:00Z",
+      "expiresAt": "2024-04-15T23:59:59Z",
+      "status": "active"
+    },
+    {
+      "id": "job-002",
+      "title": "Marketing Manager",
+      "company": {
+        "id": "company-002",
+        "name": "Growth Africa Ltd",
+        "logo": "/logos/growth-africa.png",
+        "isVerified": true
+      },
+      "location": {
+        "city": "Nairobi",
+        "country": "Kenya",
+        "isRemote": false,
+        "hybrid": true
+      },
+      "employmentType": "full-time",
+      "experienceLevel": "senior",
+      "salary": {
+        "min": 2800,
+        "max": 3500,
+        "currency": "USD",
+        "period": "monthly",
+        "isDisclosed": true
+      },
+      "category": "marketing",
+      "tags": ["digital-marketing", "strategy", "team-lead"],
+      "isFeatured": false,
+      "postedAt": "2024-03-18T14:20:00Z",
+      "status": "active"
+    }
+  ],
+  "metadata": {
+    "total": 1245,
+    "page": 1,
+    "limit": 20,
+    "hasMore": true
+  }
+}
