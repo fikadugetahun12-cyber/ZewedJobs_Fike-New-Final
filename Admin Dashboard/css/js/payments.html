@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments Management - Zewed Jobs Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <span>Zewed Jobs</span>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="jobs.html" data-page="jobs"><i class="fas fa-briefcase"></i> <span>Jobs Management</span></a></li>
+            <li><a href="courses.html" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>Courses</span></a></li>
+            <li><a href="events.html" data-page="events"><i class="fas fa-calendar-alt"></i> <span>Events</span></a></li>
+            <li><a href="payments.html" class="active" data-page="payments"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
+            <li><a href="users.html" data-page="users"><i class="fas fa-users"></i> <span>Users</span></a></li>
+            <li><a href="certificates.html" data-page="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+            <li><a href="partners.html" data-page="partners"><i class="fas fa-handshake"></i> <span>Partners</span></a></li>
+            <li><a href="donations.html" data-page="donations"><i class="fas fa-donate"></i> <span>Donations</span></a></li>
+            <li><a href="ads.html" data-page="ads"><i class="fas fa-ad"></i> <span>Ads Management</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Payments Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <h4>Admin User</h4>
+                        <p style="font-size: 0.8rem; color: var(--gray-color);">Super Admin</p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Payments Content -->
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Payment Transactions</h2>
+                    <div>
+                        <button class="btn btn-secondary" id="filterPaymentsBtn"><i class="fas fa-filter"></i> Filter</button>
+                        <button class="btn btn-primary" id="exportPaymentsBtn"><i class="fas fa-download"></i> Export</button>
+                    </div>
+                </div>
+                
+                <div class="filter-bar">
+                    <select class="form-select" style="width: 200px;" id="paymentStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                    
+                    <input type="date" class="form-control" style="width: 200px;" id="paymentDateFilter">
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>User/Company</th>
+                                <th>Amount</th>
+                                <th>Payment Method</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentsTableBody">
+                            <!-- Payments loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+    <script>
+        // Export Payments Button Event Listener
+        document.addEventListener('DOMContentLoaded', function() {
+            const exportPaymentsBtn = document.getElementById('exportPaymentsBtn');
+            if (exportPaymentsBtn) {
+                exportPaymentsBtn.addEventListener('click', exportPayments);
+            }
+            
+            // Filter payments toggle
+            const filterPaymentsBtn = document.getElementById('filterPaymentsBtn');
+            if (filterPaymentsBtn) {
+                const filterBar = document.querySelector('#paymentsPage .filter-bar');
+                if (filterBar) {
+                    filterBar.style.display = 'flex';
+                    filterPaymentsBtn.addEventListener('click', function() {
+                        filterBar.style.display = filterBar.style.display === 'none' ? 'flex' : 'none';
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
