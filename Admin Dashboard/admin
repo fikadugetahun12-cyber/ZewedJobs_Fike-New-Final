@@ -3,1003 +3,2509 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | ZewedJobs - Ethiopia's #1 Job Platform</title>
-    <meta name="description" content="Login to ZewedJobs - Find jobs in Ethiopia, access free courses, and connect with top employers.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/assets/logo-192.png">
-    
-    <!-- Fonts & Icons -->
+    <title>Zewed Jobs - Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Google Sign-in SDK -->
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
-    <!-- Facebook Login SDK -->
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    
-    <!-- Telegram Login Widget -->
-    <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="zewedjobs_bot" data-size="large" data-auth-url="/auth/telegram" data-request-access="write"></script>
-    
     <style>
-        /* ===== UPDATED BRAND COLOR SYSTEM ===== */
         :root {
-            --primary: #0C2D48;        /* Deep African Blue */
-            --primary-light: #E8F0F7;
-            --accent: #E9A21B;         /* Ethiopian Gold */
-            --secondary: #1F8A5B;      /* Ethiopian Green */
-            --secondary-light: #E6F4EF;
-            --dark: #2B2B2B;           /* Earth Charcoal */
-            --light: #FAF7F2;          /* Warm Light Neutral */
-            --white: #FFFFFF;
-            --card-bg: #FFFFFF;
-            --border: #E5E1DA;         /* Borders/Dividers */
-            --error: #FF4D4D;
-            --success: #00B894;
-            --radius: 12px;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --dark-color: #1f2937;
+            --light-color: #f9fafb;
+            --gray-color: #9ca3af;
+            --sidebar-width: 260px;
+            --header-height: 70px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            color: var(--dark);
-            background: var(--light);
+            background-color: #f5f7fb;
+            color: #333;
+            display: flex;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
-        
-        /* ===== NAVIGATION ===== */
-        nav {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-bottom: 1px solid var(--border);
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--dark-color) 0%, #111827 100%);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 20px 0;
+            transition: all 0.3s;
+            z-index: 100;
+            box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
         }
-        
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        .sidebar-header {
+            padding: 0 20px 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
         }
-        
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 8px;
+
+        .logo i {
+            color: var(--primary-color);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .sidebar-menu i {
+            width: 24px;
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            transition: all 0.3s;
+        }
+
+        .header {
+            height: var(--header-height);
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .header-left h1 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: 800;
-            font-size: 20px;
+            font-weight: bold;
         }
-        
-        .logo-text {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--primary);
+
+        .content {
+            padding: 30px;
         }
-        
-        .back-home {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
+
+        /* Dashboard Stats */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: var(--transition);
+            transition: transform 0.3s;
         }
-        
-        .back-home:hover {
-            color: var(--accent);
+
+        .stat-card:hover {
+            transform: translateY(-5px);
         }
-        
-        /* ===== LOGIN CONTAINER ===== */
-        .login-container {
-            flex: 1;
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            margin-right: 15px;
+            font-size: 1.5rem;
         }
-        
-        .login-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 40px;
-            width: 100%;
-            max-width: 450px;
+
+        .stat-icon.jobs { background-color: #e0f2fe; color: #0369a1; }
+        .stat-icon.users { background-color: #fef3c7; color: #d97706; }
+        .stat-icon.payments { background-color: #dcfce7; color: #16a34a; }
+        .stat-icon.events { background-color: #f3e8ff; color: #9333ea; }
+        .stat-icon.courses { background-color: #fce7f3; color: #db2777; }
+        .stat-icon.certificates { background-color: #fef3c7; color: #d97706; }
+        .stat-icon.partners { background-color: #d1fae5; color: #065f46; }
+        .stat-icon.donations { background-color: #e0e7ff; color: #4f46e5; }
+        .stat-icon.ads { background-color: #fef3c7; color: #d97706; }
+
+        .stat-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
-        
-        .login-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .login-header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .login-header p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        /* ===== FORM STYLES ===== */
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
+
+        .stat-info p {
+            color: var(--gray-color);
             font-size: 0.9rem;
         }
-        
-        .form-input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-            background: var(--light);
+
+        /* Content Cards */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
         }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(233, 162, 27, 0.1);
-        }
-        
-        .password-input {
-            position: relative;
-        }
-        
-        .toggle-password {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #666;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-        
-        /* ===== REMEMBER & FORGOT ===== */
-        .form-options {
+
+        .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
         }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .remember-me input {
-            width: 16px;
-            height: 16px;
-        }
-        
-        .forgot-password {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-        
-        /* ===== BUTTONS ===== */
-        .btn {
-            padding: 14px 24px;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
+
+        .card-title {
+            font-size: 1.3rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
+            color: var(--dark-color);
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        tr:hover {
+            background-color: #f9fafb;
+        }
+
+        /* Form Styles */
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
             border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
+            gap: 5px;
         }
-        
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), #1a4768);
-            color: var(--white);
+            background-color: var(--primary-color);
+            color: white;
         }
-        
+
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(12, 45, 72, 0.3);
+            background-color: var(--primary-dark);
         }
-        
-        .btn-google {
-            background: #ffffff;
-            color: #333;
-            border: 1px solid #ddd;
+
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: var(--dark-color);
         }
-        
-        .btn-google:hover {
-            background: #f8f9fa;
-            border-color: #ccc;
+
+        .btn-secondary:hover {
+            background-color: #d1d5db;
         }
-        
-        .btn-facebook {
-            background: #1877F2;
+
+        .btn-success {
+            background-color: var(--secondary-color);
             color: white;
         }
-        
-        .btn-facebook:hover {
-            background: #166fe5;
+
+        .btn-success:hover {
+            background-color: #0da271;
         }
-        
-        .btn-telegram {
-            background: #0088cc;
+
+        .btn-danger {
+            background-color: var(--danger-color);
             color: white;
         }
-        
-        .btn-telegram:hover {
-            background: #0077b3;
+
+        .btn-danger:hover {
+            background-color: #dc2626;
         }
-        
-        /* ===== SOCIAL LOGIN SECTION ===== */
-        .social-login {
-            margin: 30px 0;
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
         }
-        
-        .divider {
-            display: flex;
+
+        .btn-warning:hover {
+            background-color: #d97706;
+        }
+
+        /* Status Badges */
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .badge-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-warning {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge-info {
+            background-color: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .badge-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
             align-items: center;
-            margin: 25px 0;
-            color: #666;
-            font-size: 0.9rem;
         }
-        
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid var(--border);
+
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
         }
-        
-        .divider span {
-            padding: 0 15px;
-        }
-        
-        .social-buttons {
+
+        .modal-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        /* ===== SIGNUP LINK ===== */
-        .signup-link {
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-color);
+        }
+
+        /* Login Page */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fb 0%, #e4edf5 100%);
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        .login-logo {
             text-align: center;
-            margin-top: 25px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border);
-            color: #666;
-            font-size: 0.95rem;
+            margin-bottom: 30px;
+            color: var(--dark-color);
         }
-        
-        .signup-link a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
+
+        .login-logo h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
         }
-        
-        .signup-link a:hover {
-            text-decoration: underline;
+
+        .login-logo p {
+            color: var(--gray-color);
         }
-        
-        /* ===== MESSAGES ===== */
-        .message {
-            padding: 12px 16px;
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .alert {
+            padding: 12px 15px;
             border-radius: 8px;
             margin-bottom: 20px;
             font-size: 0.9rem;
+        }
+
+        .alert-danger {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Search and Filter */
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-color);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 80px;
+                overflow: hidden;
+            }
+            
+            .sidebar:hover {
+                width: var(--sidebar-width);
+            }
+            
+            .sidebar-header .logo span,
+            .sidebar-menu a span {
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            
+            .sidebar:hover .logo span,
+            .sidebar:hover .sidebar-menu a span {
+                opacity: 1;
+            }
+            
+            .main-content {
+                margin-left: 80px;
+            }
+            
+            .sidebar:hover ~ .main-content {
+                margin-left: var(--sidebar-width);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: var(--sidebar-width);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .header-left h1 {
+                font-size: 1.3rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Page content */
+        .page-content {
             display: none;
         }
         
-        .message-error {
-            background: #FFEBEE;
-            color: var(--error);
-            border: 1px solid #FFCDD2;
+        .page-content.active {
             display: block;
         }
         
-        .message-success {
-            background: #E8F5E9;
-            color: var(--success);
-            border: 1px solid #C8E6C9;
+        /* Login form */
+        #loginPage {
             display: block;
         }
         
-        .message-warning {
-            background: #FFF3E0;
-            color: #FF9800;
-            border: 1px solid #FFE0B2;
+        #loginPage.active {
             display: block;
         }
-        
-        /* ===== LOADING ===== */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--light);
-            padding: 30px 20px;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
+
+        /* Dashboard Charts */
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
+            margin-bottom: 30px;
         }
-        
-        .footer-links a {
-            color: #666;
+
+        .chart-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 992px) {
+            .chart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: var(--transition);
+            color: var(--dark-color);
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
-        .footer-links a:hover {
-            color: var(--accent);
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
-        
-        .copyright {
-            color: #999;
-            font-size: 0.85rem;
+
+        .action-btn i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
-        
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .login-card {
-                padding: 30px 25px;
-            }
-            
-            .login-header h1 {
-                font-size: 1.75rem;
-            }
-            
-            .form-options {
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .login-card {
-                padding: 25px 20px;
-            }
-            
-            .login-header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .btn {
-                padding: 12px 20px;
-            }
+
+        .action-btn span {
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-content">
-            <a href="/" class="logo">
-                <div class="logo-icon">ZJ</div>
-                <div class="logo-text">ZewedJobs</div>
-            </a>
-            <a href="/" class="back-home">
-                <i class="fas fa-arrow-left"></i> Back to Home
-            </a>
-        </div>
-    </nav>
-
-    <!-- Login Container -->
-    <div class="login-container">
-        <div class="login-card">
-            <div class="login-header">
-                <h1>Welcome Back</h1>
-                <p>Login to access your account and continue your job search</p>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <h1><i class="fas fa-briefcase"></i> Zewed Jobs</h1>
+                <p>Admin Dashboard Login</p>
             </div>
-
-            <!-- Error/Success Messages -->
-            <div id="errorMessage" class="message message-error" style="display: none;"></div>
-            <div id="successMessage" class="message message-success" style="display: none;"></div>
-
-            <!-- Login Form -->
+            
+            <div id="loginError" class="alert alert-danger" style="display: none;">
+                Invalid credentials. Please try again.
+            </div>
+            
             <form id="loginForm">
                 <div class="form-group">
-                    <label class="form-label">Email or Username</label>
-                    <input type="text" 
-                           class="form-input" 
-                           id="emailOrUsername" 
-                           placeholder="Enter your email or username" 
-                           required>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" class="form-control" placeholder="Enter username" required>
                 </div>
-
+                
                 <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <div class="password-input">
-                        <input type="password" 
-                               class="form-input" 
-                               id="password" 
-                               placeholder="Enter your password" 
-                               required>
-                        <button type="button" class="toggle-password" id="togglePassword">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Enter password" required>
                 </div>
-
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" id="rememberMe">
-                        Remember me
-                    </label>
-                    <a href="#forgot-password" class="forgot-password" onclick="showForgotPassword()">
-                        Forgot password?
-                    </a>
-                </div>
-
-                <button type="submit" class="btn btn-primary" id="loginBtn">
-                    <span id="loginText">Login</span>
-                    <div class="loading" id="loginLoading" style="display: none;"></div>
+                
+                <button type="submit" class="btn btn-primary login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
                 </button>
             </form>
-
-            <!-- Social Login -->
-            <div class="social-login">
-                <div class="divider">
-                    <span>Or continue with</span>
-                </div>
-
-                <div class="social-buttons">
-                    <!-- Google Login -->
-                    <button class="btn btn-google" onclick="loginWithGoogle()">
-                        <i class="fab fa-google"></i>
-                        Continue with Google
-                    </button>
-                    
-                    <!-- Facebook Login -->
-                    <button class="btn btn-facebook" onclick="loginWithFacebook()">
-                        <i class="fab fa-facebook-f"></i>
-                        Continue with Facebook
-                    </button>
-                    
-                    <!-- Telegram Login -->
-                    <button class="btn btn-telegram" onclick="loginWithTelegram()">
-                        <i class="fab fa-telegram"></i>
-                        Login with Telegram
-                    </button>
+        </div>
+    </div>
+    
+    <!-- Admin Dashboard -->
+    <div id="adminPanel" style="display: none;">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Zewed Jobs</span>
                 </div>
             </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+                <li><a href="#" data-page="jobs"><i class="fas fa-briefcase"></i> <span>Jobs Management</span></a></li>
+                <li><a href="#" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>Courses</span></a></li>
+                <li><a href="#" data-page="events"><i class="fas fa-calendar-alt"></i> <span>Events</span></a></li>
+                <li><a href="#" data-page="payments"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
+                <li><a href="#" data-page="users"><i class="fas fa-users"></i> <span>Users</span></a></li>
+                <li><a href="#" data-page="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+                <li><a href="#" data-page="partners"><i class="fas fa-handshake"></i> <span>Partners</span></a></li>
+                <li><a href="#" data-page="donations"><i class="fas fa-donate"></i> <span>Donations</span></a></li>
+                <li><a href="#" data-page="ads"><i class="fas fa-ad"></i> <span>Ads Management</span></a></li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="user-avatar">AD</div>
+                        <div>
+                            <h4>Admin User</h4>
+                            <p style="font-size: 0.8rem; color: var(--gray-color);">Super Admin</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <div class="content">
+                <!-- Dashboard Page -->
+                <div id="dashboardPage" class="page-content active">
+                    <div class="quick-actions">
+                        <a href="#" class="action-btn" data-page="jobs">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add New Job</span>
+                        </a>
+                        <a href="#" class="action-btn" data-page="users">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Add New User</span>
+                        </a>
+                        <a href="#" class="action-btn" data-page="payments">
+                            <i class="fas fa-money-check-alt"></i>
+                            <span>View Payments</span>
+                        </a>
+                        <a href="#" class="action-btn" data-page="ads">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Create Ad</span>
+                        </a>
+                    </div>
 
-            <!-- Signup Link -->
-            <div class="signup-link">
-                Don't have an account? <a href="signup.html">Sign up now</a>
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon jobs">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalJobs">247</h3>
+                                <p>Active Job Listings</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon users">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalUsers">1,843</h3>
+                                <p>Registered Users</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon payments">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalRevenue">ETB 124,560</h3>
+                                <p>Total Revenue</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon events">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="totalEvents">12</h3>
+                                <p>Upcoming Events</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-card">
+                            <h3>Monthly Revenue</h3>
+                            <canvas id="revenueChart" width="400" height="200"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>User Growth</h3>
+                            <canvas id="userChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Recent Activities</h2>
+                            <button class="btn btn-secondary">View All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Activity</th>
+                                        <th>User</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentActivities">
+                                    <!-- Activities loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jobs Management Page -->
+                <div id="jobsPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Job Listings</h2>
+                            <button class="btn btn-primary" id="addJobBtn"><i class="fas fa-plus"></i> Add New Job</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="jobSearch" placeholder="Search jobs...">
+                        </div>
+                        
+                        <div class="filter-bar">
+                            <select class="form-select" style="width: 200px;" id="jobTypeFilter">
+                                <option value="">All Types</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                            
+                            <select class="form-select" style="width: 200px;" id="jobStatusFilter">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="expired">Expired</option>
+                            </select>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Job Title</th>
+                                        <th>Company</th>
+                                        <th>Type</th>
+                                        <th>Applications</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="jobsTableBody">
+                                    <!-- Jobs loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Courses Management Page -->
+                <div id="coursesPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Training Programs</h2>
+                            <button class="btn btn-primary" id="addCourseBtn"><i class="fas fa-plus"></i> Add Course</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="courseSearch" placeholder="Search courses...">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Course ID</th>
+                                        <th>Course Name</th>
+                                        <th>Category</th>
+                                        <th>Instructor</th>
+                                        <th>Students</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="coursesTableBody">
+                                    <!-- Courses loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Events Management Page -->
+                <div id="eventsPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Events Management</h2>
+                            <button class="btn btn-primary" id="addEventBtn"><i class="fas fa-plus"></i> Add Event</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="eventSearch" placeholder="Search events...">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Event ID</th>
+                                        <th>Event Name</th>
+                                        <th>Date</th>
+                                        <th>Location</th>
+                                        <th>Attendees</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="eventsTableBody">
+                                    <!-- Events loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Payments Management Page -->
+                <div id="paymentsPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Payment Transactions</h2>
+                            <div>
+                                <button class="btn btn-secondary" id="filterPaymentsBtn"><i class="fas fa-filter"></i> Filter</button>
+                                <button class="btn btn-primary" id="exportPaymentsBtn"><i class="fas fa-download"></i> Export</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-bar">
+                            <select class="form-select" style="width: 200px;" id="paymentStatusFilter">
+                                <option value="">All Status</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="failed">Failed</option>
+                            </select>
+                            
+                            <input type="date" class="form-control" style="width: 200px;" id="paymentDateFilter">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>User/Company</th>
+                                        <th>Amount</th>
+                                        <th>Payment Method</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentsTableBody">
+                                    <!-- Payments loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Users Management Page -->
+                <div id="usersPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">User Management</h2>
+                            <button class="btn btn-primary" id="addUserBtn"><i class="fas fa-plus"></i> Add User</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="userSearch" placeholder="Search users...">
+                        </div>
+                        
+                        <div class="filter-bar">
+                            <select class="form-select" style="width: 200px;" id="userRoleFilter">
+                                <option value="">All Roles</option>
+                                <option value="admin">Admin</option>
+                                <option value="job_seeker">Job Seeker</option>
+                                <option value="employer">Employer</option>
+                                <option value="instructor">Instructor</option>
+                            </select>
+                            
+                            <select class="form-select" style="width: 200px;" id="userStatusFilter">
+                                <option value="">All Status</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>User ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Registration Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <!-- Users loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificates Management Page -->
+                <div id="certificatesPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Certificates Management</h2>
+                            <button class="btn btn-primary" id="addCertificateBtn"><i class="fas fa-plus"></i> Issue Certificate</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="certificateSearch" placeholder="Search certificates...">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Certificate ID</th>
+                                        <th>Recipient Name</th>
+                                        <th>Course/Program</th>
+                                        <th>Issue Date</th>
+                                        <th>Expiry Date</th>
+                                        <th>Verification Code</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="certificatesTableBody">
+                                    <!-- Certificates loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Partners Management Page -->
+                <div id="partnersPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Partners Management</h2>
+                            <button class="btn btn-primary" id="addPartnerBtn"><i class="fas fa-plus"></i> Add Partner</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="partnerSearch" placeholder="Search partners...">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Partner ID</th>
+                                        <th>Organization</th>
+                                        <th>Contact Person</th>
+                                        <th>Partnership Type</th>
+                                        <th>Start Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="partnersTableBody">
+                                    <!-- Partners loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Donations Management Page -->
+                <div id="donationsPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Donations Management</h2>
+                            <button class="btn btn-primary" id="addDonationBtn"><i class="fas fa-plus"></i> Record Donation</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="donationSearch" placeholder="Search donations...">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Donation ID</th>
+                                        <th>Donor Name</th>
+                                        <th>Amount</th>
+                                        <th>Purpose</th>
+                                        <th>Date</th>
+                                        <th>Payment Method</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="donationsTableBody">
+                                    <!-- Donations loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ads Management Page -->
+                <div id="adsPage" class="page-content">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Advertisement Management</h2>
+                            <button class="btn btn-primary" id="addAdBtn"><i class="fas fa-plus"></i> Create Ad Campaign</button>
+                        </div>
+                        
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="adSearch" placeholder="Search ads...">
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Ad ID</th>
+                                        <th>Campaign Name</th>
+                                        <th>Client</th>
+                                        <th>Type</th>
+                                        <th>Impressions</th>
+                                        <th>Clicks</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adsTableBody">
+                                    <!-- Ads loaded by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-links">
-            <a href="#" onclick="showPrivacyPolicy()">Privacy Policy</a>
-            <a href="#" onclick="showTerms()">Terms of Service</a>
-            <a href="/contact.html">Contact Us</a>
-            <a href="/help.html">Help Center</a>
-        </div>
-        <div class="copyright">
-            © 2026 ZewedJobs. All rights reserved. Ethiopia's #1 Job Platform
-        </div>
-    </footer>
-
-    <!-- Forgot Password Modal -->
-    <div id="forgotPasswordModal" class="modal" style="display: none;">
+    <!-- Modals -->
+    <div id="addJobModal" class="modal">
         <div class="modal-content">
-            <h2>Reset Password</h2>
-            <p>Enter your email address and we'll send you a link to reset your password.</p>
-            <input type="email" id="resetEmail" placeholder="Enter your email" class="form-input">
-            <button onclick="sendResetLink()" class="btn btn-primary">Send Reset Link</button>
-            <button onclick="closeModal()" class="btn btn-outline">Cancel</button>
+            <div class="modal-header">
+                <h3>Add New Job</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="jobForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Job Title *</label>
+                            <input type="text" class="form-control" id="jobTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Company *</label>
+                            <input type="text" class="form-control" id="jobCompany" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Job Type *</label>
+                            <select class="form-select" id="jobType" required>
+                                <option value="">Select Type</option>
+                                <option value="full-time">Full-time</option>
+                                <option value="part-time">Part-time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <input type="text" class="form-control" id="jobLocation">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea class="form-control" id="jobDescription" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Salary Range</label>
+                            <input type="text" class="form-control" id="jobSalary" placeholder="e.g., ETB 20,000 - ETB 40,000">
+                        </div>
+                        <div class="form-group">
+                            <label>Application Deadline</label>
+                            <input type="date" class="form-control" id="jobDeadline">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Requirements</label>
+                        <textarea class="form-control" id="jobRequirements" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveJobBtn">Save Job</button>
+            </div>
         </div>
     </div>
 
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" class="form-control" id="userName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" class="form-control" id="userEmail" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" id="userPhone">
+                        </div>
+                        <div class="form-group">
+                            <label>Role *</label>
+                            <select class="form-select" id="userRole" required>
+                                <option value="">Select Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="job_seeker">Job Seeker</option>
+                                <option value="employer">Employer</option>
+                                <option value="instructor">Instructor</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Password *</label>
+                            <input type="password" class="form-control" id="userPassword" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password *</label>
+                            <input type="password" class="form-control" id="userConfirmPassword" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-select" id="userStatus">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                            <option value="suspended">Suspended</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveUserBtn">Create User</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal Template -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="editModalTitle">Edit Item</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="editModalBody">
+                <!-- Dynamic content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveEditBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Initialize Facebook SDK
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: 'YOUR_FACEBOOK_APP_ID',
-                cookie: true,
-                xfbml: true,
-                version: 'v18.0'
-            });
-        };
-
-        // Global Configuration
-        const CONFIG = {
-            GOOGLE_CLIENT_ID: 'YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com',
-            FACEBOOK_APP_ID: 'YOUR_FACEBOOK_APP_ID',
-            TELEGRAM_BOT_NAME: 'zewedjobs_bot',
-            API_BASE_URL: 'https://api.zewedjobs.com/v1'
-        };
-
-        // State Management
-        let authState = {
-            isAuthenticating: false,
-            userRole: null,
-            redirectUrl: '/dashboard.html'
-        };
-
         // DOM Elements
+        const loginPage = document.getElementById('loginPage');
+        const adminPanel = document.getElementById('adminPanel');
         const loginForm = document.getElementById('loginForm');
-        const loginBtn = document.getElementById('loginBtn');
-        const loginText = document.getElementById('loginText');
-        const loginLoading = document.getElementById('loginLoading');
-        const errorMessage = document.getElementById('errorMessage');
-        const successMessage = document.getElementById('successMessage');
-        const togglePassword = document.getElementById('togglePassword');
-        const passwordInput = document.getElementById('password');
-
-        // Toggle Password Visibility
-        togglePassword.addEventListener('click', function() {
-            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            passwordInput.setAttribute('type', type);
-            this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
-        });
-
-        // Form Submission
-        loginForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+        const loginError = document.getElementById('loginError');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const sidebar = document.querySelector('.sidebar');
+        const pageTitle = document.getElementById('pageTitle');
+        
+        // Page management
+        const pageContents = document.querySelectorAll('.page-content');
+        const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+        const actionButtons = document.querySelectorAll('.action-btn');
+        
+        // Modal elements
+        const modals = document.querySelectorAll('.modal');
+        const closeModalButtons = document.querySelectorAll('.close-modal');
+        const addJobBtn = document.getElementById('addJobBtn');
+        const addJobModal = document.getElementById('addJobModal');
+        const saveJobBtn = document.getElementById('saveJobBtn');
+        const addUserBtn = document.getElementById('addUserBtn');
+        const addUserModal = document.getElementById('addUserModal');
+        const saveUserBtn = document.getElementById('saveUserBtn');
+        const confirmModal = document.getElementById('confirmModal');
+        const confirmActionBtn = document.getElementById('confirmActionBtn');
+        const confirmMessage = document.getElementById('confirmMessage');
+        
+        // Charts
+        let revenueChart, userChart;
+        
+        // Data storage
+        let currentData = {
+            jobs: [],
+            users: [],
+            courses: [],
+            events: [],
+            payments: [],
+            certificates: [],
+            partners: [],
+            donations: [],
+            ads: []
+        };
+        let currentAction = null;
+        let currentItemId = null;
+        let currentItemType = null;
+        
+        // Default credentials (for demo only)
+        const validUsername = "admin";
+        const validPassword = "zewed2023";
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = sessionStorage.getItem('zewedJobsLoggedIn');
             
-            if (authState.isAuthenticating) return;
-            
-            const emailOrUsername = document.getElementById('emailOrUsername').value.trim();
-            const password = document.getElementById('password').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
-            
-            // Validation
-            if (!emailOrUsername || !password) {
-                showError('Please fill in all fields');
-                return;
+            if (isLoggedIn === 'true') {
+                showAdminPanel();
+                loadDashboardData();
+                loadAllTables();
+                initializeCharts();
             }
             
-            // Start authentication
-            startLoading();
-            
-            try {
-                // In production, this would be an API call
-                // const response = await fetch(`${CONFIG.API_BASE_URL}/auth/login`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify({ emailOrUsername, password, rememberMe })
-                // });
-                
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Simulate successful login
-                const mockUser = {
-                    id: 'user_123',
-                    email: emailOrUsername.includes('@') ? emailOrUsername : `${emailOrUsername}@example.com`,
-                    name: 'Demo User',
-                    role: 'job_seeker', // Could be 'job_seeker' or 'employer'
-                    avatar: null
-                };
-                
-                // Store user data
-                localStorage.setItem('zewedjobs_user', JSON.stringify(mockUser));
-                localStorage.setItem('zewedjobs_token', 'mock_jwt_token_123');
-                if (rememberMe) {
-                    localStorage.setItem('zewedjobs_remember', 'true');
-                }
-                
-                showSuccess('Login successful! Redirecting...');
-                
-                // Redirect based on role
-                setTimeout(() => {
-                    redirectUser(mockUser.role);
-                }, 1000);
-                
-            } catch (error) {
-                showError('Invalid credentials. Please try again.');
-                stopLoading();
-            }
+            setupEventListeners();
         });
-
-        // Google Login
-        function loginWithGoogle() {
-            if (authState.isAuthenticating) return;
+        
+        // Setup all event listeners
+        function setupEventListeners() {
+            // Login Form Handler
+            loginForm.addEventListener('submit', handleLogin);
             
-            // Initialize Google Sign-In
-            google.accounts.id.initialize({
-                client_id: CONFIG.GOOGLE_CLIENT_ID,
-                callback: handleGoogleResponse,
-                ux_mode: 'popup'
+            // Logout Handler
+            logoutBtn.addEventListener('click', handleLogout);
+            
+            // Mobile Menu Toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
             });
             
-            // Show Google Sign-In popup
-            google.accounts.id.prompt();
-        }
-
-        async function handleGoogleResponse(response) {
-            startLoading();
-            
-            try {
-                // Verify the credential with your backend
-                // const verification = await fetch(`${CONFIG.API_BASE_URL}/auth/google`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify({ credential: response.credential })
-                // });
-                
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Parse Google response (simplified)
-                const payload = JSON.parse(atob(response.credential.split('.')[1]));
-                
-                const user = {
-                    id: payload.sub,
-                    email: payload.email,
-                    name: payload.name,
-                    avatar: payload.picture,
-                    role: determineRoleFromEmail(payload.email),
-                    provider: 'google'
-                };
-                
-                // Store user data
-                localStorage.setItem('zewedjobs_user', JSON.stringify(user));
-                localStorage.setItem('zewedjobs_token', 'google_token_' + user.id);
-                
-                showSuccess('Google login successful! Redirecting...');
-                
-                // Redirect
-                setTimeout(() => {
-                    redirectUser(user.role);
-                }, 1000);
-                
-            } catch (error) {
-                showError('Google login failed. Please try again.');
-                stopLoading();
-            }
-        }
-
-        // Facebook Login
-        function loginWithFacebook() {
-            if (authState.isAuthenticating) return;
-            
-            FB.login(function(response) {
-                if (response.authResponse) {
-                    handleFacebookResponse(response.authResponse);
-                } else {
-                    showError('Facebook login cancelled');
-                }
-            }, {
-                scope: 'public_profile,email',
-                return_scopes: true
-            });
-        }
-
-        async function handleFacebookResponse(authResponse) {
-            startLoading();
-            
-            try {
-                // Get user info from Facebook
-                FB.api('/me', { fields: 'id,name,email,picture' }, async function(response) {
-                    try {
-                        const user = {
-                            id: response.id,
-                            email: response.email || `${response.id}@facebook.zewedjobs.com`,
-                            name: response.name,
-                            avatar: response.picture?.data?.url,
-                            role: determineRoleFromEmail(response.email),
-                            provider: 'facebook'
-                        };
-                        
-                        // Store user data
-                        localStorage.setItem('zewedjobs_user', JSON.stringify(user));
-                        localStorage.setItem('zewedjobs_token', 'fb_token_' + user.id);
-                        
-                        showSuccess('Facebook login successful! Redirecting...');
-                        
-                        // Redirect
-                        setTimeout(() => {
-                            redirectUser(user.role);
-                        }, 1000);
-                        
-                    } catch (error) {
-                        showError('Facebook login failed. Please try again.');
-                        stopLoading();
+            // Page Navigation
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    sidebarLinks.forEach(item => item.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Get page to show
+                    const pageId = this.getAttribute('data-page');
+                    
+                    // Hide all page contents
+                    pageContents.forEach(page => page.classList.remove('active'));
+                    
+                    // Show selected page
+                    document.getElementById(`${pageId}Page`).classList.add('active');
+                    
+                    // Update page title
+                    const pageName = this.querySelector('span').textContent;
+                    pageTitle.textContent = pageName;
+                    
+                    // Close mobile sidebar if open
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('active');
                     }
                 });
-                
-            } catch (error) {
-                showError('Facebook login failed. Please try again.');
-                stopLoading();
-            }
-        }
-
-        // Telegram Login
-        function loginWithTelegram() {
-            if (authState.isAuthenticating) return;
+            });
             
-            // Telegram widget will open automatically
-            // The widget is configured in the head with data-auth-url
-            showMessage('Opening Telegram login...', 'info');
-        }
-
-        // Handle Telegram callback (this would be handled on your backend)
-        async function handleTelegramResponse(userData) {
-            startLoading();
+            // Quick Actions
+            actionButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    // Trigger click on corresponding sidebar link
+                    document.querySelector(`.sidebar-menu a[data-page="${page}"]`).click();
+                });
+            });
             
-            try {
-                // Verify Telegram data with your backend
-                // const response = await fetch(`${CONFIG.API_BASE_URL}/auth/telegram`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify(userData)
-                // });
-                
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                const user = {
-                    id: userData.id,
-                    username: userData.username,
-                    name: `${userData.first_name || ''} ${userData.last_name || ''}`.trim(),
-                    avatar: userData.photo_url,
-                    role: 'job_seeker', // Default role for Telegram users
-                    provider: 'telegram'
-                };
-                
-                // If no email, prompt user to add one
-                if (!userData.email) {
-                    promptForEmail(user);
-                    return;
+            // Modal handlers
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    modals.forEach(modal => modal.style.display = 'none');
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    modals.forEach(modal => modal.style.display = 'none');
                 }
-                
-                user.email = userData.email;
-                
-                // Store user data
-                localStorage.setItem('zewedjobs_user', JSON.stringify(user));
-                localStorage.setItem('zewedjobs_token', 'tg_token_' + user.id);
-                
-                showSuccess('Telegram login successful! Redirecting...');
-                
-                // Redirect
+            });
+            
+            // Add Job Button
+            addJobBtn?.addEventListener('click', function() {
+                document.getElementById('jobForm').reset();
+                addJobModal.style.display = 'flex';
+            });
+            
+            // Save Job Button
+            saveJobBtn?.addEventListener('click', saveJob);
+            
+            // Add User Button
+            addUserBtn?.addEventListener('click', function() {
+                document.getElementById('userForm').reset();
+                addUserModal.style.display = 'flex';
+            });
+            
+            // Save User Button
+            saveUserBtn?.addEventListener('click', saveUser);
+            
+            // Confirm Action Button
+            confirmActionBtn?.addEventListener('click', function() {
+                if (currentAction) {
+                    currentAction();
+                    confirmModal.style.display = 'none';
+                }
+            });
+            
+            // Search functionality
+            document.getElementById('jobSearch')?.addEventListener('input', filterJobs);
+            document.getElementById('userSearch')?.addEventListener('input', filterUsers);
+            document.getElementById('courseSearch')?.addEventListener('input', filterCourses);
+            document.getElementById('eventSearch')?.addEventListener('input', filterEvents);
+            document.getElementById('certificateSearch')?.addEventListener('input', filterCertificates);
+            document.getElementById('partnerSearch')?.addEventListener('input', filterPartners);
+            document.getElementById('donationSearch')?.addEventListener('input', filterDonations);
+            document.getElementById('adSearch')?.addEventListener('input', filterAds);
+            
+            // Filter functionality
+            document.getElementById('paymentStatusFilter')?.addEventListener('change', filterPayments);
+            document.getElementById('paymentDateFilter')?.addEventListener('change', filterPayments);
+            document.getElementById('userRoleFilter')?.addEventListener('change', filterUsers);
+            document.getElementById('userStatusFilter')?.addEventListener('change', filterUsers);
+            document.getElementById('jobTypeFilter')?.addEventListener('change', filterJobs);
+            document.getElementById('jobStatusFilter')?.addEventListener('change', filterJobs);
+            
+            // Export payments function
+            document.getElementById('exportPaymentsBtn')?.addEventListener('click', exportPayments);
+            
+            // Filter payments toggle
+            document.getElementById('filterPaymentsBtn')?.addEventListener('click', function() {
+                const filterBar = document.querySelector('#paymentsPage .filter-bar');
+                filterBar.style.display = filterBar.style.display === 'none' ? 'flex' : 'flex';
+            });
+        }
+        
+        // Authentication functions
+        function handleLogin(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === validUsername && password === validPassword) {
+                sessionStorage.setItem('zewedJobsLoggedIn', 'true');
+                showAdminPanel();
+                loadDashboardData();
+                loadAllTables();
+                initializeCharts();
+            } else {
+                loginError.style.display = 'block';
                 setTimeout(() => {
-                    redirectUser(user.role);
-                }, 1000);
-                
-            } catch (error) {
-                showError('Telegram login failed. Please try again.');
-                stopLoading();
+                    loginError.style.display = 'none';
+                }, 3000);
             }
         }
-
-        // Forgot Password
-        function showForgotPassword() {
-            const modal = document.getElementById('forgotPasswordModal');
-            modal.style.display = 'flex';
+        
+        function handleLogout() {
+            sessionStorage.removeItem('zewedJobsLoggedIn');
+            showLoginPage();
         }
-
-        function closeModal() {
-            const modal = document.getElementById('forgotPasswordModal');
-            modal.style.display = 'none';
+        
+        function showAdminPanel() {
+            loginPage.style.display = 'none';
+            adminPanel.style.display = 'block';
         }
-
-        async function sendResetLink() {
-            const email = document.getElementById('resetEmail').value.trim();
+        
+        function showLoginPage() {
+            loginPage.style.display = 'block';
+            adminPanel.style.display = 'none';
+            loginForm.reset();
+        }
+        
+        // Initialize Charts
+        function initializeCharts() {
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            revenueChart = new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Revenue (ETB)',
+                        data: [45000, 52000, 48000, 61000, 75000, 82000, 78000, 85000, 92000, 89000, 95000, 124560],
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return 'ETB ' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
             
-            if (!email) {
-                showError('Please enter your email address');
+            // User Growth Chart
+            const userCtx = document.getElementById('userChart').getContext('2d');
+            userChart = new Chart(userCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                    datasets: [{
+                        label: 'New Users',
+                        data: [120, 150, 180, 200, 220, 250, 280, 320, 350, 384],
+                        backgroundColor: '#10b981',
+                        borderColor: '#0da271',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Data loading functions
+        function loadDashboardData() {
+            // Update dashboard stats
+            const stats = {
+                totalJobs: Math.floor(Math.random() * 100) + 200,
+                totalUsers: Math.floor(Math.random() * 500) + 1500,
+                totalRevenue: `ETB ${(Math.random() * 100000 + 50000).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`,
+                totalEvents: Math.floor(Math.random() * 10) + 5
+            };
+            
+            document.getElementById('totalJobs').textContent = stats.totalJobs;
+            document.getElementById('totalUsers').textContent = stats.totalUsers;
+            document.getElementById('totalRevenue').textContent = stats.totalRevenue;
+            document.getElementById('totalEvents').textContent = stats.totalEvents;
+            
+            // Load recent activities
+            const activities = [
+                {activity: "New job posted by Ethio Telecom", user: "employer@ethiotelecom.et", date: getFormattedDate(-1), status: "Approved"},
+                {activity: "User registration - John Doe", user: "john.doe@example.com", date: getFormattedDate(-2), status: "Active"},
+                {activity: "Payment received for job promotion", user: "abebech@company.com", date: getFormattedDate(-3), status: "Completed"},
+                {activity: "Certificate issued - AWS Course", user: "tesfaye@gmail.com", date: getFormattedDate(-4), status: "Issued"},
+                {activity: "Job flagged for review", user: "moderator1", date: getFormattedDate(-5), status: "Pending"},
+                {activity: "New partnership with Dashen Bank", user: "partner@dashenbank.com", date: getFormattedDate(-6), status: "Approved"},
+                {activity: "Donation received from ABC Foundation", user: "donor@abcfoundation.org", date: getFormattedDate(-7), status: "Received"}
+            ];
+            
+            const activitiesTable = document.getElementById('recentActivities');
+            activitiesTable.innerHTML = activities.map(activity => `
+                <tr>
+                    <td>${activity.activity}</td>
+                    <td>${activity.user}</td>
+                    <td>${activity.date}</td>
+                    <td><span class="badge badge-${activity.status === 'Approved' || activity.status === 'Active' || activity.status === 'Completed' || activity.status === 'Issued' || activity.status === 'Received' ? 'success' : 'warning'}">${activity.status}</span></td>
+                </tr>
+            `).join('');
+        }
+        
+        function loadAllTables() {
+            loadJobsTable();
+            loadUsersTable();
+            loadCoursesTable();
+            loadEventsTable();
+            loadPaymentsTable();
+            loadCertificatesTable();
+            loadPartnersTable();
+            loadDonationsTable();
+            loadAdsTable();
+        }
+        
+        function loadJobsTable() {
+            const jobs = [
+                {id: "#101", title: "Senior Software Engineer", company: "Ethio Telecom", type: "Full-time", applications: 42, status: "Active"},
+                {id: "#102", title: "Marketing Manager", company: "Dashen Bank", type: "Full-time", applications: 28, status: "Active"},
+                {id: "#103", title: "Graphic Designer", company: "Awash Bank", type: "Part-time", applications: 15, status: "Pending"},
+                {id: "#104", title: "Data Analyst", company: "Hibret Bank", type: "Remote", applications: 37, status: "Active"},
+                {id: "#105", title: "HR Specialist", company: "Commercial Bank", type: "Full-time", applications: 22, status: "Active"},
+                {id: "#106", title: "Network Administrator", company: "Ethio Telecom", type: "Contract", applications: 18, status: "Pending"},
+                {id: "#107", title: "Sales Executive", company: "Coca-Cola Ethiopia", type: "Full-time", applications: 31, status: "Active"},
+                {id: "#108", title: "Accountant", company: "PricewaterhouseCoopers", type: "Full-time", applications: 25, status: "Expired"}
+            ];
+            
+            currentData.jobs = jobs;
+            renderJobsTable(jobs);
+        }
+        
+        function loadUsersTable() {
+            const users = [
+                {id: "#U1001", name: "Admin User", email: "admin@zewedjobs.com", phone: "+251 911 234 567", role: "Admin", regDate: "2023-01-15", status: "Active"},
+                {id: "#U1002", name: "John Doe", email: "john.doe@example.com", phone: "+251 912 345 678", role: "Job Seeker", regDate: "2023-10-14", status: "Active"},
+                {id: "#U1003", name: "Ethio Telecom HR", email: "hr@ethiotelecom.et", phone: "+251 111 111 111", role: "Employer", regDate: "2023-09-20", status: "Active"},
+                {id: "#U1004", name: "Sarah Johnson", email: "sarah@instructor.com", phone: "+251 933 444 555", role: "Instructor", regDate: "2023-08-15", status: "Active"},
+                {id: "#U1005", name: "Michael Bekele", email: "michael@example.com", phone: "+251 944 555 666", role: "Job Seeker", regDate: "2023-10-10", status: "Inactive"},
+                {id: "#U1006", name: "Awash Bank", email: "careers@awashbank.com", phone: "+251 115 151 515", role: "Employer", regDate: "2023-07-30", status: "Active"},
+                {id: "#U1007", name: "Helen Mesfin", email: "helen.mesfin@example.com", phone: "+251 977 777 777", role: "Job Seeker", regDate: "2023-10-05", status: "Active"},
+                {id: "#U1008", name: "Samuel Kebede", email: "samuel@instructor.com", phone: "+251 988 888 888", role: "Instructor", regDate: "2023-09-10", status: "Suspended"}
+            ];
+            
+            currentData.users = users;
+            renderUsersTable(users);
+        }
+        
+        function loadCoursesTable() {
+            const courses = [
+                {id: "#C001", name: "Web Development Bootcamp", category: "Technology", instructor: "Alex Johnson", students: 125, price: "ETB 5,000", status: "Active"},
+                {id: "#C002", name: "Digital Marketing Mastery", category: "Marketing", instructor: "Sarah Williams", students: 89, price: "ETB 3,500", status: "Active"},
+                {id: "#C003", name: "Project Management Professional", category: "Business", instructor: "Michael Chen", students: 67, price: "ETB 4,200", status: "Upcoming"},
+                {id: "#C004", name: "Data Science Fundamentals", category: "Technology", instructor: "Dr. Samuel Kebede", students: 45, price: "ETB 6,000", status: "Active"},
+                {id: "#C005", name: "Mobile App Development", category: "Technology", instructor: "Emily Rodriguez", students: 78, price: "ETB 4,800", status: "Active"},
+                {id: "#C006", name: "Financial Analysis Course", category: "Finance", instructor: "David Smith", students: 52, price: "ETB 5,500", status: "Active"}
+            ];
+            
+            currentData.courses = courses;
+            renderCoursesTable(courses);
+        }
+        
+        function loadEventsTable() {
+            const events = [
+                {id: "#E001", name: "Tech Job Fair 2023", date: "2023-11-15", location: "Addis Ababa Exhibition Center", attendees: 350, status: "Upcoming"},
+                {id: "#E002", name: "Career Workshop", date: "2023-10-30", location: "Online", attendees: 120, status: "Upcoming"},
+                {id: "#E003", name: "Digital Marketing Conference", date: "2023-10-10", location: "Sheraton Addis", attendees: 200, status: "Completed"},
+                {id: "#E004", name: "Startup Networking Event", date: "2023-11-05", location: "Blue Nile Lounge", attendees: 85, status: "Upcoming"},
+                {id: "#E005", name: "Women in Tech Summit", date: "2023-09-28", location: "Elilly Hotel", attendees: 150, status: "Completed"},
+                {id: "#E006", name: "Agriculture Innovation Forum", date: "2023-11-20", location: "Hilton Hotel", attendees: 0, status: "Upcoming"}
+            ];
+            
+            currentData.events = events;
+            renderEventsTable(events);
+        }
+        
+        function loadPaymentsTable() {
+            const payments = [
+                {id: "#TXN00123", user: "Ethio Telecom", amount: "ETB 5,000", method: "Bank Transfer", date: "2023-10-15", status: "Completed"},
+                {id: "#TXN00122", user: "Dashen Bank", amount: "ETB 3,500", method: "Online Payment", date: "2023-10-14", status: "Completed"},
+                {id: "#TXN00121", user: "Awash Bank", amount: "ETB 7,200", method: "Bank Transfer", date: "2023-10-13", status: "Pending"},
+                {id: "#TXN00120", user: "John Doe", amount: "ETB 1,500", method: "Credit Card", date: "2023-10-12", status: "Completed"},
+                {id: "#TXN00119", user: "Sarah Johnson", amount: "ETB 4,200", method: "Mobile Payment", date: "2023-10-11", status: "Failed"},
+                {id: "#TXN00118", user: "Hibret Bank", amount: "ETB 6,000", method: "Bank Transfer", date: "2023-10-10", status: "Completed"},
+                {id: "#TXN00117", user: "Commercial Bank", amount: "ETB 8,500", method: "Bank Transfer", date: "2023-10-09", status: "Completed"}
+            ];
+            
+            currentData.payments = payments;
+            renderPaymentsTable(payments);
+        }
+        
+        function loadCertificatesTable() {
+            const certificates = [
+                {id: "#CERT001", recipient: "John Doe", course: "Web Development Bootcamp", issueDate: "2023-10-12", expiryDate: "2026-10-12", code: "ZJ-WD-2023-001", status: "Issued"},
+                {id: "#CERT002", recipient: "Sarah Williams", course: "Digital Marketing", issueDate: "2023-10-10", expiryDate: "2026-10-10", code: "ZJ-DM-2023-002", status: "Issued"},
+                {id: "#CERT003", recipient: "Michael Chen", course: "Data Science Fundamentals", issueDate: "2023-10-05", expiryDate: "2026-10-05", code: "ZJ-DS-2023-003", status: "Pending"},
+                {id: "#CERT004", recipient: "Emily Rodriguez", course: "Project Management", issueDate: "2023-09-28", expiryDate: "2026-09-28", code: "ZJ-PM-2023-004", status: "Issued"},
+                {id: "#CERT005", recipient: "Alex Johnson", course: "Mobile App Development", issueDate: "2023-09-20", expiryDate: "2026-09-20", code: "ZJ-MA-2023-005", status: "Expired"},
+                {id: "#CERT006", recipient: "David Smith", course: "Financial Analysis", issueDate: "2023-09-15", expiryDate: "2026-09-15", code: "ZJ-FA-2023-006", status: "Issued"}
+            ];
+            
+            currentData.certificates = certificates;
+            renderCertificatesTable(certificates);
+        }
+        
+        function loadPartnersTable() {
+            const partners = [
+                {id: "#P001", organization: "Ethio Telecom", contact: "Mr. Samuel Bekele", type: "Platinum", startDate: "2022-01-15", status: "Active"},
+                {id: "#P002", organization: "Dashen Bank", contact: "Ms. Helen Mesfin", type: "Gold", startDate: "2022-03-20", status: "Active"},
+                {id: "#P003", organization: "Awash Bank", contact: "Mr. Daniel Tsegaye", type: "Silver", startDate: "2022-05-10", status: "Active"},
+                {id: "#P004", organization: "Commercial Bank", contact: "Mrs. Sofia Abraham", type: "Gold", startDate: "2022-07-15", status: "Active"},
+                {id: "#P005", organization: "Ethiopian Airlines", contact: "Mr. Kaleb Asrat", type: "Platinum", startDate: "2022-02-28", status: "Inactive"},
+                {id: "#P006", organization: "Coca-Cola Ethiopia", contact: "Ms. Genet Alemu", type: "Silver", startDate: "2022-08-10", status: "Active"}
+            ];
+            
+            currentData.partners = partners;
+            renderPartnersTable(partners);
+        }
+        
+        function loadDonationsTable() {
+            const donations = [
+                {id: "#D001", donor: "ABC Foundation", amount: "ETB 50,000", purpose: "Platform Development", date: "2023-09-15", method: "Bank Transfer", status: "Received"},
+                {id: "#D002", donor: "XYZ Corporation", amount: "ETB 25,000", purpose: "Student Scholarships", date: "2023-08-20", method: "Check", status: "Received"},
+                {id: "#D003", donor: "Individual Donor", amount: "ETB 10,000", purpose: "General Support", date: "2023-07-05", method: "Online Payment", status: "Received"},
+                {id: "#D004", donor: "Tech For Good Inc.", amount: "ETB 75,000", purpose: "Job Training Program", date: "2023-10-05", method: "Bank Transfer", status: "Pending"},
+                {id: "#D005", donor: "Community Partners", amount: "ETB 15,000", purpose: "Event Sponsorship", date: "2023-06-30", method: "Mobile Payment", status: "Received"},
+                {id: "#D006", donor: "Global Giving Foundation", amount: "ETB 100,000", purpose: "Platform Expansion", date: "2023-05-15", method: "Bank Transfer", status: "Received"}
+            ];
+            
+            currentData.donations = donations;
+            renderDonationsTable(donations);
+        }
+        
+        function loadAdsTable() {
+            const ads = [
+                {id: "#AD001", campaign: "Homepage Banner", client: "Ethio Telecom", type: "Banner", impressions: "125,430", clicks: "2,540", status: "Active"},
+                {id: "#AD002", campaign: "Job Listing Sidebar", client: "Dashen Bank", type: "Sidebar", impressions: "89,210", clicks: "1,230", status: "Active"},
+                {id: "#AD003", campaign: "Newsletter Sponsor", client: "Awash Bank", type: "Email", impressions: "45,000", clicks: "890", status: "Expired"},
+                {id: "#AD004", campaign: "Mobile App Ad", client: "Commercial Bank", type: "In-App", impressions: "210,500", clicks: "3,450", status: "Active"},
+                {id: "#AD005", campaign: "Social Media Campaign", client: "Ethiopian Airlines", type: "Social", impressions: "350,000", clicks: "5,670", status: "Pending"},
+                {id: "#AD006", campaign: "Job Alert Email", client: "Hibret Bank", type: "Email", impressions: "85,000", clicks: "1,150", status: "Active"}
+            ];
+            
+            currentData.ads = ads;
+            renderAdsTable(ads);
+        }
+        
+        // Render functions
+        function renderJobsTable(jobs) {
+            const tableBody = document.getElementById('jobsTableBody');
+            tableBody.innerHTML = jobs.map(job => `
+                <tr>
+                    <td>${job.id}</td>
+                    <td><strong>${job.title}</strong></td>
+                    <td>${job.company}</td>
+                    <td><span class="badge badge-secondary">${job.type}</span></td>
+                    <td>${job.applications}</td>
+                    <td><span class="badge badge-${job.status === 'Active' ? 'success' : job.status === 'Pending' ? 'warning' : 'danger'}">${job.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('job', '${job.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('job', '${job.id}', '${job.title}')"><i class="fas fa-trash"></i></button>
+                        ${job.status === 'Pending' ? `<button class="btn btn-success btn-sm" onclick="approveItem('job', '${job.id}')"><i class="fas fa-check"></i></button>` : ''}
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderUsersTable(users) {
+            const tableBody = document.getElementById('usersTableBody');
+            tableBody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td><strong>${user.name}</strong></td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td><span class="badge badge-${user.role === 'Admin' ? 'danger' : user.role === 'Employer' ? 'warning' : user.role === 'Instructor' ? 'info' : 'secondary'}">${user.role}</span></td>
+                    <td>${user.regDate}</td>
+                    <td><span class="badge badge-${user.status === 'Active' ? 'success' : user.status === 'Inactive' ? 'warning' : 'danger'}">${user.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('user', '${user.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('user', '${user.id}', '${user.name}')"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-info btn-sm" onclick="viewDetails('user', '${user.id}')"><i class="fas fa-eye"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderCoursesTable(courses) {
+            const tableBody = document.getElementById('coursesTableBody');
+            tableBody.innerHTML = courses.map(course => `
+                <tr>
+                    <td>${course.id}</td>
+                    <td><strong>${course.name}</strong></td>
+                    <td><span class="badge badge-secondary">${course.category}</span></td>
+                    <td>${course.instructor}</td>
+                    <td>${course.students}</td>
+                    <td>${course.price}</td>
+                    <td><span class="badge badge-${course.status === 'Active' ? 'success' : course.status === 'Upcoming' ? 'warning' : 'secondary'}">${course.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('course', '${course.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('course', '${course.id}', '${course.name}')"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderEventsTable(events) {
+            const tableBody = document.getElementById('eventsTableBody');
+            tableBody.innerHTML = events.map(event => `
+                <tr>
+                    <td>${event.id}</td>
+                    <td><strong>${event.name}</strong></td>
+                    <td>${event.date}</td>
+                    <td>${event.location}</td>
+                    <td>${event.attendees}</td>
+                    <td><span class="badge badge-${event.status === 'Upcoming' ? 'warning' : 'success'}">${event.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('event', '${event.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('event', '${event.id}', '${event.name}')"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderPaymentsTable(payments) {
+            const tableBody = document.getElementById('paymentsTableBody');
+            tableBody.innerHTML = payments.map(payment => `
+                <tr>
+                    <td>${payment.id}</td>
+                    <td><strong>${payment.user}</strong></td>
+                    <td>${payment.amount}</td>
+                    <td>${payment.method}</td>
+                    <td>${payment.date}</td>
+                    <td><span class="badge badge-${payment.status === 'Completed' ? 'success' : payment.status === 'Pending' ? 'warning' : 'danger'}">${payment.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="viewDetails('payment', '${payment.id}')"><i class="fas fa-eye"></i></button>
+                        <button class="btn btn-info btn-sm" onclick="downloadReceipt('${payment.id}')"><i class="fas fa-download"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderCertificatesTable(certificates) {
+            const tableBody = document.getElementById('certificatesTableBody');
+            tableBody.innerHTML = certificates.map(cert => `
+                <tr>
+                    <td>${cert.id}</td>
+                    <td><strong>${cert.recipient}</strong></td>
+                    <td>${cert.course}</td>
+                    <td>${cert.issueDate}</td>
+                    <td>${cert.expiryDate}</td>
+                    <td><code>${cert.code}</code></td>
+                    <td><span class="badge badge-${cert.status === 'Issued' ? 'success' : cert.status === 'Pending' ? 'warning' : 'danger'}">${cert.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('certificate', '${cert.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-success btn-sm" onclick="issueCertificate('${cert.id}')"><i class="fas fa-certificate"></i></button>
+                        <button class="btn btn-info btn-sm" onclick="downloadCertificate('${cert.id}')"><i class="fas fa-download"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderPartnersTable(partners) {
+            const tableBody = document.getElementById('partnersTableBody');
+            tableBody.innerHTML = partners.map(partner => `
+                <tr>
+                    <td>${partner.id}</td>
+                    <td><strong>${partner.organization}</strong></td>
+                    <td>${partner.contact}</td>
+                    <td><span class="badge badge-${partner.type === 'Platinum' ? 'info' : partner.type === 'Gold' ? 'warning' : 'secondary'}">${partner.type}</span></td>
+                    <td>${partner.startDate}</td>
+                    <td><span class="badge badge-${partner.status === 'Active' ? 'success' : 'danger'}">${partner.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('partner', '${partner.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('partner', '${partner.id}', '${partner.organization}')"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-info btn-sm" onclick="viewDetails('partner', '${partner.id}')"><i class="fas fa-eye"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderDonationsTable(donations) {
+            const tableBody = document.getElementById('donationsTableBody');
+            tableBody.innerHTML = donations.map(donation => `
+                <tr>
+                    <td>${donation.id}</td>
+                    <td><strong>${donation.donor}</strong></td>
+                    <td>${donation.amount}</td>
+                    <td>${donation.purpose}</td>
+                    <td>${donation.date}</td>
+                    <td>${donation.method}</td>
+                    <td><span class="badge badge-${donation.status === 'Received' ? 'success' : 'warning'}">${donation.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('donation', '${donation.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-success btn-sm" onclick="confirmReceipt('${donation.id}')"><i class="fas fa-check-circle"></i></button>
+                        <button class="btn btn-info btn-sm" onclick="downloadReceipt('${donation.id}')"><i class="fas fa-download"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function renderAdsTable(ads) {
+            const tableBody = document.getElementById('adsTableBody');
+            tableBody.innerHTML = ads.map(ad => `
+                <tr>
+                    <td>${ad.id}</td>
+                    <td><strong>${ad.campaign}</strong></td>
+                    <td>${ad.client}</td>
+                    <td><span class="badge badge-secondary">${ad.type}</span></td>
+                    <td>${ad.impressions}</td>
+                    <td>${ad.clicks}</td>
+                    <td><span class="badge badge-${ad.status === 'Active' ? 'success' : ad.status === 'Pending' ? 'warning' : 'danger'}">${ad.status}</span></td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="editItem('ad', '${ad.id}')"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger btn-sm" onclick="confirmDelete('ad', '${ad.id}', '${ad.campaign}')"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-info btn-sm" onclick="viewAnalytics('${ad.id}')"><i class="fas fa-chart-bar"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // Filter functions
+        function filterJobs() {
+            const searchTerm = document.getElementById('jobSearch').value.toLowerCase();
+            const typeFilter = document.getElementById('jobTypeFilter').value;
+            const statusFilter = document.getElementById('jobStatusFilter').value;
+            
+            const filtered = currentData.jobs.filter(job => {
+                const matchesSearch = job.title.toLowerCase().includes(searchTerm) || 
+                                    job.company.toLowerCase().includes(searchTerm);
+                const matchesType = !typeFilter || job.type.toLowerCase() === typeFilter.toLowerCase();
+                const matchesStatus = !statusFilter || job.status.toLowerCase() === statusFilter.toLowerCase();
+                
+                return matchesSearch && matchesType && matchesStatus;
+            });
+            renderJobsTable(filtered);
+        }
+        
+        function filterUsers() {
+            const searchTerm = document.getElementById('userSearch')?.value.toLowerCase() || '';
+            const roleFilter = document.getElementById('userRoleFilter')?.value || '';
+            const statusFilter = document.getElementById('userStatusFilter')?.value || '';
+            
+            const filtered = currentData.users.filter(user => {
+                const matchesSearch = user.name.toLowerCase().includes(searchTerm) || 
+                                    user.email.toLowerCase().includes(searchTerm);
+                const matchesRole = !roleFilter || user.role.toLowerCase() === roleFilter.toLowerCase();
+                const matchesStatus = !statusFilter || user.status.toLowerCase() === statusFilter.toLowerCase();
+                
+                return matchesSearch && matchesRole && matchesStatus;
+            });
+            
+            renderUsersTable(filtered);
+        }
+        
+        function filterCourses() {
+            const searchTerm = document.getElementById('courseSearch').value.toLowerCase();
+            const filtered = currentData.courses.filter(course => 
+                course.name.toLowerCase().includes(searchTerm) || 
+                course.category.toLowerCase().includes(searchTerm) ||
+                course.instructor.toLowerCase().includes(searchTerm)
+            );
+            renderCoursesTable(filtered);
+        }
+        
+        function filterEvents() {
+            const searchTerm = document.getElementById('eventSearch').value.toLowerCase();
+            const filtered = currentData.events.filter(event => 
+                event.name.toLowerCase().includes(searchTerm) || 
+                event.location.toLowerCase().includes(searchTerm)
+            );
+            renderEventsTable(filtered);
+        }
+        
+        function filterPayments() {
+            const statusFilter = document.getElementById('paymentStatusFilter')?.value || '';
+            const dateFilter = document.getElementById('paymentDateFilter')?.value || '';
+            
+            const filtered = currentData.payments.filter(payment => {
+                const matchesStatus = !statusFilter || payment.status.toLowerCase() === statusFilter.toLowerCase();
+                const matchesDate = !dateFilter || payment.date === dateFilter;
+                
+                return matchesStatus && matchesDate;
+            });
+            
+            renderPaymentsTable(filtered);
+        }
+        
+        function filterCertificates() {
+            const searchTerm = document.getElementById('certificateSearch').value.toLowerCase();
+            const filtered = currentData.certificates.filter(cert => 
+                cert.recipient.toLowerCase().includes(searchTerm) || 
+                cert.course.toLowerCase().includes(searchTerm) ||
+                cert.code.toLowerCase().includes(searchTerm)
+            );
+            renderCertificatesTable(filtered);
+        }
+        
+        function filterPartners() {
+            const searchTerm = document.getElementById('partnerSearch').value.toLowerCase();
+            const filtered = currentData.partners.filter(partner => 
+                partner.organization.toLowerCase().includes(searchTerm) || 
+                partner.contact.toLowerCase().includes(searchTerm) ||
+                partner.type.toLowerCase().includes(searchTerm)
+            );
+            renderPartnersTable(filtered);
+        }
+        
+        function filterDonations() {
+            const searchTerm = document.getElementById('donationSearch').value.toLowerCase();
+            const filtered = currentData.donations.filter(donation => 
+                donation.donor.toLowerCase().includes(searchTerm) || 
+                donation.purpose.toLowerCase().includes(searchTerm) ||
+                donation.method.toLowerCase().includes(searchTerm)
+            );
+            renderDonationsTable(filtered);
+        }
+        
+        function filterAds() {
+            const searchTerm = document.getElementById('adSearch').value.toLowerCase();
+            const filtered = currentData.ads.filter(ad => 
+                ad.campaign.toLowerCase().includes(searchTerm) || 
+                ad.client.toLowerCase().includes(searchTerm) ||
+                ad.type.toLowerCase().includes(searchTerm)
+            );
+            renderAdsTable(filtered);
+        }
+        
+        // Form Submission Functions
+        function saveJob() {
+            const jobTitle = document.getElementById('jobTitle').value;
+            const jobCompany = document.getElementById('jobCompany').value;
+            const jobType = document.getElementById('jobType').value;
+            const jobLocation = document.getElementById('jobLocation').value;
+            
+            if (!jobTitle || !jobCompany || !jobType) {
+                alert('Please fill in all required fields');
                 return;
             }
             
-            startLoading();
+            // Generate new job ID
+            const newId = `#${Math.floor(Math.random() * 900) + 100}`;
             
-            try {
-                // Send reset link
-                // await fetch(`${CONFIG.API_BASE_URL}/auth/forgot-password`, {
-                //     method: 'POST',
-                //     headers: { 'Content-Type': 'application/json' },
-                //     body: JSON.stringify({ email })
-                // });
+            // Add to data
+            const newJob = {
+                id: newId,
+                title: jobTitle,
+                company: jobCompany,
+                type: jobType,
+                location: jobLocation,
+                applications: 0,
+                status: 'Pending'
+            };
+            
+            currentData.jobs.unshift(newJob);
+            renderJobsTable(currentData.jobs);
+            addJobModal.style.display = 'none';
+            alert('Job added successfully!');
+            
+            // Update dashboard stats
+            document.getElementById('totalJobs').textContent = currentData.jobs.length;
+        }
+        
+        function saveUser() {
+            const userName = document.getElementById('userName').value;
+            const userEmail = document.getElementById('userEmail').value;
+            const userPhone = document.getElementById('userPhone').value;
+            const userRole = document.getElementById('userRole').value;
+            const userPassword = document.getElementById('userPassword').value;
+            const userConfirmPassword = document.getElementById('userConfirmPassword').value;
+            const userStatus = document.getElementById('userStatus').value;
+            
+            if (!userName || !userEmail || !userRole || !userPassword) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            if (userPassword !== userConfirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Generate new user ID
+            const newId = `#U${Math.floor(Math.random() * 9000) + 1000}`;
+            
+            // Add to data
+            const newUser = {
+                id: newId,
+                name: userName,
+                email: userEmail,
+                phone: userPhone,
+                role: userRole,
+                regDate: new Date().toISOString().split('T')[0],
+                status: userStatus
+            };
+            
+            currentData.users.unshift(newUser);
+            renderUsersTable(currentData.users);
+            addUserModal.style.display = 'none';
+            alert('User added successfully!');
+            
+            // Update dashboard stats
+            document.getElementById('totalUsers').textContent = currentData.users.length;
+        }
+        
+        // Action functions
+        function confirmDelete(type, id, name) {
+            currentItemType = type;
+            currentItemId = id;
+            currentAction = function() {
+                deleteItem(type, id);
+            };
+            confirmMessage.textContent = `Are you sure you want to delete ${type}: ${name}?`;
+            confirmModal.style.display = 'flex';
+        }
+        
+        function deleteItem(type, id) {
+            // Remove from data
+            currentData[type + 's'] = currentData[type + 's'].filter(item => item.id !== id);
+            
+            // Re-render table
+            const renderFunction = window[`render${type.charAt(0).toUpperCase() + type.slice(1)}sTable`];
+            if (renderFunction) {
+                renderFunction(currentData[type + 's']);
+            }
+            
+            // Update dashboard stats if needed
+            if (type === 'job') {
+                document.getElementById('totalJobs').textContent = currentData.jobs.length;
+            } else if (type === 'user') {
+                document.getElementById('totalUsers').textContent = currentData.users.length;
+            }
+            
+            alert(`${type} ${id} deleted successfully!`);
+        }
+        
+        function editItem(type, id) {
+            currentItemType = type;
+            currentItemId = id;
+            
+            const item = currentData[type + 's'].find(item => item.id === id);
+            if (!item) return;
+            
+            const editModal = document.getElementById('editModal');
+            const editModalTitle = document.getElementById('editModalTitle');
+            const editModalBody = document.getElementById('editModalBody');
+            
+            editModalTitle.textContent = `Edit ${type.charAt(0).toUpperCase() + type.slice(1)}`;
+            
+            // Generate form based on type
+            let formHtml = '';
+            
+            if (type === 'job') {
+                formHtml = `
+                    <form id="editForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Job Title *</label>
+                                <input type="text" class="form-control" id="editJobTitle" value="${item.title}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Company *</label>
+                                <input type="text" class="form-control" id="editJobCompany" value="${item.company}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Job Type *</label>
+                                <select class="form-select" id="editJobType" required>
+                                    <option value="full-time" ${item.type === 'full-time' ? 'selected' : ''}>Full-time</option>
+                                    <option value="part-time" ${item.type === 'part-time' ? 'selected' : ''}>Part-time</option>
+                                    <option value="contract" ${item.type === 'contract' ? 'selected' : ''}>Contract</option>
+                                    <option value="internship" ${item.type === 'internship' ? 'selected' : ''}>Internship</option>
+                                    <option value="remote" ${item.type === 'remote' ? 'selected' : ''}>Remote</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-select" id="editJobStatus">
+                                    <option value="active" ${item.status === 'active' ? 'selected' : ''}>Active</option>
+                                    <option value="pending" ${item.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                    <option value="expired" ${item.status === 'expired' ? 'selected' : ''}>Expired</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                `;
+            } else if (type === 'user') {
+                formHtml = `
+                    <form id="editForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" class="form-control" id="editUserName" value="${item.name}" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" class="form-control" id="editUserEmail" value="${item.email}" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" class="form-control" id="editUserPhone" value="${item.phone}">
+                            </div>
+                            <div class="form-group">
+                                <label>Role *</label>
+                                <select class="form-select" id="editUserRole" required>
+                                    <option value="admin" ${item.role === 'admin' ? 'selected' : ''}>Admin</option>
+                                    <option value="job_seeker" ${item.role === 'job_seeker' ? 'selected' : ''}>Job Seeker</option>
+                                    <option value="employer" ${item.role === 'employer' ? 'selected' : ''}>Employer</option>
+                                    <option value="instructor" ${item.role === 'instructor' ? 'selected' : ''}>Instructor</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-select" id="editUserStatus">
+                                <option value="active" ${item.status === 'active' ? 'selected' : ''}>Active</option>
+                                <option value="inactive" ${item.status === 'inactive' ? 'selected' : ''}>Inactive</option>
+                                <option value="suspended" ${item.status === 'suspended' ? 'selected' : ''}>Suspended</option>
+                            </select>
+                        </div>
+                    </form>
+                `;
+            }
+            
+            editModalBody.innerHTML = formHtml;
+            editModal.style.display = 'flex';
+            
+            // Setup save button
+            const saveEditBtn = document.getElementById('saveEditBtn');
+            saveEditBtn.onclick = saveEdit;
+        }
+        
+        function saveEdit() {
+            const type = currentItemType;
+            const id = currentItemId;
+            
+            if (type === 'job') {
+                const title = document.getElementById('editJobTitle').value;
+                const company = document.getElementById('editJobCompany').value;
+                const jobType = document.getElementById('editJobType').value;
+                const status = document.getElementById('editJobStatus').value;
                 
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                const jobIndex = currentData.jobs.findIndex(job => job.id === id);
+                if (jobIndex !== -1) {
+                    currentData.jobs[jobIndex] = {
+                        ...currentData.jobs[jobIndex],
+                        title,
+                        company,
+                        type: jobType,
+                        status
+                    };
+                    renderJobsTable(currentData.jobs);
+                }
+            } else if (type === 'user') {
+                const name = document.getElementById('editUserName').value;
+                const email = document.getElementById('editUserEmail').value;
+                const phone = document.getElementById('editUserPhone').value;
+                const role = document.getElementById('editUserRole').value;
+                const status = document.getElementById('editUserStatus').value;
                 
-                showSuccess('Password reset link sent to your email!');
-                closeModal();
-                stopLoading();
-                
-            } catch (error) {
-                showError('Failed to send reset link. Please try again.');
-                stopLoading();
-            }
-        }
-
-        // Helper Functions
-        function startLoading() {
-            authState.isAuthenticating = true;
-            loginText.style.display = 'none';
-            loginLoading.style.display = 'inline-block';
-            loginBtn.disabled = true;
-        }
-
-        function stopLoading() {
-            authState.isAuthenticating = false;
-            loginText.style.display = 'inline';
-            loginLoading.style.display = 'none';
-            loginBtn.disabled = false;
-        }
-
-        function showError(message) {
-            errorMessage.textContent = message;
-            errorMessage.style.display = 'block';
-            successMessage.style.display = 'none';
-            
-            setTimeout(() => {
-                errorMessage.style.display = 'none';
-            }, 5000);
-        }
-
-        function showSuccess(message) {
-            successMessage.textContent = message;
-            successMessage.style.display = 'block';
-            errorMessage.style.display = 'none';
-        }
-
-        function showMessage(message, type = 'info') {
-            if (type === 'error') {
-                showError(message);
-            } else if (type === 'success') {
-                showSuccess(message);
-            }
-        }
-
-        function determineRoleFromEmail(email) {
-            // In production, check if email exists in database
-            // Return 'employer' for company emails, 'job_seeker' for others
-            if (email && email.includes('@company.')) {
-                return 'employer';
-            }
-            return 'job_seeker';
-        }
-
-        function redirectUser(role) {
-            let redirectTo = '/dashboard.html';
-            
-            if (role === 'job_seeker') {
-                redirectTo = '/dashboard/job-seeker.html';
-            } else if (role === 'employer') {
-                redirectTo = '/dashboard/employer.html';
+                const userIndex = currentData.users.findIndex(user => user.id === id);
+                if (userIndex !== -1) {
+                    currentData.users[userIndex] = {
+                        ...currentData.users[userIndex],
+                        name,
+                        email,
+                        phone,
+                        role,
+                        status
+                    };
+                    renderUsersTable(currentData.users);
+                }
             }
             
-            window.location.href = redirectTo;
+            document.getElementById('editModal').style.display = 'none';
+            alert(`${type} updated successfully!`);
         }
-
-        function promptForEmail(user) {
-            const email = prompt('Please enter your email address for account verification:');
-            if (email && email.includes('@')) {
-                user.email = email;
-                // Update user with email
-                localStorage.setItem('zewedjobs_user', JSON.stringify(user));
-                redirectUser(user.role);
-            } else {
-                showError('Valid email is required. Please try again.');
-                stopLoading();
-            }
-        }
-
-        // Modal close on outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('forgotPasswordModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-
-        // Check if user is already logged in
-        function checkAuthStatus() {
-            const user = localStorage.getItem('zewedjobs_user');
-            const token = localStorage.getItem('zewedjobs_token');
+        
+        function viewDetails(type, id) {
+            const item = currentData[type + 's'].find(item => item.id === id);
+            if (!item) return;
             
-            if (user && token) {
-                showMessage('You are already logged in. Redirecting...', 'info');
-                const userData = JSON.parse(user);
-                setTimeout(() => redirectUser(userData.role), 1000);
+            let details = '';
+            if (type === 'user') {
+                details = `
+                    <h3>User Details</h3>
+                    <p><strong>ID:</strong> ${item.id}</p>
+                    <p><strong>Name:</strong> ${item.name}</p>
+                    <p><strong>Email:</strong> ${item.email}</p>
+                    <p><strong>Phone:</strong> ${item.phone}</p>
+                    <p><strong>Role:</strong> ${item.role}</p>
+                    <p><strong>Status:</strong> ${item.status}</p>
+                    <p><strong>Registration Date:</strong> ${item.regDate}</p>
+                `;
+            } else if (type === 'payment') {
+                details = `
+                    <h3>Payment Details</h3>
+                    <p><strong>Transaction ID:</strong> ${item.id}</p>
+                    <p><strong>User/Company:</strong> ${item.user}</p>
+                    <p><strong>Amount:</strong> ${item.amount}</p>
+                    <p><strong>Payment Method:</strong> ${item.method}</p>
+                    <p><strong>Date:</strong> ${item.date}</p>
+                    <p><strong>Status:</strong> ${item.status}</p>
+                `;
+            }
+            
+            alert(details);
+        }
+        
+        function approveItem(type, id) {
+            const itemIndex = currentData[type + 's'].findIndex(item => item.id === id);
+            if (itemIndex !== -1) {
+                currentData[type + 's'][itemIndex].status = 'Active';
+                renderJobsTable(currentData.jobs);
+                alert(`${type} ${id} approved successfully!`);
             }
         }
-
-        // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
-            checkAuthStatus();
-            
-            // Check URL parameters for errors/messages
-            const urlParams = new URLSearchParams(window.location.search);
-            const error = urlParams.get('error');
-            const message = urlParams.get('message');
-            
-            if (error) {
-                showError(decodeURIComponent(error));
+        
+        function issueCertificate(id) {
+            const certIndex = currentData.certificates.findIndex(cert => cert.id === id);
+            if (certIndex !== -1 && currentData.certificates[certIndex].status === 'Pending') {
+                currentData.certificates[certIndex].status = 'Issued';
+                currentData.certificates[certIndex].issueDate = new Date().toISOString().split('T')[0];
+                renderCertificatesTable(currentData.certificates);
+                alert(`Certificate ${id} issued successfully!`);
             }
-            if (message) {
-                showSuccess(decodeURIComponent(message));
-            }
-        });
-
-        // Terms and Privacy
-        function showPrivacyPolicy() {
-            alert('Privacy Policy will be shown here.');
         }
-
-        function showTerms() {
-            alert('Terms of Service will be shown here.');
+        
+        function downloadCertificate(id) {
+            alert(`Downloading certificate ${id}...`);
+        }
+        
+        function downloadReceipt(id) {
+            alert(`Downloading receipt for ${id}...`);
+        }
+        
+        function confirmReceipt(id) {
+            const donationIndex = currentData.donations.findIndex(donation => donation.id === id);
+            if (donationIndex !== -1 && currentData.donations[donationIndex].status === 'Pending') {
+                currentData.donations[donationIndex].status = 'Received';
+                renderDonationsTable(currentData.donations);
+                alert(`Donation ${id} marked as received!`);
+            }
+        }
+        
+        function viewAnalytics(id) {
+            alert(`Showing analytics for ad campaign ${id}...`);
+        }
+        
+        function exportPayments() {
+            const dataStr = JSON.stringify(currentData.payments, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            const exportFileDefaultName = 'payments-export.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            alert('Payments data exported successfully!');
+        }
+        
+        // Utility functions
+        function getFormattedDate(daysOffset = 0) {
+            const date = new Date();
+            date.setDate(date.getDate() + daysOffset);
+            return date.toISOString().split('T')[0];
         }
     </script>
 </body>
