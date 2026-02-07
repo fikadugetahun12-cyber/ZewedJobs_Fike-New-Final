@@ -1,0 +1,91 @@
+# Data Directory Git Ignore
+
+# Development files
+*.log
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if placed in data directory)
+node_modules/
+package-lock.json
+
+# Large data files (optional - uncomment if needed)
+# *.csv
+# *.xlsx
+# *.sql
+# *.db
+
+# Production data (should not be committed)
+production-*.json
+sensitive-*.json
+
+# User uploads (if stored in data directory)
+uploads/
+images/
+
+# Test data
+test-*.json
+temp-*.json
+
+# Compiled files
+*.compiled.json
+*.min.json
+
+# Local overrides
+local.json
+override.json
+
+# Encryption keys
+*.key
+*.pem
+*.cert
+
+# Documentation build files
+docs/_build/
+
+# Cache directories
+.cache/
+__pycache__/
+
+# Database files (if any)
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional: Ignore specific large JSON files
+# Uncomment and add file patterns as needed
+# large-dataset-*.json
