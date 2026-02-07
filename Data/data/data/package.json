@@ -1,0 +1,19 @@
+{
+  "name": "zewed-jobs-data",
+  "version": "1.0.0",
+  "description": "Data files for Zewed Jobs platform",
+  "main": "index.js",
+  "scripts": {
+    "validate": "node scripts/validate-data.js",
+    "format": "prettier --write \"*.json\"",
+    "backup": "node scripts/backup-data.js",
+    "seed": "node scripts/seed-database.js"
+  },
+  "keywords": ["data", "jobs", "africa"],
+  "author": "Zewed Jobs Team",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "prettier": "^3.0.0"
+  }
+}
