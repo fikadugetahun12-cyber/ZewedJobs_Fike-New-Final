@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ads Management - Zewed Jobs Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <span>Zewed Jobs</span>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="jobs.html" data-page="jobs"><i class="fas fa-briefcase"></i> <span>Jobs Management</span></a></li>
+            <li><a href="courses.html" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>Courses</span></a></li>
+            <li><a href="events.html" data-page="events"><i class="fas fa-calendar-alt"></i> <span>Events</span></a></li>
+            <li><a href="payments.html" data-page="payments"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
+            <li><a href="users.html" data-page="users"><i class="fas fa-users"></i> <span>Users</span></a></li>
+            <li><a href="certificates.html" data-page="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+            <li><a href="partners.html" data-page="partners"><i class="fas fa-handshake"></i> <span>Partners</span></a></li>
+            <li><a href="donations.html" data-page="donations"><i class="fas fa-donate"></i> <span>Donations</span></a></li>
+            <li><a href="ads.html" class="active" data-page="ads"><i class="fas fa-ad"></i> <span>Ads Management</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Ads Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <h4>Admin User</h4>
+                        <p style="font-size: 0.8rem; color: var(--gray-color);">Super Admin</p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Ads Content -->
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Advertisement Management</h2>
+                    <button class="btn btn-primary" id="addAdBtn"><i class="fas fa-plus"></i> Create Ad Campaign</button>
+                </div>
+                
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="adSearch" placeholder="Search ads...">
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ad ID</th>
+                                <th>Campaign Name</th>
+                                <th>Client</th>
+                                <th>Type</th>
+                                <th>Impressions</th>
+                                <th>Clicks</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adsTableBody">
+                            <!-- Ads loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Ad Modal -->
+    <div id="addAdModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Ad Campaign</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="adForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Campaign Name *</label>
+                            <input type="text" class="form-control" id="adCampaign" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Client Name *</label>
+                            <input type="text" class="form-control" id="adClient" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Ad Type *</label>
+                            <select class="form-select" id="adType" required>
+                                <option value="">Select Type</option>
+                                <option value="Banner">Banner</option>
+                                <option value="Sidebar">Sidebar</option>
+                                <option value="In-App">In-App</option>
+                                <option value="Email">Email</option>
+                                <option value="Social">Social Media</option>
+                                <option value="Video">Video</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ad Size</label>
+                            <select class="form-select" id="adSize">
+                                <option value="Leaderboard (728x90)">Leaderboard (728x90)</option>
+                                <option value="Medium Rectangle (300x250)">Medium Rectangle (300x250)</option>
+                                <option value="Half Page (300x600)">Half Page (300x600)</option>
+                                <option value="Mobile Banner (320x50)">Mobile Banner (320x50)</option>
+                                <option value="Square (250x250)">Square (250x250)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Start Date *</label>
+                            <input type="date" class="form-control" id="adStartDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label>End Date *</label>
+                            <input type="date" class="form-control" id="adEndDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Budget (ETB)</label>
+                            <input type="number" class="form-control" id="adBudget" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Target Clicks/Impressions</label>
+                            <input type="number" class="form-control" id="adTarget" min="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Target URL *</label>
+                        <input type="url" class="form-control" id="adUrl" placeholder="https://example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Ad Content/Description</label>
+                        <textarea class="form-control" id="adDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-select" id="adStatus">
+                            <option value="Active">Active</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Scheduled">Scheduled</option>
+                            <option value="Paused">Paused</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveAdBtn">Create Campaign</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+    <script>
+        // Add Ad Button Event Listener
+        document.addEventListener('DOMContentLoaded', function() {
+            const addAdBtn = document.getElementById('addAdBtn');
+            if (addAdBtn) {
+                addAdBtn.addEventListener('click', function() {
+                    document.getElementById('adForm').reset();
+                    document.getElementById('addAdModal').style.display = 'flex';
+                });
+            }
+            
+            const saveAdBtn = document.getElementById('saveAdBtn');
+            if (saveAdBtn) {
+                saveAdBtn.addEventListener('click', saveAd);
+            }
+        });
+        
+        function saveAd() {
+            const campaign = document.getElementById('adCampaign').value;
+            const client = document.getElementById('adClient').value;
+            const adType = document.getElementById('adType').value;
+            const startDate = document.getElementById('adStartDate').value;
+            const endDate = document.getElementById('adEndDate').value;
+            const url = document.getElementById('adUrl').value;
+            
+            if (!campaign || !client || !adType || !startDate || !endDate || !url) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Generate new ad ID
+            const newId = `#AD${Math.floor(Math.random() * 900) + 100}`;
+            
+            // Generate random impressions and clicks
+            const impressions = Math.floor(Math.random() * 100000) + 50000;
+            const clicks = Math.floor(impressions * (Math.random() * 0.05));
+            
+            // Add to data
+            const newAd = {
+                id: newId,
+                campaign: campaign,
+                client: client,
+                type: adType,
+                impressions: impressions.toLocaleString(),
+                clicks: clicks.toLocaleString(),
+                status: document.getElementById('adStatus').value
+            };
+            
+            currentData.ads.unshift(newAd);
+            renderAdsTable(currentData.ads);
+            document.getElementById('addAdModal').style.display = 'none';
+            alert('Ad campaign created successfully!');
+        }
+    </script>
+</body>
+</html>
