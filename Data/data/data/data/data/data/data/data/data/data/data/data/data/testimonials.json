@@ -1,0 +1,30 @@
+{
+  "testimonials": [
+    {
+      "id": "testimonial-001",
+      "user": {
+        "name": "Amina Diallo",
+        "role": "Software Engineer",
+        "location": "Dakar, Senegal",
+        "avatar": "/avatars/amina-diallo.jpg"
+      },
+      "content": "Zewed Jobs helped me transition from local opportunities to remote work with international companies. The platform's focus on African talent is exactly what we needed.",
+      "rating": 5,
+      "date": "2024-02-15T11:30:00Z",
+      "isFeatured": true
+    },
+    {
+      "id": "testimonial-002",
+      "user": {
+        "name": "Kwame Osei",
+        "role": "Marketing Director",
+        "location": "Accra, Ghana",
+        "avatar": "/avatars/kwame-osei.jpg"
+      },
+      "content": "As an employer, finding qualified talent across Africa was challenging until we discovered Zewed Jobs. We've hired 5 exceptional team members through the platform.",
+      "rating": 5,
+      "date": "2024-03-10T09:15:00Z",
+      "isFeatured": true
+    }
+  ]
+}
