@@ -1,0 +1,31 @@
+{
+  "partners": [
+    {
+      "id": "company-001",
+      "name": "Tech Solutions Africa",
+      "logo": "/logos/tech-solutions-africa.png",
+      "description": "Leading technology solutions provider across Africa",
+      "industry": "Technology",
+      "location": "Lagos, Nigeria",
+      "employeeCount": "500-1000",
+      "website": "https://techsolutions.africa",
+      "jobsCount": 28,
+      "isVerified": true,
+      "featured": true,
+      "testimonial": "Zewed Jobs helped us find exceptional talent across the continent."
+    },
+    {
+      "id": "company-002",
+      "name": "Pan African Bank",
+      "logo": "/logos/pan-african-bank.png",
+      "description": "Premier banking services across 15 African countries",
+      "industry": "Finance",
+      "location": "Accra, Ghana",
+      "employeeCount": "5000+",
+      "website": "https://panafricanbank.com",
+      "jobsCount": 45,
+      "isVerified": true,
+      "featured": true
+    }
+  ]
+}
