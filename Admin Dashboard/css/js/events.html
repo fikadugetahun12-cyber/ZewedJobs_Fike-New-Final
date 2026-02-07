@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Management - Zewed Jobs Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin-style.css">
+</head>
+<body>
+    <!-- Admin Dashboard -->
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <span>Zewed Jobs</span>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html" data-page="dashboard"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="jobs.html" data-page="jobs"><i class="fas fa-briefcase"></i> <span>Jobs Management</span></a></li>
+            <li><a href="courses.html" data-page="courses"><i class="fas fa-graduation-cap"></i> <span>Courses</span></a></li>
+            <li><a href="events.html" class="active" data-page="events"><i class="fas fa-calendar-alt"></i> <span>Events</span></a></li>
+            <li><a href="payments.html" data-page="payments"><i class="fas fa-credit-card"></i> <span>Payments</span></a></li>
+            <li><a href="users.html" data-page="users"><i class="fas fa-users"></i> <span>Users</span></a></li>
+            <li><a href="certificates.html" data-page="certificates"><i class="fas fa-certificate"></i> <span>Certificates</span></a></li>
+            <li><a href="partners.html" data-page="partners"><i class="fas fa-handshake"></i> <span>Partners</span></a></li>
+            <li><a href="donations.html" data-page="donations"><i class="fas fa-donate"></i> <span>Donations</span></a></li>
+            <li><a href="ads.html" data-page="ads"><i class="fas fa-ad"></i> <span>Ads Management</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1>Events Management</h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="user-avatar">AD</div>
+                    <div>
+                        <h4>Admin User</h4>
+                        <p style="font-size: 0.8rem; color: var(--gray-color);">Super Admin</p>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+        
+        <!-- Events Content -->
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Events Management</h2>
+                    <button class="btn btn-primary" id="addEventBtn"><i class="fas fa-plus"></i> Add Event</button>
+                </div>
+                
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="eventSearch" placeholder="Search events...">
+                </div>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Event ID</th>
+                                <th>Event Name</th>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Attendees</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="eventsTableBody">
+                            <!-- Events loaded by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Event Modal -->
+    <div id="addEventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Event</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="eventForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Event Name *</label>
+                            <input type="text" class="form-control" id="eventName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Event Date *</label>
+                            <input type="date" class="form-control" id="eventDate" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Location *</label>
+                            <input type="text" class="form-control" id="eventLocation" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Event Type</label>
+                            <select class="form-select" id="eventType">
+                                <option value="Conference">Conference</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Job Fair">Job Fair</option>
+                                <option value="Networking">Networking</option>
+                                <option value="Seminar">Seminar</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea class="form-control" id="eventDescription" rows="4" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Max Attendees</label>
+                            <input type="number" class="form-control" id="eventMaxAttendees" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Registration Fee (ETB)</label>
+                            <input type="number" class="form-control" id="eventFee" min="0" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select class="form-select" id="eventStatus">
+                            <option value="Upcoming">Upcoming</option>
+                            <option value="Active">Active</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-primary" id="saveEventBtn">Save Event</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>Confirm Action</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">Are you sure you want to perform this action?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary close-modal">Cancel</button>
+                <button class="btn btn-danger" id="confirmActionBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-script.js"></script>
+    <script>
+        // Add Event Button Event Listener
+        document.addEventListener('DOMContentLoaded', function() {
+            const addEventBtn = document.getElementById('addEventBtn');
+            if (addEventBtn) {
+                addEventBtn.addEventListener('click', function() {
+                    document.getElementById('eventForm').reset();
+                    document.getElementById('addEventModal').style.display = 'flex';
+                });
+            }
+            
+            const saveEventBtn = document.getElementById('saveEventBtn');
+            if (saveEventBtn) {
+                saveEventBtn.addEventListener('click', saveEvent);
+            }
+        });
+        
+        function saveEvent() {
+            const eventName = document.getElementById('eventName').value;
+            const eventDate = document.getElementById('eventDate').value;
+            const eventLocation = document.getElementById('eventLocation').value;
+            const eventType = document.getElementById('eventType').value;
+            const eventStatus = document.getElementById('eventStatus').value;
+            
+            if (!eventName || !eventDate || !eventLocation) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Generate new event ID
+            const newId = `#E${Math.floor(Math.random() * 900) + 100}`;
+            
+            // Add to data
+            const newEvent = {
+                id: newId,
+                name: eventName,
+                date: eventDate,
+                location: eventLocation,
+                type: eventType,
+                attendees: 0,
+                status: eventStatus
+            };
+            
+            currentData.events.unshift(newEvent);
+            renderEventsTable(currentData.events);
+            document.getElementById('addEventModal').style.display = 'none';
+            alert('Event added successfully!');
+        }
+    </script>
+</body>
+</html>
